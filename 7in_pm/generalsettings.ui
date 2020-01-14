@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GeneralSettings</class>
+ <widget class="QWidget" name="GeneralSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1080</width>
+    <height>652</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1080</width>
+    <height>652</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1080</width>
+    <height>652</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item row="1" column="1">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <property name="horizontalSpacing">
+      <number>10</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>20</number>
+     </property>
+     <item row="2" column="1">
+      <widget class="QWidget" name="widget_2" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+       <widget class="QPushButton" name="btn_time">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>198</width>
+          <height>46</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>198</width>
+          <height>46</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>198</width>
+          <height>46</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 10.5pt &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+        </property>
+        <property name="text">
+         <string>12:59</string>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="le_carnum">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#le_carnum{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton#le_carnum:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 14px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+	border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>司机代号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>计量单位</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="le_drivernum">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#le_drivernum{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton#le_drivernum:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 14px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+	border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="btn_unit">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 10.5pt &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string>公制</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>称重参数</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>系统语言</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>车辆代号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="btn_bright">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 10.5pt &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string>100%</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="btn_lang">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#btn_lang{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton#btn_lang:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 14px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+	border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string>中文</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="le_weigh">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#le_weigh{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton#le_weigh:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 14px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+	border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>时       间</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>屏幕亮度</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>自动亮度</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="label_8">
+       <property name="styleSheet">
+        <string notr="true">font: 25pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+background:transparent</string>
+       </property>
+       <property name="text">
+        <string>超速预警
+预设值</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="le_limit">
+       <property name="minimumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>198</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#le_limit{
+border-image:url(:/按键_弹窗设置_大.png);
+color:rgb(255, 255, 255);
+font: 30px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}
+QPushButton#le_limit:pressed{
+border-image: url(:/按键_弹窗设置_按下_大.png);
+color:rgb(255, 255, 255);
+font: 14px &quot;Microsoft YaHei UI&quot;;
+border:1px solid #979797;
+	border-color: rgba(151, 151, 151, 1);
+border-radius:5px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QWidget" name="widget_3" native="true">
+       <property name="styleSheet">
+        <string notr="true">background:transparent</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QCheckBox" name="ckb_autobri">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator:checked {
+image: url(:/131.png);
+
+}
+QCheckBox::indicator:unchecked {
+image: url(:/132.png);
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="tristate">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>90</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background:transparent;
+border:none;</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_back_home">
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>125</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#btn_back_home{
+background-image: url(:/按键_返回主界面3.png);
+border:none;
+}
+QPushButton#btn_back_home:pressed{
+
+background-image: url(:/按键_返回主界面2.png);
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_back">
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>250</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#btn_back{
+background-image: url(:/按键_上一页2.png);
+border:none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>110</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Preferred</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>130</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,328 @@
+#include "mytimer.h"
+#define command "/sbin/ip link set can0 type can bitrate 250000"
+#define up "ifconfig can0 up"//打开CAN0
+#define down "ifconfig can0 down"//关闭CAN0
+
+
+MyTimer::MyTimer(QObject *parent) : QThread(parent)
+{
+    system(down);
+    system(command);
+    system(up);//上面三行关闭CAN设备，设置波特率后，重新打开CAN设备
+    s = socket(PF_CAN, SOCK_RAW, CAN_RAW);//创建套接字
+    strcpy(ifr.ifr_name, "can0" );
+    ioctl(s, SIOCGIFINDEX, &ifr); //指定 can0 设备
+    addr.can_family = AF_CAN;
+    addr.can_ifindex = ifr.ifr_ifindex;
+    bind(s, (struct sockaddr *)&addr, sizeof(addr));//将套接字与 can0 绑定
+    cache = new QList<QString>;
+}
+
+
+
+void MyTimer::run()
+{
+    Database_7in * db = new Database_7in();
+    while(1)
+    {
+        read(s, &frame, sizeof(frame));//接收总线上的报文保存在frame中
+        QString s0;
+        bool ok;
+        for(int i = 0;i<8;i++)
+        {
+            QString str = QString("%1").arg(frame.data[i]&0xFF,8,2,QLatin1Char('0'));
+            s0 += str;
+        }
+
+        switch(frame.can_id &CAN_EFF_MASK)
+        {
+        case 0x1818d0f3:
+        {
+            //                rd->set_power_battery_voltage(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+            //                rd->set_power_battery_current(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.1-1000));
+            //                rd->set_soc(QString::number(QString::number(s0.mid(32,8).toInt(&ok,2)).toInt(&ok,10)*0.4));
+            emit power_battery_voltage(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+            emit power_battery_current(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.1-1000));
+            emit soc(QString::number(QString::number(s0.mid(32,8).toInt(&ok,2)).toInt(&ok,10)*0.4));
+QString s2 = db->geterror("1818D0F3",52);
+            if(s0.mid(52,1) == "1"){
+                  
+                  MessageWidget *mess  = new MessageWidget();
+                  mess->init("",s2);
+                  QString s3 = "电池报警";
+                  QDateTime time;
+                  QString s1 = time.currentDateTime().toString("MMddhhmm");
+
+                if(!cache->contains(s2))
+                {
+                    cache->append(s2);
+                    emit warning_insert(s1,s2,s3);
+
+                }
+            } else{
+                if(cache->contains(s2))
+                {
+                    cache->removeOne(s2);
+                    emit delete_row(s2);
+                }
+            }
+            break;
+        }
+        case 0x1819d0f3:
+            break;
+        case 0x1829d0f3:
+            break;
+        case 0x181ad0f3:
+        {
+            //                rd->set_max_current(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+            //                rd->set_max_voltage(QString::number(QString::number(s0.mid(48,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+            emit max_current(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+            emit max_voltage(QString::number(QString::number(s0.mid(48,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
+
+            break;
+        }
+        case 0x181bd0f3:
+            break;
+        case 0x18f101f4:
+            break;
+        case 0x18ff2bf4:
+            break;
+        case 0x18ff2cf4:
+            //            rd->set_max_power(QString::number(QString::number(s0.mid(0,8).toInt(&ok,2)).toInt(&ok,10)*2));
+            emit max_power(QString::number(QString::number(s0.mid(0,8).toInt(&ok,2)).toInt(&ok,10)*2));
+            break;
+        case 0x18ff2df4:
+        {
+            int charge = QString::number(s0.mid(32,4).toInt(&ok,2)).toInt(&ok,10);
+            int bms = QString::number(s0.mid(36,4).toInt(&ok,2)).toInt(&ok,10);
+            if(bms == 1){
+                //                    rd->set_bms_state("自检ok");
+                emit bms_state("自检ok");
+            }
+            else if(bms == 0){
+                //                    rd->set_bms_state("预留");
+                emit bms_state("预留");
+            }
+            if(charge == 0){
+                //                    rd->set_charing("未充电");
+                emit charing("未充电");
+            }else if(charge == 1)
+            {
+                //                    rd->set_charing("充电中");
+                emit charing("充电中");
+            }else if(charge == 2)
+            {
+                //                    rd->set_charing("结束充电");
+                emit charing("结束充电");
+            }else if(charge ==3)
+            {
+                //                    rd->set_charing("禁止充电");
+                emit charing("禁止充电");
+            }
+            break;
+        }
+        case 0x0cff00d1:
+        {
+            //                rd->set_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
+            //                rd->set_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
+            //                rd->set_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
+            emit real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
+            emit real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
+            emit direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
+
+            QString state = s0.mid(48,2);
+            QString mode = s0.mid(50,2);
+            QString direction = s0.mid(52,2);
+            QString fault = s0.mid(54,2);
+
+            if(state == "00"){
+                //                    rd->set_running_state("停机");
+                emit running_state("停机");
+            }else if(state == "01"){
+                //                    rd->set_running_state("运行");
+                emit running_state("运行");
+            }
+
+            if(mode == "01"){
+                //                    rd->set_work_mode("驱动");
+                emit work_mode("驱动");
+            }else if(mode == "10"){
+                //                    rd->set_work_mode("制动/发电");
+                emit work_mode("制动/发电");
+            }
+
+            if(direction == "01"){
+                //                    rd->set_mc_direction("正转");
+                emit mc_direction("正转");
+            }else if(direction == "10"){
+                //                    rd->set_mc_direction("反转");
+                emit mc_direction("反转");
+            }
+
+            if(fault == "01"){
+                //                     rd->set_falut_state("正常");
+                emit falut_state("正常");
+            }else if(fault == "10"){
+                //                     rd->set_falut_state("故障");
+                emit falut_state("故障");
+            }
+
+            break;
+        }
+        case 0x0cff01d1:
+            {
+                //            rd->set_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
+                //            rd->set_driver_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
+                //            rd->set_em_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
+                emit driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
+                emit driver_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
+                emit em_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
+            QString s1 = "2";
+            QString s2 = "1";
+            QString s3 = "3";
+
+            if(s0.mid(0,1) == "1"){
+                if(!cache->contains(s2))
+                {
+                    cache->append(s2);
+                    emit warning_insert(s1,s2,s3);
+
+                }
+            } else{
+                if(cache->contains(s2))
+                {
+                    cache->removeOne(s2);
+                    emit delete_row(s2);
+                }
+            }
+                break;
+            }
+        case 0x0cff02d1:
+            break;
+        case 0x0cff00d2:
+        {
+            //                rd->set_isg_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
+            //                rd->set_isg_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
+            //                rd->set_isg_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
+            emit isg_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
+            emit isg_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
+            emit isg_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
+
+            QString state = s0.mid(48,2);
+            QString mode = s0.mid(50,2);
+            QString direction = s0.mid(52,2);
+            QString fault = s0.mid(54,2);
+
+            if(state == "00"){
+                //                    rd->set_isg_running_state("停机");
+                emit isg_running_state("停机");
+            }else if(state == "01"){
+                //                    rd->set_isg_running_state("运行");
+                emit isg_running_state("运行");
+            }
+
+            if(mode == "00"){
+                //                    rd->set_isg_work_mode("驱动");
+                emit isg_work_mode("驱动");
+            }else if(mode == "10"){
+                //                    rd->set_isg_work_mode("制动/发电");
+                emit isg_work_mode("制动/发电");
+            }
+
+            if(direction == "00"){
+                //                    rd->set_isg_mc_direction("正转");
+                emit isg_mc_direction("正转");
+            }else if(direction == "10"){
+                //                    rd->set_isg_mc_direction("反转");
+                emit isg_mc_direction("反转");
+            }
+            if(fault == "00"){
+                //                     rd->set_isg_falut_state("正常");
+                emit isg_falut_state("正常");
+            }else if(fault == "10"){
+                emit isg_falut_state("故障");
+                //                     rd->set_isg_falut_state("故障");
+            }
+            break;
+        }
+        case 0x0cff01d2:
+            //            rd->set_isg_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
+            //            rd->set_isg_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
+            //            rd->set_isg_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
+            emit isg_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
+            emit isg_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
+            emit isg_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
+            break;
+        case 0x0cff02d2:
+            break;
+        case 0x0cff0303:
+            break;
+        case 0x0cff0403:
+            break;
+        }
+        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+        int f = qrand()%10;
+
+
+
+        //weight
+        emit total_times(QString::number(f));
+        //    rd->set_total_times(QString::number(r_num));
+        //    rd->set_ban_total_times(QString::number(f));
+        //    rd->set_ban_weight(QString::number(f));
+        //    rd->set_real_time_weight(QString::number(f));
+        //    rd->set_total_weight(QString::number(f));
+
+        emit total_weight(QString::number(f));
+        emit ban_total_times(QString::number(f));
+        emit ban_weight(QString::number(f));
+        emit real_time_weight(QString::number(f));
+        //index
+        //    rd->set_speedup_percent(QString::number(f));
+        //    rd->set_slowdown_percent(QString::number(f));
+        //    rd->set_bus_voltage(QString::number(f));
+        //    rd->set_isg_power(QString::number(f));
+        //    rd->set_tm_power(QString::number(f));
+        //    rd->set_power(QString::number(f));
+        emit speedup_percent(QString::number(f));
+        emit slowdown_percent(QString::number(f));
+        emit bus_voltage(QString::number(f));
+        emit isgg_power(QString::number(f));
+        emit tm_power(QString::number(f));
+        emit power_change(QString::number(f));
+        //driverpower
+
+
+
+
+        //enigne
+        //pressure
+        //temperature
+        //    rd->set_enigen_rev(QString::number(f));
+        //    rd->set_enigen_oli_pressure(QString::number(f));
+        //    rd->set_enigen_water_temper(QString::number(f));
+        emit enigen_rev(QString::number(f));
+        emit enigen_oli_pressure(QString::number(f));
+        emit enigen_water_temper(QString::number(f));
+        //isgpower
+
+        //liquid
+        //    rd->set_hydraulic(QString::number(f));
+        //    rd->set_cooling(QString::number(f));
+        emit hydraulic(QString::number(f));
+        emit cooling(QString::number(f));
+        //power
+
+
+
+        //ze
+        //    rd->set_enigne_total_hours(QString::number(f));
+        emit enigne_total_hours(QString::number(f));
+
+    }
+}
+
+
+
+
+
