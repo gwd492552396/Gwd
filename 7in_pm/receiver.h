@@ -61,7 +61,7 @@ private:
     enum v4l2_buf_type type;
     int width = 720;
     int height = 576;
-   bool I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb);
+    int  I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb);
     int rt;
     struct v4l2_buffer *buf;
     struct v4l2_crop *crop;

@@ -41,7 +41,7 @@ void receiver::run()
             if(rgb24 != NULL)
             {
                 emit log("memory for rgb24 is ready");
-                rt = convert_yuv_to_rgb_buffer((unsigned char*)buffers[buf->index].start,rgb24,width, height);
+                rt = I420ToRGBA((unsigned char*)buffers[buf->index].start,width, height,rgb24);
                 emit log("convert result:"+QString::number(ret));
                 if(rt == 0)
                 {
@@ -95,25 +95,25 @@ void receiver::init_video()
         emit log("free the memory for cap");}
     else emit log("there is no memory for cap");
 
-    //enum format
-    fmtdesc = (struct v4l2_fmtdesc*)calloc(1, sizeof(struct v4l2_fmtdesc));
-    if(fmtdesc != NULL){
-        emit log("memory for fmtdesc is ready");
-        fmtdesc->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        fmtdesc->index = 0;
-        while ((ret = ioctl(fd, VIDIOC_ENUM_FMT, fmtdesc)) != -1)
-        {
-            emit log("-------format--------");
-            emit log(QString::fromLatin1((char *)fmtdesc->description));
-            fmtdesc->index ++ ;
-        }
-        emit log("errno :" + QString::number(errno));
-        free(fmtdesc);
-        fmtdesc = NULL;
-        emit log("free the memory for fmtdesc");}
-    else emit log("there is no memory for fmtdesc");
+//    //enum format
+//    fmtdesc = (struct v4l2_fmtdesc*)calloc(1, sizeof(struct v4l2_fmtdesc));
+//    if(fmtdesc != NULL){
+//        emit log("memory for fmtdesc is ready");
+//        fmtdesc->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+//        fmtdesc->index = 0;
+//        while ((ret = ioctl(fd, VIDIOC_ENUM_FMT, fmtdesc)) != -1)
+//        {
+//            emit log("-------format--------");
+//            emit log(QString::fromLatin1((char *)fmtdesc->description));
+//            fmtdesc->index ++ ;
+//        }
+//        emit log("errno :" + QString::number(errno));
+//        free(fmtdesc);
+//        fmtdesc = NULL;
+//        emit log("free the memory for fmtdesc");}
+//    else emit log("there is no memory for fmtdesc");
 
-//    //set crop
+    //set crop
 //    crop = (struct v4l2_crop*)calloc(1,sizeof(struct v4l2_crop));
 //    if (crop != NULL){
 //        emit log("memory for crop is ready");
@@ -127,7 +127,6 @@ void receiver::init_video()
 //        }
 //        else emit log("set crop success");
 //    }
-//    else emit log("errno :" + QString::number(errno));
 //    free(crop);
 //    crop = NULL;
 //    emit log("free the memory for crop");
@@ -245,11 +244,11 @@ void receiver::init_video()
     if (fmt != NULL){
         emit log("memory for fmt is ready");
         fmt->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        fmt->fmt.pix.pixelformat = V4L2_PIX_FMT_UYVY;
+        fmt->fmt.pix.pixelformat = V4L2_PIX_FMT_YUV420;
         fmt->fmt.pix.height = height;
         fmt->fmt.pix.width = width;
         fmt->fmt.pix.field = V4L2_FIELD_INTERLACED;
-        fmt->fmt.pix.bytesperline = width;
+        //fmt->fmt.pix.bytesperline = width;
 
         if((ret = ioctl(fd, VIDIOC_S_FMT, fmt)) == -1)
         {
@@ -460,7 +459,7 @@ int receiver::convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, 
 }
 
 
-bool receiver::I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb)
+int receiver::I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb)
 {
     int temp = 0;
     for(int i=0; i<height; i++){
@@ -482,5 +481,5 @@ bool receiver::I420ToRGBA(const unsigned char * src, int width, int height,unsig
             rgb[index+0] =temp<0 ? 0 : (temp > 255 ? 255 : temp);
         }
     }
-    return true;
+    return 0;
 }

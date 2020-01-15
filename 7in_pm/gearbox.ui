@@ -27,19 +27,6 @@
     <number>0</number>
    </property>
    <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="maximumSize">
       <size>
@@ -65,18 +52,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_5" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <property name="topMargin">
@@ -91,7 +78,13 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>6</number>
+            </property>
             <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
              <number>0</number>
             </property>
             <item>
@@ -148,12 +141,12 @@ background:transparent;</string>
           <widget class="QLabel" name="label_4">
            <property name="styleSheet">
             <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 50px;
+font-size: 40px;
 color: #FFFFFF;
 background:transparent;</string>
            </property>
            <property name="text">
-            <string>变速箱比</string>
+            <string>变速比</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -167,18 +160,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_4" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="topMargin">
@@ -196,6 +189,9 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="gearbox_in_rev">
               <property name="styleSheet">
@@ -227,7 +223,7 @@ color: #FFFFFF;
 background:transparent;</string>
               </property>
               <property name="text">
-               <string>rpm</string>
+               <string>   rpm</string>
               </property>
              </widget>
             </item>
@@ -238,7 +234,7 @@ background:transparent;</string>
           <widget class="QLabel" name="label_5">
            <property name="styleSheet">
             <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 48px;
+font-size: 40px;
 color: #FFFFFF;
 background:transparent;</string>
            </property>
@@ -257,18 +253,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_3" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <property name="topMargin">
@@ -286,6 +282,9 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="gearbox_out_rev">
               <property name="styleSheet">
@@ -317,7 +316,7 @@ color: #FFFFFF;
 background:transparent;</string>
               </property>
               <property name="text">
-               <string>rpm</string>
+               <string>   rpm</string>
               </property>
              </widget>
             </item>
@@ -328,7 +327,7 @@ background:transparent;</string>
           <widget class="QLabel" name="label_6">
            <property name="styleSheet">
             <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 48px;
+font-size: 40px;
 color: #FFFFFF;
 background:transparent;</string>
            </property>
@@ -347,17 +346,178 @@ background:transparent;</string>
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+    <widget class="QWidget" name="widget_10" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QWidget" name="widget_11" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QWidget" name="widget_13" native="true">
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background:none;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QLabel" name="oil_temper">
+              <property name="styleSheet">
+               <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 60px;
+color: #FFFFFF;
+background:transparent;</string>
+              </property>
+              <property name="text">
+               <string>000</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_11">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 20px;
+color: #FFFFFF;
+background:transparent;</string>
+              </property>
+              <property name="text">
+               <string>     ℃</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_8">
+           <property name="styleSheet">
+            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 40px;
+color: #FFFFFF;
+background:transparent;</string>
+           </property>
+           <property name="text">
+            <string>油温</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_12" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QWidget" name="widget_14" native="true">
+           <property name="styleSheet">
+            <string notr="true">background:none;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_12">
+            <item>
+             <widget class="QLabel" name="oil_pressure">
+              <property name="styleSheet">
+               <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 60px;
+color: #FFFFFF;
+background:transparent;</string>
+              </property>
+              <property name="text">
+               <string>000</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_13">
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::RightToLeft</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 20px;
+color: #FFFFFF;
+background:transparent;</string>
+              </property>
+              <property name="text">
+               <string>    kPa</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="styleSheet">
+            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 40px;
+color: #FFFFFF;
+background:transparent;</string>
+           </property>
+           <property name="text">
+            <string>油压</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </item>
    <item>
     <widget class="QWidget" name="widget_2" native="true">

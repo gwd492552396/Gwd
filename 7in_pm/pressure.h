@@ -19,10 +19,10 @@ public:
 private slots:
     void on_btn_back_clicked();
 
-    void set_enigne_oil_pressure(const QString &eop);
-    void set_gearbox_pressure(const QString &gbp);
-    void set_brake_front(const QString &bf);
-    void set_brake_back(const QString &bb);
+    void set_enigne_oil_pressure(QString);
+    void set_gearbox_pressure(QString);
+//    void set_brake_front(const QString &bf);
+//    void set_brake_back(const QString &bb);
 signals:
     void previous(int);
 

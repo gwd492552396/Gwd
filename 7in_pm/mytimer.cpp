@@ -913,34 +913,35 @@ void MyTimer::run()
 //        }
         case 0x18EA0021:
         {
-            emit speedup_percent(QString::number(QString::number(s0.mid(0,8).toInt(&ok,2)).toInt(&ok,10)*0.2));
-            emit slowdown_percent(QString::number(QString::number(s0.mid(8,8).toInt(&ok,2)).toInt(&ok,10)*0.2));
+            emit speedup_percent(QString::number(s0.mid(0,8).toInt(&ok,2)*0.2));
+            emit slowdown_percent(QString::number(s0.mid(8,8).toInt(&ok,2)*0.2));
             break;
         }
         case 0X18FD0321:
         {
-            emit battety_vol(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)));
+            emit battety_vol(QString::number(s0.mid(0,16).toInt(&ok,2)));
             break;
         }
         case 0x0CF00400:
         {
-            emit enging_rev(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)));
+            emit enging_rev(QString::number(s0.mid(0,16).toInt(&ok,2)));
             break;
 
         }
         case 0x18FEE500:
         {
-            emit enigne_total_hours(QString::number(QString::number(s0.mid(0,32).toInt(&ok,2)).toInt(&ok,10)*0.05));
+            emit enigne_total_hours(QString::number(s0.mid(0,32).toInt(&ok,2)*0.05));
             break;
         }
         case 0x18FEEF00:
         {
-            emit enigen_oli_pressure(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)*4));
+            emit enigen_oli_pressure(QString::number(s0.mid(24,8).toInt(&ok,2)*4));
             break;
         }
         case 0X18FC0090:
         {
-            emit real_time_weight(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.01));
+            emit real_time_weight(QString::number(s0.mid(16,16).toInt(&ok,2)*0.01));
+            break;
         }
         case 0X18FD0121:
         {
@@ -959,7 +960,24 @@ void MyTimer::run()
             {
                 emit cooling(QString::number(100));
             }
-
+            break;
+        }
+        case 0x18FEEE00:
+        {
+            emit enigen_water_temper(QString::number(s0.mid(0,8).toInt(&ok,2)-40));
+            break;
+        }
+        case 0x18FEF803:
+        {
+            emit gearbox_temper(QString::number(s0.mid(32,16).toInt(&ok,2)*0.03125-273));
+            emit gearbox_pressure(QString::number(s0.mid(24,8).toInt(&ok,2)*16));
+            break;
+        }
+        case 0x0CF00203:
+        {
+            emit gearbox_out_rev(QString::number(s0.mid(8,16).toInt(&ok,2)*0.125));
+            emit gearbox_in_rev(QString::number(s0.mid(40,16).toInt(&ok,2)*0.125));
+        }
 
         qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));                  //random number for test
         int f = qrand()%10;
@@ -1009,7 +1027,7 @@ void MyTimer::run()
 //        //    rd->set_enigen_water_temper(QString::number(f));
 //        emit enigen_rev(QString::number(f));
 //        emit enigen_oli_pressure(QString::number(f));
-//        emit enigen_water_temper(QString::number(f));
+//
 //        emit gearbox_pressure(QString::number(f));
 //        emit brake_back(QString::number(f));
 //        emit brake_front(QString::number(f));
@@ -1031,7 +1049,7 @@ void MyTimer::run()
     }
 }
 }
-}
+
 
 
 

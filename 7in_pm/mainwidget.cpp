@@ -71,10 +71,16 @@ MainWidget::MainWidget(QWidget *parent) :
 
     connect(mytimer,SIGNAL(enigen_oli_pressure(QString)),pressure,SLOT(set_enigne_oil_pressure(QString)));
     connect(mytimer,SIGNAL(gearbox_pressure(QString)),pressure,SLOT(set_gearbox_pressure(QString)));
-    connect(mytimer,SIGNAL(brake_front(QString)),pressure,SLOT(set_brake_front(QString)));
-    connect(mytimer,SIGNAL(brake_back(QString)),pressure,SLOT(set_brake_back(QString)));
+
 
     connect(mytimer,SIGNAL(enigen_water_temper(QString)),temperature,SLOT(set_engine_water_temper(QString)));
+    connect(mytimer,SIGNAL(gearbox_temper(QString)),temperature,SLOT(set_gearbox_temper(QString)));
+
+
+    connect(mytimer,SIGNAL(gearbox_in_rev(QString)),gear_box,SLOT(set_gearbox_in_rev(QString)));
+    connect(mytimer,SIGNAL(gearbox_out_rev(QString)),gear_box,SLOT(set_gearbox_out_rev(QString)));
+    connect(mytimer,SIGNAL(gearbox_temper(QString)),gear_box,SLOT(set_gearbox_temper(QString)));
+    connect(mytimer,SIGNAL(gearbox_pressure(QString)),gear_box,SLOT(set_gearbox_pressure(QString)));
 
     connect(mytimer,SIGNAL(power_change(QString)),home_page,SLOT(power_changed(QString)));
 

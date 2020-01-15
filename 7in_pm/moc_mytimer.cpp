@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MyTimer_t {
-    QByteArrayData data[92];
-    char stringdata0[864];
+    QByteArrayData data[95];
+    char stringdata0[910];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -91,36 +91,39 @@ QT_MOC_LITERAL(58, 492, 2), // "bb"
 QT_MOC_LITERAL(59, 495, 10), // "enigen_rev"
 QT_MOC_LITERAL(60, 506, 19), // "enigen_water_temper"
 QT_MOC_LITERAL(61, 526, 3), // "ewt"
-QT_MOC_LITERAL(62, 530, 14), // "isg_mc_control"
-QT_MOC_LITERAL(63, 545, 3), // "imc"
-QT_MOC_LITERAL(64, 549, 18), // "isg_direct_current"
-QT_MOC_LITERAL(65, 568, 15), // "isg_real_torque"
-QT_MOC_LITERAL(66, 584, 12), // "isg_real_rev"
-QT_MOC_LITERAL(67, 597, 17), // "isg_control_input"
-QT_MOC_LITERAL(68, 615, 17), // "isg_driver_temper"
-QT_MOC_LITERAL(69, 633, 13), // "isg_work_mode"
-QT_MOC_LITERAL(70, 647, 17), // "isg_running_state"
-QT_MOC_LITERAL(71, 665, 15), // "isg_falut_state"
-QT_MOC_LITERAL(72, 681, 16), // "isg_mc_direction"
-QT_MOC_LITERAL(73, 698, 9), // "hydraulic"
-QT_MOC_LITERAL(74, 708, 7), // "cooling"
-QT_MOC_LITERAL(75, 716, 21), // "power_battery_voltage"
-QT_MOC_LITERAL(76, 738, 3), // "pbv"
-QT_MOC_LITERAL(77, 742, 21), // "power_battery_current"
-QT_MOC_LITERAL(78, 764, 3), // "pbc"
-QT_MOC_LITERAL(79, 768, 3), // "soc"
-QT_MOC_LITERAL(80, 772, 9), // "bms_state"
-QT_MOC_LITERAL(81, 782, 3), // "bms"
-QT_MOC_LITERAL(82, 786, 11), // "max_current"
-QT_MOC_LITERAL(83, 798, 2), // "mc"
-QT_MOC_LITERAL(84, 801, 9), // "max_power"
-QT_MOC_LITERAL(85, 811, 2), // "mp"
-QT_MOC_LITERAL(86, 814, 11), // "max_voltage"
-QT_MOC_LITERAL(87, 826, 2), // "mv"
-QT_MOC_LITERAL(88, 829, 7), // "charing"
-QT_MOC_LITERAL(89, 837, 18), // "enigne_total_hours"
-QT_MOC_LITERAL(90, 856, 3), // "eth"
-QT_MOC_LITERAL(91, 860, 3) // "log"
+QT_MOC_LITERAL(62, 530, 14), // "gearbox_temper"
+QT_MOC_LITERAL(63, 545, 14), // "gearbox_in_rev"
+QT_MOC_LITERAL(64, 560, 15), // "gearbox_out_rev"
+QT_MOC_LITERAL(65, 576, 14), // "isg_mc_control"
+QT_MOC_LITERAL(66, 591, 3), // "imc"
+QT_MOC_LITERAL(67, 595, 18), // "isg_direct_current"
+QT_MOC_LITERAL(68, 614, 15), // "isg_real_torque"
+QT_MOC_LITERAL(69, 630, 12), // "isg_real_rev"
+QT_MOC_LITERAL(70, 643, 17), // "isg_control_input"
+QT_MOC_LITERAL(71, 661, 17), // "isg_driver_temper"
+QT_MOC_LITERAL(72, 679, 13), // "isg_work_mode"
+QT_MOC_LITERAL(73, 693, 17), // "isg_running_state"
+QT_MOC_LITERAL(74, 711, 15), // "isg_falut_state"
+QT_MOC_LITERAL(75, 727, 16), // "isg_mc_direction"
+QT_MOC_LITERAL(76, 744, 9), // "hydraulic"
+QT_MOC_LITERAL(77, 754, 7), // "cooling"
+QT_MOC_LITERAL(78, 762, 21), // "power_battery_voltage"
+QT_MOC_LITERAL(79, 784, 3), // "pbv"
+QT_MOC_LITERAL(80, 788, 21), // "power_battery_current"
+QT_MOC_LITERAL(81, 810, 3), // "pbc"
+QT_MOC_LITERAL(82, 814, 3), // "soc"
+QT_MOC_LITERAL(83, 818, 9), // "bms_state"
+QT_MOC_LITERAL(84, 828, 3), // "bms"
+QT_MOC_LITERAL(85, 832, 11), // "max_current"
+QT_MOC_LITERAL(86, 844, 2), // "mc"
+QT_MOC_LITERAL(87, 847, 9), // "max_power"
+QT_MOC_LITERAL(88, 857, 2), // "mp"
+QT_MOC_LITERAL(89, 860, 11), // "max_voltage"
+QT_MOC_LITERAL(90, 872, 2), // "mv"
+QT_MOC_LITERAL(91, 875, 7), // "charing"
+QT_MOC_LITERAL(92, 883, 18), // "enigne_total_hours"
+QT_MOC_LITERAL(93, 902, 3), // "eth"
+QT_MOC_LITERAL(94, 906, 3) // "log"
 
     },
     "MyTimer\0warning_insert\0\0time\0type\0"
@@ -138,16 +141,17 @@ QT_MOC_LITERAL(91, 860, 3) // "log"
     "mc_direction\0mcd\0enigen_oli_pressure\0"
     "eop\0gearbox_pressure\0gbp\0brake_front\0"
     "bf\0brake_back\0bb\0enigen_rev\0"
-    "enigen_water_temper\0ewt\0isg_mc_control\0"
-    "imc\0isg_direct_current\0isg_real_torque\0"
-    "isg_real_rev\0isg_control_input\0"
-    "isg_driver_temper\0isg_work_mode\0"
-    "isg_running_state\0isg_falut_state\0"
-    "isg_mc_direction\0hydraulic\0cooling\0"
-    "power_battery_voltage\0pbv\0"
-    "power_battery_current\0pbc\0soc\0bms_state\0"
-    "bms\0max_current\0mc\0max_power\0mp\0"
-    "max_voltage\0mv\0charing\0enigne_total_hours\0"
+    "enigen_water_temper\0ewt\0gearbox_temper\0"
+    "gearbox_in_rev\0gearbox_out_rev\0"
+    "isg_mc_control\0imc\0isg_direct_current\0"
+    "isg_real_torque\0isg_real_rev\0"
+    "isg_control_input\0isg_driver_temper\0"
+    "isg_work_mode\0isg_running_state\0"
+    "isg_falut_state\0isg_mc_direction\0"
+    "hydraulic\0cooling\0power_battery_voltage\0"
+    "pbv\0power_battery_current\0pbc\0soc\0"
+    "bms_state\0bms\0max_current\0mc\0max_power\0"
+    "mp\0max_voltage\0mv\0charing\0enigne_total_hours\0"
     "eth\0log"
 };
 #undef QT_MOC_LITERAL
@@ -158,66 +162,69 @@ static const uint qt_meta_data_MyTimer[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      52,   14, // methods
+      55,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      52,       // signalCount
+      55,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,  274,    2, 0x06 /* Public */,
-       6,    3,  281,    2, 0x06 /* Public */,
-       7,    1,  288,    2, 0x06 /* Public */,
-       9,    1,  291,    2, 0x06 /* Public */,
-      11,    1,  294,    2, 0x06 /* Public */,
-      13,    1,  297,    2, 0x06 /* Public */,
-      15,    1,  300,    2, 0x06 /* Public */,
-      17,    1,  303,    2, 0x06 /* Public */,
-      19,    1,  306,    2, 0x06 /* Public */,
-      21,    1,  309,    2, 0x06 /* Public */,
-      23,    1,  312,    2, 0x06 /* Public */,
-      25,    1,  315,    2, 0x06 /* Public */,
-      27,    1,  318,    2, 0x06 /* Public */,
-      29,    1,  321,    2, 0x06 /* Public */,
-      31,    1,  324,    2, 0x06 /* Public */,
-      33,    1,  327,    2, 0x06 /* Public */,
-      35,    1,  330,    2, 0x06 /* Public */,
-      37,    1,  333,    2, 0x06 /* Public */,
-      39,    1,  336,    2, 0x06 /* Public */,
-      41,    1,  339,    2, 0x06 /* Public */,
-      43,    1,  342,    2, 0x06 /* Public */,
-      45,    1,  345,    2, 0x06 /* Public */,
-      47,    1,  348,    2, 0x06 /* Public */,
-      49,    1,  351,    2, 0x06 /* Public */,
-      51,    1,  354,    2, 0x06 /* Public */,
-      53,    1,  357,    2, 0x06 /* Public */,
-      55,    1,  360,    2, 0x06 /* Public */,
-      57,    1,  363,    2, 0x06 /* Public */,
-      59,    1,  366,    2, 0x06 /* Public */,
-      60,    1,  369,    2, 0x06 /* Public */,
-      62,    1,  372,    2, 0x06 /* Public */,
-      64,    1,  375,    2, 0x06 /* Public */,
-      65,    1,  378,    2, 0x06 /* Public */,
-      66,    1,  381,    2, 0x06 /* Public */,
-      67,    1,  384,    2, 0x06 /* Public */,
-      68,    1,  387,    2, 0x06 /* Public */,
-      69,    1,  390,    2, 0x06 /* Public */,
-      70,    1,  393,    2, 0x06 /* Public */,
-      71,    1,  396,    2, 0x06 /* Public */,
-      72,    1,  399,    2, 0x06 /* Public */,
-      73,    1,  402,    2, 0x06 /* Public */,
-      74,    1,  405,    2, 0x06 /* Public */,
-      75,    1,  408,    2, 0x06 /* Public */,
-      77,    1,  411,    2, 0x06 /* Public */,
-      79,    1,  414,    2, 0x06 /* Public */,
-      80,    1,  417,    2, 0x06 /* Public */,
-      82,    1,  420,    2, 0x06 /* Public */,
-      84,    1,  423,    2, 0x06 /* Public */,
-      86,    1,  426,    2, 0x06 /* Public */,
-      88,    1,  429,    2, 0x06 /* Public */,
-      89,    1,  432,    2, 0x06 /* Public */,
-      91,    1,  435,    2, 0x06 /* Public */,
+       1,    3,  289,    2, 0x06 /* Public */,
+       6,    3,  296,    2, 0x06 /* Public */,
+       7,    1,  303,    2, 0x06 /* Public */,
+       9,    1,  306,    2, 0x06 /* Public */,
+      11,    1,  309,    2, 0x06 /* Public */,
+      13,    1,  312,    2, 0x06 /* Public */,
+      15,    1,  315,    2, 0x06 /* Public */,
+      17,    1,  318,    2, 0x06 /* Public */,
+      19,    1,  321,    2, 0x06 /* Public */,
+      21,    1,  324,    2, 0x06 /* Public */,
+      23,    1,  327,    2, 0x06 /* Public */,
+      25,    1,  330,    2, 0x06 /* Public */,
+      27,    1,  333,    2, 0x06 /* Public */,
+      29,    1,  336,    2, 0x06 /* Public */,
+      31,    1,  339,    2, 0x06 /* Public */,
+      33,    1,  342,    2, 0x06 /* Public */,
+      35,    1,  345,    2, 0x06 /* Public */,
+      37,    1,  348,    2, 0x06 /* Public */,
+      39,    1,  351,    2, 0x06 /* Public */,
+      41,    1,  354,    2, 0x06 /* Public */,
+      43,    1,  357,    2, 0x06 /* Public */,
+      45,    1,  360,    2, 0x06 /* Public */,
+      47,    1,  363,    2, 0x06 /* Public */,
+      49,    1,  366,    2, 0x06 /* Public */,
+      51,    1,  369,    2, 0x06 /* Public */,
+      53,    1,  372,    2, 0x06 /* Public */,
+      55,    1,  375,    2, 0x06 /* Public */,
+      57,    1,  378,    2, 0x06 /* Public */,
+      59,    1,  381,    2, 0x06 /* Public */,
+      60,    1,  384,    2, 0x06 /* Public */,
+      62,    1,  387,    2, 0x06 /* Public */,
+      63,    1,  390,    2, 0x06 /* Public */,
+      64,    1,  393,    2, 0x06 /* Public */,
+      65,    1,  396,    2, 0x06 /* Public */,
+      67,    1,  399,    2, 0x06 /* Public */,
+      68,    1,  402,    2, 0x06 /* Public */,
+      69,    1,  405,    2, 0x06 /* Public */,
+      70,    1,  408,    2, 0x06 /* Public */,
+      71,    1,  411,    2, 0x06 /* Public */,
+      72,    1,  414,    2, 0x06 /* Public */,
+      73,    1,  417,    2, 0x06 /* Public */,
+      74,    1,  420,    2, 0x06 /* Public */,
+      75,    1,  423,    2, 0x06 /* Public */,
+      76,    1,  426,    2, 0x06 /* Public */,
+      77,    1,  429,    2, 0x06 /* Public */,
+      78,    1,  432,    2, 0x06 /* Public */,
+      80,    1,  435,    2, 0x06 /* Public */,
+      82,    1,  438,    2, 0x06 /* Public */,
+      83,    1,  441,    2, 0x06 /* Public */,
+      85,    1,  444,    2, 0x06 /* Public */,
+      87,    1,  447,    2, 0x06 /* Public */,
+      89,    1,  450,    2, 0x06 /* Public */,
+      91,    1,  453,    2, 0x06 /* Public */,
+      92,    1,  456,    2, 0x06 /* Public */,
+      94,    1,  459,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,    3,    4,    5,
@@ -250,7 +257,10 @@ static const uint qt_meta_data_MyTimer[] = {
     QMetaType::Void, QMetaType::QString,   58,
     QMetaType::Void, QMetaType::QString,   36,
     QMetaType::Void, QMetaType::QString,   61,
-    QMetaType::Void, QMetaType::QString,   63,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,   66,
     QMetaType::Void, QMetaType::QString,   32,
     QMetaType::Void, QMetaType::QString,   34,
     QMetaType::Void, QMetaType::QString,   36,
@@ -260,17 +270,17 @@ static const uint qt_meta_data_MyTimer[] = {
     QMetaType::Void, QMetaType::QString,   46,
     QMetaType::Void, QMetaType::QString,   48,
     QMetaType::Void, QMetaType::QString,   50,
-    QMetaType::Void, QMetaType::QString,   73,
-    QMetaType::Void, QMetaType::QString,   74,
     QMetaType::Void, QMetaType::QString,   76,
-    QMetaType::Void, QMetaType::QString,   78,
+    QMetaType::Void, QMetaType::QString,   77,
     QMetaType::Void, QMetaType::QString,   79,
     QMetaType::Void, QMetaType::QString,   81,
-    QMetaType::Void, QMetaType::QString,   83,
-    QMetaType::Void, QMetaType::QString,   85,
-    QMetaType::Void, QMetaType::QString,   87,
+    QMetaType::Void, QMetaType::QString,   82,
+    QMetaType::Void, QMetaType::QString,   84,
+    QMetaType::Void, QMetaType::QString,   86,
     QMetaType::Void, QMetaType::QString,   88,
     QMetaType::Void, QMetaType::QString,   90,
+    QMetaType::Void, QMetaType::QString,   91,
+    QMetaType::Void, QMetaType::QString,   93,
     QMetaType::Void, QMetaType::QString,    2,
 
        0        // eod
@@ -312,28 +322,31 @@ void MyTimer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 27: _t->brake_back((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 28: _t->enigen_rev((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 29: _t->enigen_water_temper((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 30: _t->isg_mc_control((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 31: _t->isg_direct_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 32: _t->isg_real_torque((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 33: _t->isg_real_rev((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 34: _t->isg_control_input((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 35: _t->isg_driver_temper((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 36: _t->isg_work_mode((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 37: _t->isg_running_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 38: _t->isg_falut_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 39: _t->isg_mc_direction((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 40: _t->hydraulic((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 41: _t->cooling((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 42: _t->power_battery_voltage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 43: _t->power_battery_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 44: _t->soc((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 45: _t->bms_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 46: _t->max_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 47: _t->max_power((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 48: _t->max_voltage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 49: _t->charing((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 50: _t->enigne_total_hours((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 51: _t->log((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 30: _t->gearbox_temper((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 31: _t->gearbox_in_rev((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 32: _t->gearbox_out_rev((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 33: _t->isg_mc_control((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 34: _t->isg_direct_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 35: _t->isg_real_torque((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 36: _t->isg_real_rev((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 37: _t->isg_control_input((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 38: _t->isg_driver_temper((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 39: _t->isg_work_mode((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 40: _t->isg_running_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 41: _t->isg_falut_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 42: _t->isg_mc_direction((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 43: _t->hydraulic((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 44: _t->cooling((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 45: _t->power_battery_voltage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 46: _t->power_battery_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 47: _t->soc((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 48: _t->bms_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 49: _t->max_current((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 50: _t->max_power((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 51: _t->max_voltage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 52: _t->charing((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 53: _t->enigne_total_hours((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 54: _t->log((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -550,156 +563,177 @@ void MyTimer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_mc_control)) {
+            typedef void (MyTimer::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::gearbox_temper)) {
                 *result = 30;
                 return;
             }
         }
         {
-            typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_direct_current)) {
+            typedef void (MyTimer::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::gearbox_in_rev)) {
                 *result = 31;
                 return;
             }
         }
         {
-            typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_real_torque)) {
+            typedef void (MyTimer::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::gearbox_out_rev)) {
                 *result = 32;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_real_rev)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_mc_control)) {
                 *result = 33;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_control_input)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_direct_current)) {
                 *result = 34;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_driver_temper)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_real_torque)) {
                 *result = 35;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_work_mode)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_real_rev)) {
                 *result = 36;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_running_state)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_control_input)) {
                 *result = 37;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_falut_state)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_driver_temper)) {
                 *result = 38;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_mc_direction)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_work_mode)) {
                 *result = 39;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::hydraulic)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_running_state)) {
                 *result = 40;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::cooling)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_falut_state)) {
                 *result = 41;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::power_battery_voltage)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::isg_mc_direction)) {
                 *result = 42;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::power_battery_current)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::hydraulic)) {
                 *result = 43;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::soc)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::cooling)) {
                 *result = 44;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::bms_state)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::power_battery_voltage)) {
                 *result = 45;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_current)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::power_battery_current)) {
                 *result = 46;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_power)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::soc)) {
                 *result = 47;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_voltage)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::bms_state)) {
                 *result = 48;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::charing)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_current)) {
                 *result = 49;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(const QString & );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::enigne_total_hours)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_power)) {
                 *result = 50;
+                return;
+            }
+        }
+        {
+            typedef void (MyTimer::*_t)(const QString & );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::max_voltage)) {
+                *result = 51;
+                return;
+            }
+        }
+        {
+            typedef void (MyTimer::*_t)(const QString & );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::charing)) {
+                *result = 52;
+                return;
+            }
+        }
+        {
+            typedef void (MyTimer::*_t)(const QString & );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::enigne_total_hours)) {
+                *result = 53;
                 return;
             }
         }
         {
             typedef void (MyTimer::*_t)(QString );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MyTimer::log)) {
-                *result = 51;
+                *result = 54;
                 return;
             }
         }
@@ -731,13 +765,13 @@ int MyTimer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 52)
+        if (_id < 55)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 52;
+        _id -= 55;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 52)
+        if (_id < 55)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 52;
+        _id -= 55;
     }
     return _id;
 }
@@ -953,156 +987,177 @@ void MyTimer::enigen_water_temper(const QString & _t1)
 }
 
 // SIGNAL 30
-void MyTimer::isg_mc_control(const QString & _t1)
+void MyTimer::gearbox_temper(QString _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 30, _a);
 }
 
 // SIGNAL 31
-void MyTimer::isg_direct_current(const QString & _t1)
+void MyTimer::gearbox_in_rev(QString _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 31, _a);
 }
 
 // SIGNAL 32
-void MyTimer::isg_real_torque(const QString & _t1)
+void MyTimer::gearbox_out_rev(QString _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 32, _a);
 }
 
 // SIGNAL 33
-void MyTimer::isg_real_rev(const QString & _t1)
+void MyTimer::isg_mc_control(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 33, _a);
 }
 
 // SIGNAL 34
-void MyTimer::isg_control_input(const QString & _t1)
+void MyTimer::isg_direct_current(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 34, _a);
 }
 
 // SIGNAL 35
-void MyTimer::isg_driver_temper(const QString & _t1)
+void MyTimer::isg_real_torque(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 35, _a);
 }
 
 // SIGNAL 36
-void MyTimer::isg_work_mode(const QString & _t1)
+void MyTimer::isg_real_rev(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 36, _a);
 }
 
 // SIGNAL 37
-void MyTimer::isg_running_state(const QString & _t1)
+void MyTimer::isg_control_input(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 37, _a);
 }
 
 // SIGNAL 38
-void MyTimer::isg_falut_state(const QString & _t1)
+void MyTimer::isg_driver_temper(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 38, _a);
 }
 
 // SIGNAL 39
-void MyTimer::isg_mc_direction(const QString & _t1)
+void MyTimer::isg_work_mode(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 39, _a);
 }
 
 // SIGNAL 40
-void MyTimer::hydraulic(const QString & _t1)
+void MyTimer::isg_running_state(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 40, _a);
 }
 
 // SIGNAL 41
-void MyTimer::cooling(const QString & _t1)
+void MyTimer::isg_falut_state(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 41, _a);
 }
 
 // SIGNAL 42
-void MyTimer::power_battery_voltage(const QString & _t1)
+void MyTimer::isg_mc_direction(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 42, _a);
 }
 
 // SIGNAL 43
-void MyTimer::power_battery_current(const QString & _t1)
+void MyTimer::hydraulic(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 43, _a);
 }
 
 // SIGNAL 44
-void MyTimer::soc(const QString & _t1)
+void MyTimer::cooling(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 44, _a);
 }
 
 // SIGNAL 45
-void MyTimer::bms_state(const QString & _t1)
+void MyTimer::power_battery_voltage(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 45, _a);
 }
 
 // SIGNAL 46
-void MyTimer::max_current(const QString & _t1)
+void MyTimer::power_battery_current(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 46, _a);
 }
 
 // SIGNAL 47
-void MyTimer::max_power(const QString & _t1)
+void MyTimer::soc(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 47, _a);
 }
 
 // SIGNAL 48
-void MyTimer::max_voltage(const QString & _t1)
+void MyTimer::bms_state(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 48, _a);
 }
 
 // SIGNAL 49
-void MyTimer::charing(const QString & _t1)
+void MyTimer::max_current(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 49, _a);
 }
 
 // SIGNAL 50
-void MyTimer::enigne_total_hours(const QString & _t1)
+void MyTimer::max_power(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 50, _a);
 }
 
 // SIGNAL 51
-void MyTimer::log(QString _t1)
+void MyTimer::max_voltage(const QString & _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 51, _a);
+}
+
+// SIGNAL 52
+void MyTimer::charing(const QString & _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 52, _a);
+}
+
+// SIGNAL 53
+void MyTimer::enigne_total_hours(const QString & _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 53, _a);
+}
+
+// SIGNAL 54
+void MyTimer::log(QString _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 54, _a);
 }
 QT_END_MOC_NAMESPACE

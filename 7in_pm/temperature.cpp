@@ -22,3 +22,8 @@ void Temperature::on_btn_back_clicked()
 {
     emit previous(2);
 }
+
+void Temperature::set_gearbox_temper(QString gbt)
+{
+    ui->enigne_temper->setText(gbt);
+}

@@ -27,7 +27,7 @@ class Ui_Pressure
 {
 public:
     QVBoxLayout *verticalLayout;
-    QSpacerItem *verticalSpacer_2;
+    QSpacerItem *verticalSpacer;
     QWidget *widget_5;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer;
@@ -46,25 +46,7 @@ public:
     QLabel *label_3;
     QLabel *label_14;
     QSpacerItem *horizontalSpacer_2;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer_3;
-    QWidget *widget_4;
-    QVBoxLayout *verticalLayout_3;
-    QWidget *widget_9;
-    QVBoxLayout *verticalLayout_9;
-    QLabel *brake_front;
-    QLabel *label_5;
-    QLabel *label_4;
-    QWidget *widget_2;
-    QVBoxLayout *verticalLayout_4;
-    QWidget *widget_10;
-    QVBoxLayout *verticalLayout_7;
-    QLabel *brake_back;
-    QLabel *label_7;
-    QLabel *label_6;
-    QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QLabel *sign;
     QPushButton *btn_back;
@@ -79,9 +61,9 @@ public:
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(-1, 9, -1, -1);
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout->addItem(verticalSpacer_2);
+        verticalLayout->addItem(verticalSpacer);
 
         widget_5 = new QWidget(Pressure);
         widget_5->setObjectName(QStringLiteral("widget_5"));
@@ -102,9 +84,9 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
         widget_3->setSizePolicy(sizePolicy);
-        widget_3->setMinimumSize(QSize(240, 240));
+        widget_3->setMinimumSize(QSize(300, 300));
         widget_3->setMaximumSize(QSize(240, 16777215));
-        widget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);\n"
+        widget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);\n"
 ""));
         verticalLayout_2 = new QVBoxLayout(widget_3);
         verticalLayout_2->setSpacing(0);
@@ -122,7 +104,7 @@ public:
         gearbox_pressure->setObjectName(QStringLiteral("gearbox_pressure"));
         gearbox_pressure->setLayoutDirection(Qt::LeftToRight);
         gearbox_pressure->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
+"font-size: 68px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         gearbox_pressure->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
@@ -145,7 +127,7 @@ public:
         label_2 = new QLabel(widget_3);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 40px;\n"
+"font-size: 48px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         label_2->setAlignment(Qt::AlignCenter);
@@ -159,9 +141,9 @@ public:
         widget_6->setObjectName(QStringLiteral("widget_6"));
         sizePolicy.setHeightForWidth(widget_6->sizePolicy().hasHeightForWidth());
         widget_6->setSizePolicy(sizePolicy);
-        widget_6->setMinimumSize(QSize(240, 240));
+        widget_6->setMinimumSize(QSize(300, 300));
         widget_6->setMaximumSize(QSize(240, 16777215));
-        widget_6->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);\n"
+        widget_6->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);\n"
 ""));
         verticalLayout_8 = new QVBoxLayout(widget_6);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
@@ -178,7 +160,7 @@ public:
         enigne_pressure->setObjectName(QStringLiteral("enigne_pressure"));
         enigne_pressure->setLayoutDirection(Qt::LeftToRight);
         enigne_pressure->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
+"font-size: 68px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         enigne_pressure->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
@@ -202,7 +184,7 @@ public:
         label_14 = new QLabel(widget_6);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 40px;\n"
+"font-size: 48px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         label_14->setAlignment(Qt::AlignCenter);
@@ -219,138 +201,9 @@ public:
 
         verticalLayout->addWidget(widget_5);
 
-        widget = new QWidget(Pressure);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setStyleSheet(QLatin1String("border:none;\n"
-"background:transparent;"));
-        horizontalLayout_2 = new QHBoxLayout(widget);
-        horizontalLayout_2->setSpacing(50);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(-1, 0, -1, 0);
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_2->addItem(horizontalSpacer_3);
-
-        widget_4 = new QWidget(widget);
-        widget_4->setObjectName(QStringLiteral("widget_4"));
-        sizePolicy.setHeightForWidth(widget_4->sizePolicy().hasHeightForWidth());
-        widget_4->setSizePolicy(sizePolicy);
-        widget_4->setMinimumSize(QSize(240, 240));
-        widget_4->setMaximumSize(QSize(240, 16777215));
-        widget_4->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);\n"
-""));
-        verticalLayout_3 = new QVBoxLayout(widget_4);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(-1, 0, -1, -1);
-        widget_9 = new QWidget(widget_4);
-        widget_9->setObjectName(QStringLiteral("widget_9"));
-        widget_9->setLayoutDirection(Qt::RightToLeft);
-        widget_9->setStyleSheet(QStringLiteral("background:none;"));
-        verticalLayout_9 = new QVBoxLayout(widget_9);
-        verticalLayout_9->setSpacing(0);
-        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
-        brake_front = new QLabel(widget_9);
-        brake_front->setObjectName(QStringLiteral("brake_front"));
-        brake_front->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        brake_front->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        verticalLayout_9->addWidget(brake_front);
-
-        label_5 = new QLabel(widget_9);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setMaximumSize(QSize(60, 20));
-        label_5->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-
-        verticalLayout_9->addWidget(label_5);
-
-
-        verticalLayout_3->addWidget(widget_9);
-
-        label_4 = new QLabel(widget_4);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 40px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        label_4->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_3->addWidget(label_4);
-
-
-        horizontalLayout_2->addWidget(widget_4);
-
-        widget_2 = new QWidget(widget);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        sizePolicy.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
-        widget_2->setSizePolicy(sizePolicy);
-        widget_2->setMinimumSize(QSize(240, 240));
-        widget_2->setMaximumSize(QSize(240, 16777215));
-        widget_2->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);\n"
-""));
-        verticalLayout_4 = new QVBoxLayout(widget_2);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(-1, 0, -1, -1);
-        widget_10 = new QWidget(widget_2);
-        widget_10->setObjectName(QStringLiteral("widget_10"));
-        widget_10->setLayoutDirection(Qt::RightToLeft);
-        widget_10->setStyleSheet(QStringLiteral("background:none;"));
-        verticalLayout_7 = new QVBoxLayout(widget_10);
-        verticalLayout_7->setSpacing(0);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
-        brake_back = new QLabel(widget_10);
-        brake_back->setObjectName(QStringLiteral("brake_back"));
-        brake_back->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        brake_back->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        verticalLayout_7->addWidget(brake_back);
-
-        label_7 = new QLabel(widget_10);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setMaximumSize(QSize(60, 20));
-        label_7->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-
-        verticalLayout_7->addWidget(label_7);
-
-
-        verticalLayout_4->addWidget(widget_10);
-
-        label_6 = new QLabel(widget_2);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 40px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        label_6->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_4->addWidget(label_6);
-
-
-        horizontalLayout_2->addWidget(widget_2);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_4);
-
-
-        verticalLayout->addWidget(widget);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
+        verticalLayout->addItem(verticalSpacer_2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(10);
@@ -398,14 +251,6 @@ public:
         enigne_pressure->setText(QApplication::translate("Pressure", "000", 0));
         label_3->setText(QApplication::translate("Pressure", "kPa", 0));
         label_14->setText(QApplication::translate("Pressure", " \345\217\221\345\212\250\346\234\272\346\262\271\345\216\213", 0));
-        brake_front->setText(QApplication::translate("Pressure", "000", 0));
-        label_5->setText(QApplication::translate("Pressure", "kPa", 0));
-        label_4->setText(QApplication::translate("Pressure", " \345\211\215\345\210\266\345\212\250\350\223\204\350\203\275\n"
-" \345\231\250\345\216\213\345\212\233", 0));
-        brake_back->setText(QApplication::translate("Pressure", "000", 0));
-        label_7->setText(QApplication::translate("Pressure", "kPa", 0));
-        label_6->setText(QApplication::translate("Pressure", " \345\220\216\345\210\266\345\212\250\350\223\204\350\203\275\n"
-" \345\231\250\345\216\213\345\212\233", 0));
         sign->setText(QApplication::translate("Pressure", "\345\216\213\345\212\233\344\277\241\346\201\257", 0));
         btn_back->setText(QString());
     } // retranslateUi

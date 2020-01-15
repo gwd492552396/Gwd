@@ -22,8 +22,10 @@ private slots:
     void on_btn_back_clicked();
 
     void set_gearbox_rate(const QString &gr);
-    void set_gearbox_in_rev(const QString &gi);
-    void set_gearbox_out_rev(const QString &go);
+    void set_gearbox_in_rev(QString gi);
+    void set_gearbox_out_rev(QString go);
+    void set_gearbox_temper(QString);
+    void set_gearbox_pressure(QString);
 private:
     Ui::gearbox *ui;
 };

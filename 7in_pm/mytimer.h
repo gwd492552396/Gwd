@@ -88,6 +88,11 @@ signals:
     void enigen_rev(const QString &rev);
     void enigen_water_temper(const QString &ewt);
 
+    //gearbox
+    void gearbox_temper(QString);
+    void gearbox_in_rev(QString);
+    void gearbox_out_rev(QString);
+
     //isgpower
     void isg_mc_control(const QString &imc);
     void isg_direct_current(const QString &dc);

@@ -17,7 +17,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,7 +26,6 @@ class Ui_gearbox
 {
 public:
     QVBoxLayout *verticalLayout;
-    QSpacerItem *verticalSpacer;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QWidget *widget_5;
@@ -53,7 +51,22 @@ public:
     QLabel *gearbox_out_rev;
     QLabel *label_2;
     QLabel *label_6;
-    QSpacerItem *verticalSpacer_2;
+    QWidget *widget_10;
+    QHBoxLayout *horizontalLayout_3;
+    QWidget *widget_11;
+    QVBoxLayout *verticalLayout_9;
+    QWidget *widget_13;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *oil_temper;
+    QLabel *label_11;
+    QLabel *label_8;
+    QWidget *widget_12;
+    QVBoxLayout *verticalLayout_11;
+    QWidget *widget_14;
+    QVBoxLayout *verticalLayout_12;
+    QLabel *oil_pressure;
+    QLabel *label_13;
+    QLabel *label_9;
     QWidget *widget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
@@ -68,10 +81,6 @@ public:
         verticalLayout = new QVBoxLayout(gearbox);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, -1, 0, -1);
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
-
         widget = new QWidget(gearbox);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setMaximumSize(QSize(1080, 16777215));
@@ -83,9 +92,9 @@ public:
         horizontalLayout->setContentsMargins(5, -1, 5, -1);
         widget_5 = new QWidget(widget);
         widget_5->setObjectName(QStringLiteral("widget_5"));
-        widget_5->setMinimumSize(QSize(300, 300));
-        widget_5->setMaximumSize(QSize(300, 300));
-        widget_5->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_5->setMinimumSize(QSize(240, 240));
+        widget_5->setMaximumSize(QSize(240, 240));
+        widget_5->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_2 = new QVBoxLayout(widget_5);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(-1, 0, -1, 0);
@@ -93,8 +102,9 @@ public:
         widget_6->setObjectName(QStringLiteral("widget_6"));
         widget_6->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout_5 = new QVBoxLayout(widget_6);
+        verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(-1, 0, -1, -1);
+        verticalLayout_5->setContentsMargins(-1, 0, -1, 0);
         widget_9 = new QWidget(widget_6);
         widget_9->setObjectName(QStringLiteral("widget_9"));
         widget_9->setLayoutDirection(Qt::RightToLeft);
@@ -130,7 +140,7 @@ public:
         label_4 = new QLabel(widget_5);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 50px;\n"
+"font-size: 40px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         label_4->setAlignment(Qt::AlignCenter);
@@ -142,9 +152,9 @@ public:
 
         widget_4 = new QWidget(widget);
         widget_4->setObjectName(QStringLiteral("widget_4"));
-        widget_4->setMinimumSize(QSize(300, 300));
-        widget_4->setMaximumSize(QSize(300, 300));
-        widget_4->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_4->setMinimumSize(QSize(240, 240));
+        widget_4->setMaximumSize(QSize(240, 240));
+        widget_4->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_3 = new QVBoxLayout(widget_4);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(-1, 0, -1, 0);
@@ -154,6 +164,7 @@ public:
         widget_7->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout_6 = new QVBoxLayout(widget_7);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(-1, -1, -1, 0);
         gearbox_in_rev = new QLabel(widget_7);
         gearbox_in_rev->setObjectName(QStringLiteral("gearbox_in_rev"));
         gearbox_in_rev->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
@@ -180,7 +191,7 @@ public:
         label_5 = new QLabel(widget_4);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 48px;\n"
+"font-size: 40px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         label_5->setAlignment(Qt::AlignCenter);
@@ -192,9 +203,9 @@ public:
 
         widget_3 = new QWidget(widget);
         widget_3->setObjectName(QStringLiteral("widget_3"));
-        widget_3->setMinimumSize(QSize(300, 300));
-        widget_3->setMaximumSize(QSize(300, 300));
-        widget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_3->setMinimumSize(QSize(240, 240));
+        widget_3->setMaximumSize(QSize(240, 240));
+        widget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_4 = new QVBoxLayout(widget_3);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(-1, 0, -1, 0);
@@ -204,6 +215,7 @@ public:
         widget_8->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout_7 = new QVBoxLayout(widget_8);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(-1, -1, -1, 0);
         gearbox_out_rev = new QLabel(widget_8);
         gearbox_out_rev->setObjectName(QStringLiteral("gearbox_out_rev"));
         gearbox_out_rev->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
@@ -230,7 +242,7 @@ public:
         label_6 = new QLabel(widget_3);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 48px;\n"
+"font-size: 40px;\n"
 "color: #FFFFFF;\n"
 "background:transparent;"));
         label_6->setAlignment(Qt::AlignCenter);
@@ -243,9 +255,110 @@ public:
 
         verticalLayout->addWidget(widget);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        widget_10 = new QWidget(gearbox);
+        widget_10->setObjectName(QStringLiteral("widget_10"));
+        horizontalLayout_3 = new QHBoxLayout(widget_10);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        widget_11 = new QWidget(widget_10);
+        widget_11->setObjectName(QStringLiteral("widget_11"));
+        widget_11->setMinimumSize(QSize(240, 240));
+        widget_11->setMaximumSize(QSize(240, 240));
+        widget_11->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
+        verticalLayout_9 = new QVBoxLayout(widget_11);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        widget_13 = new QWidget(widget_11);
+        widget_13->setObjectName(QStringLiteral("widget_13"));
+        widget_13->setLayoutDirection(Qt::RightToLeft);
+        widget_13->setStyleSheet(QStringLiteral("background:none;"));
+        verticalLayout_10 = new QVBoxLayout(widget_13);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        oil_temper = new QLabel(widget_13);
+        oil_temper->setObjectName(QStringLiteral("oil_temper"));
+        oil_temper->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 60px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        oil_temper->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
 
-        verticalLayout->addItem(verticalSpacer_2);
+        verticalLayout_10->addWidget(oil_temper);
+
+        label_11 = new QLabel(widget_13);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setMaximumSize(QSize(60, 20));
+        label_11->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 20px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+
+        verticalLayout_10->addWidget(label_11);
+
+
+        verticalLayout_9->addWidget(widget_13);
+
+        label_8 = new QLabel(widget_11);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 40px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        label_8->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_9->addWidget(label_8);
+
+
+        horizontalLayout_3->addWidget(widget_11);
+
+        widget_12 = new QWidget(widget_10);
+        widget_12->setObjectName(QStringLiteral("widget_12"));
+        widget_12->setMinimumSize(QSize(240, 240));
+        widget_12->setMaximumSize(QSize(240, 240));
+        widget_12->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
+        verticalLayout_11 = new QVBoxLayout(widget_12);
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        widget_14 = new QWidget(widget_12);
+        widget_14->setObjectName(QStringLiteral("widget_14"));
+        widget_14->setStyleSheet(QStringLiteral("background:none;"));
+        verticalLayout_12 = new QVBoxLayout(widget_14);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        oil_pressure = new QLabel(widget_14);
+        oil_pressure->setObjectName(QStringLiteral("oil_pressure"));
+        oil_pressure->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 60px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        oil_pressure->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
+
+        verticalLayout_12->addWidget(oil_pressure);
+
+        label_13 = new QLabel(widget_14);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setMaximumSize(QSize(60, 20));
+        label_13->setLayoutDirection(Qt::RightToLeft);
+        label_13->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 20px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+
+        verticalLayout_12->addWidget(label_13);
+
+
+        verticalLayout_11->addWidget(widget_14);
+
+        label_9 = new QLabel(widget_12);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 40px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        label_9->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_11->addWidget(label_9);
+
+
+        horizontalLayout_3->addWidget(widget_12);
+
+
+        verticalLayout->addWidget(widget_10);
 
         widget_2 = new QWidget(gearbox);
         widget_2->setObjectName(QStringLiteral("widget_2"));
@@ -286,13 +399,19 @@ public:
         gearbox->setWindowTitle(QApplication::translate("gearbox", "Form", 0));
         gearbox_rate->setText(QApplication::translate("gearbox", "000", 0));
         label_3->setText(QString());
-        label_4->setText(QApplication::translate("gearbox", "\345\217\230\351\200\237\347\256\261\346\257\224", 0));
+        label_4->setText(QApplication::translate("gearbox", "\345\217\230\351\200\237\346\257\224", 0));
         gearbox_in_rev->setText(QApplication::translate("gearbox", "000", 0));
-        label->setText(QApplication::translate("gearbox", "rpm", 0));
+        label->setText(QApplication::translate("gearbox", "   rpm", 0));
         label_5->setText(QApplication::translate("gearbox", "\350\276\223\345\205\245\350\275\264\350\275\254\351\200\237", 0));
         gearbox_out_rev->setText(QApplication::translate("gearbox", "000", 0));
-        label_2->setText(QApplication::translate("gearbox", "rpm", 0));
+        label_2->setText(QApplication::translate("gearbox", "   rpm", 0));
         label_6->setText(QApplication::translate("gearbox", "\350\276\223\345\207\272\350\275\264\350\275\254\351\200\237", 0));
+        oil_temper->setText(QApplication::translate("gearbox", "000", 0));
+        label_11->setText(QApplication::translate("gearbox", "     \342\204\203", 0));
+        label_8->setText(QApplication::translate("gearbox", "\346\262\271\346\270\251", 0));
+        oil_pressure->setText(QApplication::translate("gearbox", "000", 0));
+        label_13->setText(QApplication::translate("gearbox", "    kPa", 0));
+        label_9->setText(QApplication::translate("gearbox", "\346\262\271\345\216\213", 0));
         label_7->setText(QApplication::translate("gearbox", "\345\217\230\351\200\237\347\256\261", 0));
         btn_back->setText(QString());
     } // retranslateUi

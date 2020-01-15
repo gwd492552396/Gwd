@@ -23,6 +23,8 @@ private slots:
 
     void set_engine_water_temper(const QString &ewt);
 
+    void set_gearbox_temper(QString gbt);
+
 private:
     Ui::Temperature *ui;
 };
