@@ -37,7 +37,7 @@ Management::Management(QWidget *parent) :
         btnlist.at(i)->setEnabled(false);
         labellist.at(i)->setText("null");
         labellist.at(i)->setEnabled(false);
-        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);");
+        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78); background:transparent");
     }
    // connect(g,SIGNAL(buttonClicked(int)),this,SLOT(on_changeButtonGroup(int)));
 }
@@ -88,7 +88,7 @@ void Management::on_btn_del_clicked()
         btnlist.at(i)->setEnabled(false);
         labellist.at(i)->setText("null");
         labellist.at(i)->setEnabled(false);
-        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);");
+        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);background:transparent");
     }
 }
 
@@ -104,14 +104,14 @@ void Management::receive()
         QString s = list.at(i);
         btnlist.at(i)->setEnabled(true);
         labellist.at(i)->setText(s);
-        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(255, 255, 255);");
+        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(255, 255, 255);background:transparent");
     }
     for(;i<8;i++)
     {
         btnlist.at(i)->setEnabled(false);
         labellist.at(i)->setText("null");
         labellist.at(i)->setEnabled(false);
-        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);");
+        labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);background:transparent");
     }
 }
 

@@ -254,7 +254,7 @@ border:none;
 background-image: url(:/Group 11.png);
 border:none;
 }QPushButton#btn_setting:pressed{
-	background-image: url(:/11.png);
+border-image: url(:/11.png);
 border:none;
 }</string>
        </property>

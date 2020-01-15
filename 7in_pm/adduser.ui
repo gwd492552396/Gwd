@@ -227,6 +227,7 @@ font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
          <string notr="true">color: rgb(255, 255, 255);
 font: 25px &quot;Microsoft YaHei UI&quot;;
 font-size: 25px;
+background:transparent;
 </string>
         </property>
         <property name="text">
@@ -243,6 +244,7 @@ font-size: 25px;
          <string notr="true">color: rgb(255, 255, 255);
 font: 25px &quot;Microsoft YaHei UI&quot;;
 font-size: 25px;
+background:transparent;
 </string>
         </property>
         <property name="text">
@@ -279,8 +281,7 @@ font-size: 25px;
         <property name="styleSheet">
          <string notr="true">color: rgb(255, 255, 255);
 font: 25px &quot;Microsoft YaHei UI&quot;;
-
-</string>
+background:transparent;</string>
         </property>
         <property name="text">
          <string>输入用户名</string>
@@ -314,7 +315,7 @@ font: 25px &quot;Microsoft YaHei UI&quot;;
          <enum>Qt::NoContextMenu</enum>
         </property>
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(0,0,0);

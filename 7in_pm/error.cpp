@@ -26,9 +26,9 @@ void Error::update_table(const QString &error_time, const QString &error_type, c
     int total_pages;
     ui->qTableWidget->insertRow(row_count);
     ui->qTableWidget->setRowHeight(row_count,46);
-    ui->qTableWidget->setColumnWidth(1,180);
-    ui->qTableWidget->setColumnWidth(0,237);
-    ui->qTableWidget->setColumnWidth(2,237);
+    ui->qTableWidget->setColumnWidth(1,300);
+    ui->qTableWidget->setColumnWidth(0,390);
+    ui->qTableWidget->setColumnWidth(2,390);
     ui->qTableWidget->setItem(row_count,0,new QTableWidgetItem(error_time));
     ui->qTableWidget->item(row_count,0)->setTextAlignment(Qt::AlignCenter);
     ui->qTableWidget->setItem(row_count,1,new QTableWidgetItem(error_type));
@@ -101,8 +101,8 @@ void Error::create_table()
     ui->qTableWidget->horizontalHeader()->setFixedHeight(70);
     ui->qTableWidget->horizontalHeader()->setVisible(true);
     ui->qTableWidget->horizontalHeader()->setStretchLastSection(true);
-    ui->qTableWidget->horizontalHeader()->resizeSection(0,237);
-    ui->qTableWidget->horizontalHeader()->resizeSection(1,187);
+    ui->qTableWidget->horizontalHeader()->resizeSection(0,390);
+    ui->qTableWidget->horizontalHeader()->resizeSection(1,300);
     ui->qTableWidget->horizontalHeader()->setStyleSheet(
                 "QHeaderView::section {text-align:center;height:46px;border-left:none;}");
     ui->qTableWidget->setFocusPolicy(Qt::NoFocus);

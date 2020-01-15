@@ -146,6 +146,7 @@ public:
         label_passwd2->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
 "font: 25px \"Microsoft YaHei UI\";\n"
 "font-size: 25px;\n"
+"background:transparent;\n"
 ""));
         label_passwd2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -156,6 +157,7 @@ public:
         label_passwd->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
 "font: 25px \"Microsoft YaHei UI\";\n"
 "font-size: 25px;\n"
+"background:transparent;\n"
 ""));
         label_passwd->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
@@ -173,8 +175,7 @@ public:
         label_name->setFont(font);
         label_name->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
 "font: 25px \"Microsoft YaHei UI\";\n"
-"\n"
-""));
+"background:transparent;"));
         label_name->setTextFormat(Qt::AutoText);
         label_name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         label_name->setWordWrap(true);
@@ -186,7 +187,7 @@ public:
         le_name->setMinimumSize(QSize(149, 31));
         le_name->setMaximumSize(QSize(149, 31));
         le_name->setContextMenuPolicy(Qt::NoContextMenu);
-        le_name->setLayoutDirection(Qt::RightToLeft);
+        le_name->setLayoutDirection(Qt::LeftToRight);
         le_name->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
 "font: 75 12pt \"Microsoft JhengHei UI\";\n"
 ""));

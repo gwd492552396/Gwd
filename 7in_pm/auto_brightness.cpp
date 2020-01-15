@@ -33,13 +33,13 @@ void Auto_brightness::run()
         }
 
 
-        if((bright>20) && (bright<200))
+        if((bright>10) && (bright<200))
         {
             emit log("middle");
             if(status)
             setbacklight(5);
         }
-        if(bright<20 && bright != -1)
+        if(bright<10 && bright != -1)
         {
             emit log("low");
             if(status)

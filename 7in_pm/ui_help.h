@@ -36,7 +36,6 @@ public:
     QLabel *l_3;
     QSpacerItem *verticalSpacer_4;
     QLabel *l_4;
-    QSpacerItem *verticalSpacer_5;
     QSpacerItem *horizontalSpacer;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_2;
@@ -48,7 +47,6 @@ public:
     QLabel *r_3;
     QSpacerItem *verticalSpacer_9;
     QLabel *r_4;
-    QSpacerItem *verticalSpacer_10;
 
     void setupUi(QWidget *Help)
     {
@@ -71,7 +69,7 @@ public:
 "border:none;"));
         verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_2);
 
@@ -83,16 +81,21 @@ public:
         sizePolicy1.setHeightForWidth(l_1->sizePolicy().hasHeightForWidth());
         l_1->setSizePolicy(sizePolicy1);
         l_1->setMinimumSize(QSize(352, 80));
-        l_1->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        l_1->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         l_1->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(l_1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 50, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
 
@@ -101,10 +104,15 @@ public:
         sizePolicy1.setHeightForWidth(l_2->sizePolicy().hasHeightForWidth());
         l_2->setSizePolicy(sizePolicy1);
         l_2->setMinimumSize(QSize(352, 80));
-        l_2->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        l_2->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         l_2->setAlignment(Qt::AlignCenter);
 
@@ -119,10 +127,15 @@ public:
         sizePolicy1.setHeightForWidth(l_3->sizePolicy().hasHeightForWidth());
         l_3->setSizePolicy(sizePolicy1);
         l_3->setMinimumSize(QSize(352, 80));
-        l_3->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        l_3->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         l_3->setAlignment(Qt::AlignCenter);
 
@@ -137,18 +150,19 @@ public:
         sizePolicy1.setHeightForWidth(l_4->sizePolicy().hasHeightForWidth());
         l_4->setSizePolicy(sizePolicy1);
         l_4->setMinimumSize(QSize(352, 80));
-        l_4->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        l_4->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         l_4->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(l_4);
-
-        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_5);
 
 
         horizontalLayout->addWidget(widget);
@@ -172,10 +186,15 @@ public:
         sizePolicy1.setHeightForWidth(r_1->sizePolicy().hasHeightForWidth());
         r_1->setSizePolicy(sizePolicy1);
         r_1->setMinimumSize(QSize(352, 80));
-        r_1->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        r_1->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         r_1->setAlignment(Qt::AlignCenter);
 
@@ -188,10 +207,15 @@ public:
         r_2 = new QLabel(widget_2);
         r_2->setObjectName(QStringLiteral("r_2"));
         r_2->setMinimumSize(QSize(352, 80));
-        r_2->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        r_2->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         r_2->setAlignment(Qt::AlignCenter);
 
@@ -204,10 +228,15 @@ public:
         r_3 = new QLabel(widget_2);
         r_3->setObjectName(QStringLiteral("r_3"));
         r_3->setMinimumSize(QSize(352, 80));
-        r_3->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        r_3->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         r_3->setAlignment(Qt::AlignCenter);
 
@@ -222,18 +251,19 @@ public:
         sizePolicy1.setHeightForWidth(r_4->sizePolicy().hasHeightForWidth());
         r_4->setSizePolicy(sizePolicy1);
         r_4->setMinimumSize(QSize(352, 80));
-        r_4->setStyleSheet(QLatin1String("background-image: url(:/help.png);\n"
-"border:none;\n"
+        r_4->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
 "font: 25pt \"Microsoft YaHei UI\";\n"
 "color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
 ""));
         r_4->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(r_4);
-
-        verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_2->addItem(verticalSpacer_10);
 
 
         horizontalLayout->addWidget(widget_2);

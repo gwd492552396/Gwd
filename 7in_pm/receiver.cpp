@@ -25,7 +25,7 @@ void receiver::run()
     emit log("-----thread start-----");
     while(!stop)
     {
-        msleep(1000/25);
+//        msleep(1000/25);
         emit log("-----thread running");
         memset(buf, 0, sizeof(*buf));
         buf->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -41,7 +41,7 @@ void receiver::run()
             if(rgb24 != NULL)
             {
                 emit log("memory for rgb24 is ready");
-                rt = I420ToRGBA((unsigned char*)buffers[buf->index].start,width, height,rgb24);
+                rt = convert_yuv_to_rgb_buffer((unsigned char*)buffers[buf->index].start,rgb24,width, height);
                 emit log("convert result:"+QString::number(ret));
                 if(rt == 0)
                 {
@@ -179,7 +179,7 @@ void receiver::init_video()
     input = (struct v4l2_input*)calloc(1,sizeof(struct v4l2_input));
     if (input != NULL){
         emit log("memory for input is ready");
-        input->index = 0;
+        input->index = 1;
         if((ret = ioctl(fd, VIDIOC_S_INPUT, input)) == -1)
         {
             emit log("Unable to set input");
@@ -244,10 +244,11 @@ void receiver::init_video()
     if (fmt != NULL){
         emit log("memory for fmt is ready");
         fmt->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        fmt->fmt.pix.pixelformat = V4L2_PIX_FMT_YUV420;
+        fmt->fmt.pix.pixelformat = V4L2_PIX_FMT_UYVY;
         fmt->fmt.pix.height = height;
         fmt->fmt.pix.width = width;
         fmt->fmt.pix.field = V4L2_FIELD_INTERLACED;
+        fmt->fmt.pix.priv = 1;
         //fmt->fmt.pix.bytesperline = width;
 
         if((ret = ioctl(fd, VIDIOC_S_FMT, fmt)) == -1)
@@ -292,7 +293,7 @@ void receiver::init_video()
     // memset(&req, 0, sizeof(struct v4l2_requestbuffers));
     if(req != NULL){
         emit log("memory for req is ready");
-        req->count = 4;
+        req->count = 10;
         req->type=V4L2_BUF_TYPE_VIDEO_CAPTURE;
         req->memory=V4L2_MEMORY_MMAP;
         if((ret = ioctl(fd,VIDIOC_REQBUFS,req)) == -1)
@@ -324,7 +325,8 @@ void receiver::init_video()
         else
             emit log("query success");
         buffers[n_buffers].length= buf->length;
-        emit log("buffer length : " + QString::number(buf->length));
+        emit log("buffer length : 0x" + QString::number(buf->length,16));
+        emit log("buffer offset :0x" + QString::number(buf->m.offset,16));
         // 映射内存
         buffers[n_buffers].start=mmap (NULL,buf->length,PROT_READ ,MAP_SHARED,fd, buf->m.offset);
         if (MAP_FAILED== buffers[n_buffers].start)
@@ -332,12 +334,12 @@ void receiver::init_video()
         else
             emit log("mmap success");
 
-        //    }
+    }
 
-        //    //queue
-        //    for (unsigned int n_buffers = 0; n_buffers < req->count; n_buffers++)
-        //    {
-        //        buf->index = n_buffers;
+    //queue
+    for (unsigned int n_buffers = 0; n_buffers < req->count; n_buffers++)
+    {
+        buf->index = n_buffers;
         if(-1 == ioctl(fd, VIDIOC_QBUF, buf))
             emit log("queue failed");
         else emit log("queue success");
@@ -391,22 +393,18 @@ int receiver::convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, 
     unsigned int pixel32;
     int y0, u, y1, v;
 
-    for(in = 0; in < width * height; in += 4)
+    for(in = 0; in < width * height * 2; in += 4)
     {
-        if (in > 0 && ((in / 2) % width == 0))
-            out += width * 3;
-
         pixel_16 =
                 yuv[in + 3] << 24 |
                                yuv[in + 2] << 16 |
                                               yuv[in + 1] <<  8 |
                                                               yuv[in + 0];
-        u  = (pixel_16 & 0x000000ff);
-        y0 = (pixel_16 & 0x0000ff00) >>  8;
-        v  = (pixel_16 & 0x00ff0000) >> 16;
-        y1 = (pixel_16 & 0xff000000) >> 24;
+        u = (pixel_16 & 0x000000ff);
+        y0  = (pixel_16 & 0x0000ff00) >>  8;
+        v = (pixel_16 & 0x00ff0000) >> 16;
+        y1  = (pixel_16 & 0xff000000) >> 24;
         pixel32 = convert_yuv_to_rgb_pixel(y0, u, v);
-        //emit log("convert yuv2pixel success 1");
         pixel_24[0] = (pixel32 & 0x000000ff);
         pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
         pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
@@ -414,40 +412,6 @@ int receiver::convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, 
         rgb[out++] = pixel_24[1];
         rgb[out++] = pixel_24[2];
         pixel32 = convert_yuv_to_rgb_pixel(y1, u, v);
-        //emit log("convert yuv2pixel success 2");
-        pixel_24[0] = (pixel32 & 0x000000ff);
-        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
-        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
-        rgb[out++] = pixel_24[0];
-        rgb[out++] = pixel_24[1];
-        rgb[out++] = pixel_24[2];
-    }
-
-    out = 0;
-    for(in = width * height; in < width * height * 2; in += 4)
-    {
-        if (((in / 2) % width == 0))
-            out += width * 3;
-
-        pixel_16 =
-                yuv[in + 3] << 24 |
-                               yuv[in + 2] << 16 |
-                                              yuv[in + 1] <<  8 |
-                                                              yuv[in + 0];
-        u  = (pixel_16 & 0x000000ff);
-        y0 = (pixel_16 & 0x0000ff00) >>  8;
-        v  = (pixel_16 & 0x00ff0000) >> 16;
-        y1 = (pixel_16 & 0xff000000) >> 24;
-        pixel32 = convert_yuv_to_rgb_pixel(y0, u, v);
-        //emit log("convert yuv2pixel success 1");
-        pixel_24[0] = (pixel32 & 0x000000ff);
-        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
-        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
-        rgb[out++] = pixel_24[0];
-        rgb[out++] = pixel_24[1];
-        rgb[out++] = pixel_24[2];
-        pixel32 = convert_yuv_to_rgb_pixel(y1, u, v);
-        //emit log("convert yuv2pixel success 2");
         pixel_24[0] = (pixel32 & 0x000000ff);
         pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
         pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
@@ -457,6 +421,81 @@ int receiver::convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, 
     }
     return 0;
 }
+
+//int receiver::convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, unsigned int width, unsigned int height)
+//{
+//    unsigned int in, out = 0;
+//    unsigned int pixel_16;
+//    unsigned char pixel_24[3];
+//    unsigned int pixel32;
+//    int y0, u, y1, v;
+
+//    for(in = 0; in < width * height; in += 4)
+//    {
+//        if (in > 0 && ((in / 2) % width == 0))
+//            out += width * 3;
+
+//        pixel_16 =
+//                yuv[in + 3] << 24 |
+//                               yuv[in + 2] << 16 |
+//                                              yuv[in + 1] <<  8 |
+//                                                              yuv[in + 0];
+//        u  = (pixel_16 & 0x000000ff);
+//        y0 = (pixel_16 & 0x0000ff00) >>  8;
+//        v  = (pixel_16 & 0x00ff0000) >> 16;
+//        y1 = (pixel_16 & 0xff000000) >> 24;
+//        pixel32 = convert_yuv_to_rgb_pixel(y0, u, v);
+//        //emit log("convert yuv2pixel success 1");
+//        pixel_24[0] = (pixel32 & 0x000000ff);
+//        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
+//        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
+//        rgb[out++] = pixel_24[0];
+//        rgb[out++] = pixel_24[1];
+//        rgb[out++] = pixel_24[2];
+//        pixel32 = convert_yuv_to_rgb_pixel(y1, u, v);
+//        //emit log("convert yuv2pixel success 2");
+//        pixel_24[0] = (pixel32 & 0x000000ff);
+//        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
+//        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
+//        rgb[out++] = pixel_24[0];
+//        rgb[out++] = pixel_24[1];
+//        rgb[out++] = pixel_24[2];
+//    }
+
+//    out = 0;
+//    for(in = width * height; in < width * height * 2; in += 4)
+//    {
+//        if (((in / 2) % width == 0))
+//            out += width * 3;
+
+//        pixel_16 =
+//                yuv[in + 3] << 24 |
+//                               yuv[in + 2] << 16 |
+//                                              yuv[in + 1] <<  8 |
+//                                                              yuv[in + 0];
+//        u  = (pixel_16 & 0x000000ff);
+//        y0 = (pixel_16 & 0x0000ff00) >>  8;
+//        v  = (pixel_16 & 0x00ff0000) >> 16;
+//        y1 = (pixel_16 & 0xff000000) >> 24;
+//        pixel32 = convert_yuv_to_rgb_pixel(y0, u, v);
+//        //emit log("convert yuv2pixel success 1");
+//        pixel_24[0] = (pixel32 & 0x000000ff);
+//        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
+//        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
+//        rgb[out++] = pixel_24[0];
+//        rgb[out++] = pixel_24[1];
+//        rgb[out++] = pixel_24[2];
+//        pixel32 = convert_yuv_to_rgb_pixel(y1, u, v);
+//        //emit log("convert yuv2pixel success 2");
+//        pixel_24[0] = (pixel32 & 0x000000ff);
+//        pixel_24[1] = (pixel32 & 0x0000ff00) >> 8;
+//        pixel_24[2] = (pixel32 & 0x00ff0000) >> 16;
+//        rgb[out++] = pixel_24[0];
+//        rgb[out++] = pixel_24[1];
+//        rgb[out++] = pixel_24[2];
+//    }
+//    return 0;
+//}
 
 
 int receiver::I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb)

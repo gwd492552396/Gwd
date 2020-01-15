@@ -128,6 +128,14 @@ void MyTimer::run()
                     }
                     cache->append(ss);
                     emit error_insert(s1,ss,s3);
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
+                    emit error_insert("123","456","789");
                     db->inserterror(s1,ss,s3);
                 }
             }

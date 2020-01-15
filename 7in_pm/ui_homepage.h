@@ -149,7 +149,7 @@ public:
 "background-image: url(:/Group 11.png);\n"
 "border:none;\n"
 "}QPushButton#btn_setting:pressed{\n"
-"	background-image: url(:/11.png);\n"
+"border-image: url(:/11.png);\n"
 "border:none;\n"
 "}"));
 

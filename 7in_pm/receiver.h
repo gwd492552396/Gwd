@@ -47,7 +47,7 @@ private:
     int yuyv_2_rgb888(void);
     int convert_yuv_to_rgb_pixel(int y, int u, int v);
     int convert_yuv_to_rgb_buffer(unsigned char *yuv, unsigned char *rgb, unsigned int width, unsigned int height);
-
+    int  I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb);
 
     struct v4l2_capability *cap;
     struct v4l2_fmtdesc *fmtdesc;
@@ -61,7 +61,6 @@ private:
     enum v4l2_buf_type type;
     int width = 720;
     int height = 576;
-    int  I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb);
     int rt;
     struct v4l2_buffer *buf;
     struct v4l2_crop *crop;
