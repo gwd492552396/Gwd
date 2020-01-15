@@ -113,6 +113,44 @@ void receiver::init_video()
         emit log("free the memory for fmtdesc");}
     else emit log("there is no memory for fmtdesc");
 
+    //set crop
+    crop = (struct v4l2_crop*)calloc(1,sizeof(struct v4l2_crop));
+    if (crop != NULL){
+        emit log("memory for crop is ready");
+        crop->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        crop->c.width = width;
+        crop->c.height = height;
+        crop->c.top = 0;
+        crop->c.left = 0;
+        if (ioctl(fd, VIDIOC_S_CROP, crop) == -1){
+            emit log("Unable to set crop");
+        }
+        else emit log("set crop success");
+    }
+    else emit log("errno :" + QString::number(errno));
+    free(crop);
+    crop = NULL;
+    emit log("free the memory for crop");
+
+    //get crop
+    crop = (struct v4l2_crop*)calloc(1,sizeof(struct v4l2_crop));
+    if (crop != NULL){
+        emit log("memory for crop is ready");
+        crop->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        if (ioctl(fd, VIDIOC_G_CROP, crop) != -1){
+            emit log("-----get the crop:");
+            emit log(QString::fromLatin1((char *)crop->c.width));
+            emit log(QString::fromLatin1((char *)crop->c.height));
+            emit log(QString::fromLatin1((char *)crop->c.top));
+            emit log(QString::fromLatin1((char *)crop->c.left));
+        }
+        else emit log("Unable to get crop");
+    }
+    else emit log("errno :" + QString::number(errno));
+    free(crop);
+    crop = NULL;
+    emit log("free the memory for crop");
+
     //set std
     std = 0xff;
     if((ret = ioctl(fd, VIDIOC_S_STD, &std)) == -1)

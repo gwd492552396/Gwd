@@ -55,7 +55,6 @@ private:
     struct v4l2_requestbuffers *req;
     unsigned char *rgb24 ;
     QImage img;
-
     v4l2_std_id std;
     struct v4l2_input *input;
     struct v4l2_streamparm  *setfps;
@@ -64,13 +63,8 @@ private:
     int height = 576;
    bool I420ToRGBA(const unsigned char * src, int width, int height,unsigned char* rgb);
     int rt;
-
-
-
-
-
-
     struct v4l2_buffer *buf;
+    struct v4l2_crop *crop;
     struct buffer
     {
         void * start;
