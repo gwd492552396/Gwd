@@ -45,11 +45,11 @@ void receiver::run()
                 emit log("convert result:"+QString::number(ret));
                 if(rt == 0)
                 {
-                    emit log("start yuv2rgb");
+//                    emit log("start yuv2rgb");
                     img = QImage(rgb24, width, height, QImage::Format_RGB888,freergb24,(void *)rgb24);
                     emit  log("yuv2rgb success");
                     emit SendImage(img);
-                    //          emit SendImage(rgb24,width,height);
+//                    emit SendImage(rgb24,width,height);
                     emit log("send image out");
                 }
                 else emit log("yuv2rgb failed");

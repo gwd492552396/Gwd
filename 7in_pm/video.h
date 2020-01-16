@@ -11,6 +11,9 @@
 #include <QThreadPool>
 #include <QImage>
 #include <QPixmap>
+#include <QTime>
+#include <QTimer>
+#include <QPainter>
 
 namespace Ui {
 class Video;
@@ -27,20 +30,20 @@ public:
 
     void start();
 
-//   void  showEvent(QShowEvent* event);
-//   void  hideEvent(QHideEvent *event);
+    //   void  showEvent(QShowEvent* event);
+    //   void  hideEvent(QHideEvent *event);
 signals:
     void back_home(int);
     void previous(int);
     void log(QString);
 private slots:
-//    void on_btn_backhome_clicked();
+    //    void on_btn_backhome_clicked();
 
-//    void on_btn_back_clicked();
-
-//        void ReceiveImage(QImage *image);
+    //    void on_btn_back_clicked();
 
     void ReceiveImage(QImage);
+
+    //    void ReceiveImage(unsigned char* rgb,int width ,int height);
 
 private:
     Ui::Video *ui;
@@ -48,7 +51,8 @@ private:
     QCameraViewfinder *cameraviewfinder;
     receiver *rec;
     Serial_port *serial;
-    QImage *img;
+    QImage image;
+    QTimer *timer3;
 };
 
 #endif // VIDEO_H

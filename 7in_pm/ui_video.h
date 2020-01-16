@@ -25,7 +25,7 @@ class Ui_Video
 {
 public:
     QVBoxLayout *verticalLayout;
-    QWidget *widget_2;
+    QWidget *video_widget;
     QHBoxLayout *horizontalLayout_2;
     QLabel *mainlabel;
 
@@ -37,20 +37,18 @@ public:
         Video->setMinimumSize(QSize(1080, 652));
         verticalLayout = new QVBoxLayout(Video);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        widget_2 = new QWidget(Video);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        horizontalLayout_2 = new QHBoxLayout(widget_2);
+        video_widget = new QWidget(Video);
+        video_widget->setObjectName(QStringLiteral("video_widget"));
+        horizontalLayout_2 = new QHBoxLayout(video_widget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        mainlabel = new QLabel(widget_2);
+        mainlabel = new QLabel(video_widget);
         mainlabel->setObjectName(QStringLiteral("mainlabel"));
-        mainlabel->setMinimumSize(QSize(720, 576));
-        mainlabel->setMaximumSize(QSize(720, 576));
-        mainlabel->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        mainlabel->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_2->addWidget(mainlabel);
 
 
-        verticalLayout->addWidget(widget_2);
+        verticalLayout->addWidget(video_widget);
 
 
         retranslateUi(Video);

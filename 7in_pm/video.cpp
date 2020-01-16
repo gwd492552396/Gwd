@@ -6,7 +6,6 @@ Video::Video(QWidget *parent) :
     ui(new Ui::Video)
 {
     ui->setupUi(this);
-    img = new QImage();
 
 }
 
@@ -14,21 +13,22 @@ Video::~Video()
 {
     delete ui;
 }
-
-
 void Video::ReceiveImage(QImage img)
-
 {
-    if (! img.isNull() )
+    if ( ! img.isNull())
     {
         emit log("here received an image");
         ui->mainlabel->clear();
-        QSize size(720,576);
-//        *img = QImage(rgb24, width, height, QImage::Format_RGB888);
-        ui->mainlabel->setPixmap(QPixmap::fromImage(img));
+        QSize size(1000,600);
+//        img = QImage(rgb, width, height, QImage::Format_RGB888);
+        ui->mainlabel->setPixmap(QPixmap::fromImage(img.scaled(size)));
+        image = img;
+
 
     }
 }
+
+
 //{
 
 //    if(image!=NULL)

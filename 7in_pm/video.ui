@@ -21,27 +21,15 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QWidget" name="widget_2" native="true">
+    <widget class="QWidget" name="video_widget" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QLabel" name="mainlabel">
-        <property name="minimumSize">
-         <size>
-          <width>720</width>
-          <height>576</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>720</width>
-          <height>576</height>
-         </size>
-        </property>
         <property name="text">
          <string/>
         </property>
         <property name="alignment">
-         <set>Qt::AlignHCenter|Qt::AlignTop</set>
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>

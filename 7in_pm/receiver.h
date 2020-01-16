@@ -26,8 +26,8 @@ protected:
 
 signals:
       void log(QString);
-//      void SendImage(QImage);
       void SendImage(QImage);
+//      void SendImage(unsigned char*,int,int);
       void receiver_stop();
 public:
       void stream_on();
