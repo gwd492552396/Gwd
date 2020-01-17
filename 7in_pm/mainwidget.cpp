@@ -66,7 +66,7 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(mytimer,SIGNAL(isg_mc_direction(QString)),isg_power,SLOT(set_mc_direction(QString)));
 
     connect(mytimer,SIGNAL(enigen_oli_pressure(QString)),enigne,SLOT(set_enigen_oli_pressure(QString)));
-    connect(mytimer,SIGNAL(enigen_rev(QString)),enigne,SLOT(set_enigen_rev(QString)));
+    connect(mytimer,SIGNAL(enging_rev(QString)),enigne,SLOT(set_enigen_rev(QString)));
     connect(mytimer,SIGNAL(enigen_water_temper(QString)),enigne,SLOT(set_enigen_water_temper(QString)));
 
     connect(mytimer,SIGNAL(enigen_oli_pressure(QString)),pressure,SLOT(set_enigne_oil_pressure(QString)));
@@ -511,7 +511,7 @@ void MainWidget::c_stackedwidget_changed(int next_index){
 
         receiv = new receiver();
         log("new receiver");
-        connect(receiv,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+//        connect(receiv,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
         receiv->setParent(this);
         log("set receiver parent");
         receiv->init_video();

@@ -68,15 +68,17 @@ void MyTimer::run()
         QString s0;
         bool ok;
         emit log("ID:"+QString::number(frame.can_id & 0x7fffffff,16));        //log the id
-        emit log("Data(Hex):");
         for(int i = 0;i<8;i++)
         {
             QString str = QString("%1").arg(frame.data[i]&0xFF,8,2,QLatin1Char('0'));
             //QString str = QString("%1").arg(frame.data[i],8,2,QLatin1Char('0'));
-            log(QString::number(str.toUInt(&ok,2),16));
+            hex = hex.append(QString::number(str.toUInt(&ok,2),16));
             s0 += str;
         }
         emit log("Data(Bin):"+s0);               //log the message   s0 is the data
+        emit log("Data(Hex):"+hex);
+        hex = "" ;
+        emit log("");
 
         QString s3 = "BMS电池故障";
         QString s4 = "BMS电池报警";
@@ -919,7 +921,7 @@ void MyTimer::run()
 //            emit log("\n");
 //            break;
 //        }
-        case 0x18EA0021:
+        case 0x18EA0021:                            //delete
         {
             emit speedup_percent(QString::number(s0.mid(0,8).toInt(&ok,2)*0.2));
             emit slowdown_percent(QString::number(s0.mid(8,8).toInt(&ok,2)*0.2));
@@ -927,23 +929,43 @@ void MyTimer::run()
         }
         case 0X18FD0321:
         {
-            emit battety_vol(QString::number(s0.mid(0,16).toInt(&ok,2)));
+            temp = (frame.data[0] + ( frame.data[1] << 8 ))*0.05;
+            if (temp > 0 && temp < 50)
+            {
+                emit battety_vol(QString::number(temp));
+            }
+            else emit battety_vol("---");
             break;
         }
         case 0x0CF00400:
         {
-            emit enging_rev(QString::number(s0.mid(0,16).toInt(&ok,2)));
+            temp = (frame.data[3] + ( frame.data[4] << 8 ))* 0.125;
+            if (temp > 0 && temp < 5000)
+            {
+                emit enging_rev(QString::number(temp));
+            }
+            else emit enging_rev("---");
             break;
 
         }
         case 0x18FEE500:
-        {
-            emit enigne_total_hours(QString::number(s0.mid(0,32).toInt(&ok,2)*0.05));
+        {       
+            temp = (frame.data[0] + (frame.data[1] << 8) + (frame.data[2] << 16) + (frame.data[3] << 24))*0.05;
+            if (temp > 0 && temp < 210554060)
+            {
+                emit enigne_total_hours(QString::number(temp));
+            }
+            else emit enigne_total_hours("---");
             break;
         }
         case 0x18FEEF00:
         {
-            emit enigen_oli_pressure(QString::number(s0.mid(24,8).toInt(&ok,2)*4));
+            temp = ( frame.data[3] ) *4 ;
+            if (temp > 0 && temp < 1000)
+            {
+                emit enigen_oli_pressure(QString::number(temp));
+            }
+            else emit enigen_oli_pressure("---");
             break;
         }
         case 0X18FC0090:
@@ -953,38 +975,64 @@ void MyTimer::run()
         }
         case 0X18FD0121:
         {
-            if(s0.mid(23,1) == "1")
-            {
+            temp = frame.data[2] & 0x01;
+            if (temp == 1)
                 emit hydraulic(QString::number(8));
-            }
-            else {
-                emit hydraulic(QString::number(100));
-            }
-            if(s0.mid(27,1) == "1")
-            {
-                emit cooling(QString::number(8));
-            }
             else
-            {
+                emit hydraulic(QString::number(100));
+
+            temp = frame.data[3] & 0x10;
+            temp = temp >> 4;
+            if (temp == 1)
+                emit cooling(QString::number(8));
+            else
                 emit cooling(QString::number(100));
-            }
             break;
         }
         case 0x18FEEE00:
         {
-            emit enigen_water_temper(QString::number(s0.mid(0,8).toInt(&ok,2)-40));
+            temp = (frame.data[0]) - 40 ;
+            if (temp > -40 && temp < 210)
+            {
+                emit enigen_water_temper(QString::number(temp));
+            }
+            else emit enigen_water_temper("---");
+
             break;
         }
         case 0x18FEF803:
         {
-            emit gearbox_temper(QString::number(s0.mid(32,16).toInt(&ok,2)*0.03125-273));
-            emit gearbox_pressure(QString::number(s0.mid(24,8).toInt(&ok,2)*16));
+            temp = (frame.data[4] + (frame.data[5] << 8))*0.03125 - 273;
+            if (temp > -273 && temp < 1735)
+            {
+                emit gearbox_temper(QString::number(temp));
+            }
+            else emit gearbox_temper("---");
+
+
+            temp = (frame.data[3]) *16;
+            if (temp > 0 && temp < 4000)
+            {
+                emit gearbox_pressure(QString::number(temp));
+            }
+            else emit gearbox_pressure("---");
             break;
         }
         case 0x0CF00203:
         {
-            emit gearbox_out_rev(QString::number(s0.mid(8,16).toInt(&ok,2)*0.125));
-            emit gearbox_in_rev(QString::number(s0.mid(40,16).toInt(&ok,2)*0.125));
+            temp = (frame.data[1] + ( frame.data[2] << 8 ))* 0.125;
+            if (temp > 0 && temp < 8031)
+            {
+                emit gearbox_out_rev(QString::number(temp));
+            }
+            else emit gearbox_out_rev("---");
+
+            temp = (frame.data[5] + ( frame.data[6] << 8 ))* 0.125;
+            if (temp > 0 && temp < 8031)
+            {
+                emit gearbox_in_rev(QString::number(temp));
+            }
+            else emit gearbox_in_rev("---");
         }
 
         qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));                  //random number for test

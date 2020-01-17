@@ -25,7 +25,7 @@ void receiver::run()
     emit log("-----thread start-----");
     while(!stop)
     {
-//        msleep(1000/25);
+        msleep(1000/25);
         emit log("-----thread running");
         memset(buf, 0, sizeof(*buf));
         buf->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;

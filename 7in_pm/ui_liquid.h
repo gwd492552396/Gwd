@@ -18,7 +18,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,9 +26,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Liquid
 {
 public:
-    QVBoxLayout *verticalLayout_4;
-    QSpacerItem *verticalSpacer_2;
     QVBoxLayout *verticalLayout_3;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
     QWidget *widget_cooling;
     QVBoxLayout *verticalLayout;
@@ -39,7 +37,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QProgressBar *hydraulic_bar;
     QLabel *label_2;
-    QSpacerItem *verticalSpacer;
+    QWidget *widget_2;
     QHBoxLayout *horizontalLayout;
     QLabel *sign;
     QPushButton *btn_back;
@@ -48,25 +46,18 @@ public:
     {
         if (Liquid->objectName().isEmpty())
             Liquid->setObjectName(QStringLiteral("Liquid"));
-        Liquid->resize(1284, 652);
-        Liquid->setMinimumSize(QSize(674, 400));
+        Liquid->resize(1080, 652);
+        Liquid->setMinimumSize(QSize(1080, 652));
+        Liquid->setMaximumSize(QSize(1292, 16777215));
         Liquid->setStyleSheet(QStringLiteral("background:transparent;"));
-        verticalLayout_4 = new QVBoxLayout(Liquid);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(10, 25, 10, 0);
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Preferred);
-
-        verticalLayout_4->addItem(verticalSpacer_2);
-
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(32);
+        verticalLayout_3 = new QVBoxLayout(Liquid);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(-1, -1, -1, 6);
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(117);
+        widget = new QWidget(Liquid);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setMaximumSize(QSize(1080, 16777215));
+        horizontalLayout_2 = new QHBoxLayout(widget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(145, -1, 120, 9);
-        widget_cooling = new QWidget(Liquid);
+        widget_cooling = new QWidget(widget);
         widget_cooling->setObjectName(QStringLiteral("widget_cooling"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -120,7 +111,7 @@ public:
 
         horizontalLayout_2->addWidget(widget_cooling);
 
-        widget_hydraulic = new QWidget(Liquid);
+        widget_hydraulic = new QWidget(widget);
         widget_hydraulic->setObjectName(QStringLiteral("widget_hydraulic"));
         sizePolicy.setHeightForWidth(widget_hydraulic->sizePolicy().hasHeightForWidth());
         widget_hydraulic->setSizePolicy(sizePolicy);
@@ -166,16 +157,14 @@ public:
         horizontalLayout_2->addWidget(widget_hydraulic);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_2);
+        verticalLayout_3->addWidget(widget);
 
-        verticalSpacer = new QSpacerItem(20, 100, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        verticalLayout_3->addItem(verticalSpacer);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(10);
+        widget_2 = new QWidget(Liquid);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        widget_2->setMaximumSize(QSize(1080, 80));
+        horizontalLayout = new QHBoxLayout(widget_2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        sign = new QLabel(Liquid);
+        sign = new QLabel(widget_2);
         sign->setObjectName(QStringLiteral("sign"));
         sizePolicy.setHeightForWidth(sign->sizePolicy().hasHeightForWidth());
         sign->setSizePolicy(sizePolicy);
@@ -188,7 +177,7 @@ public:
 
         horizontalLayout->addWidget(sign);
 
-        btn_back = new QPushButton(Liquid);
+        btn_back = new QPushButton(widget_2);
         btn_back->setObjectName(QStringLiteral("btn_back"));
         sizePolicy.setHeightForWidth(btn_back->sizePolicy().hasHeightForWidth());
         btn_back->setSizePolicy(sizePolicy);
@@ -201,11 +190,11 @@ public:
 
         horizontalLayout->addWidget(btn_back);
 
+        sign->raise();
+        btn_back->raise();
+        widget->raise();
 
-        verticalLayout_3->addLayout(horizontalLayout);
-
-
-        verticalLayout_4->addLayout(verticalLayout_3);
+        verticalLayout_3->addWidget(widget_2);
 
 
         retranslateUi(Liquid);

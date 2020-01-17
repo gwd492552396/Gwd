@@ -41,11 +41,13 @@ private:
 //    ReadData *rd;
     QList<QString> *cache;
     int s;
+    int temp;
     int ifinclude(QString str);
     struct sockaddr_can addr;
     struct ifreq ifr;
     struct can_frame frame;
     Database_7in *db;
+    QString hex = "";
 
 
 
@@ -125,6 +127,8 @@ signals:
 
 
     void log(QString);
+
+
 
 
 
