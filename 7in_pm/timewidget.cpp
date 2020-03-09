@@ -2,6 +2,8 @@
 #include "ui_timewidget.h"
 #include <QDebug>
 
+#define time_test 1
+
 timewidget::timewidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::timewidget)
@@ -79,10 +81,16 @@ void timewidget::on_close_clicked()
     QTime time(ui->le_hour->text().toInt(),ui->le_minute->text().toInt(),0);
     //设置系统时间
     QString str;
-    str = "date -s " + date.toString("MM") +date.toString("dd")+ time.toString("hh") +time.toString("mm")+ui->le_year->text()+".00";
-
-    QByteArray q = str.toLatin1();
-    system(q.data());
+    str = "date -s " + date.toString("yyyy") +"/"+ date.toString("MM") +"/"+ date.toString("dd");
+    QByteArray s = str.toLatin1();
+    system(s.data());
+    str = "date -s " + time.toString("hh") +":"+ time.toString("mm");
+    int i = 0;
+    while(i++<50){}
+    s = str.toLatin1();
+    system(s.data());
+//    QByteArray q = str.toLatin1();
+//    system(q.data());
     system("hwclock -w");
     senddata("时间",ui->le_month->text()+"月"+ui->le_day->text()+"日 "+ui->le_hour->text()+":"+ui->le_minute->text());
     this->close();

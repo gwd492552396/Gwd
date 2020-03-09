@@ -13,8 +13,8 @@ MAKEFILE      = Makefile
 CC            = $(OE_QMAKE_CC)
 CXX           = $(OE_QMAKE_CXX)
 DEFINES       = -DQT_NO_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_CONCURRENT_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe $(OE_QMAKE_CFLAGS) -O0 -g -DLINUX=1 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe $(OE_QMAKE_CXXFLAGS) -O0 -g -DLINUX=1 -std=gnu++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CFLAGS        = -pipe $(OE_QMAKE_CFLAGS) -O2 -DLINUX=1 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe $(OE_QMAKE_CXXFLAGS) -O2 -DLINUX=1 -std=gnu++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I. -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5 -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimediaWidgets -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimedia -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtWidgets -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtGui -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSql -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSerialPort -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtNetwork -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtConcurrent -isystem /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtCore -I. -I. -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++
 QMAKE         = /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake
 DEL_FILE      = rm -f
@@ -35,7 +35,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = 7in1.0.0
 DISTDIR = /root/7in_pm/.tmp/7in1.0.0
 LINK          = $(OE_QMAKE_LINK)
-LFLAGS        = $(OE_QMAKE_LDFLAGS) -Wl,-O0 -Wl,-rpath-link,/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib
+LFLAGS        = $(OE_QMAKE_LDFLAGS) -Wl,-O1 -Wl,-rpath-link,/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib
 LIBS          = $(SUBLIBS) -lsqlite3 -lQt5MultimediaWidgets -lQt5Multimedia -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5SerialPort -lQt5Network -lQt5Concurrent -lQt5Core -lGLESv2 -lEGL -lpthread 
 AR            = $(OE_QMAKE_AR) cqs
 RANLIB        = 
@@ -89,7 +89,8 @@ SOURCES       = main.cpp \
 		gearbox.cpp \
 		serial_port.cpp \
 		receiver.cpp \
-		auto_brightness.cpp qrc_res.cpp \
+		auto_brightness.cpp \
+		edit_shortcut.cpp qrc_res.cpp \
 		moc_mainwidget.cpp \
 		moc_homepage.cpp \
 		moc_weight.cpp \
@@ -128,7 +129,8 @@ SOURCES       = main.cpp \
 		moc_gearbox.cpp \
 		moc_serial_port.cpp \
 		moc_receiver.cpp \
-		moc_auto_brightness.cpp
+		moc_auto_brightness.cpp \
+		moc_edit_shortcut.cpp
 OBJECTS       = main.o \
 		mainwidget.o \
 		homepage.o \
@@ -171,6 +173,7 @@ OBJECTS       = main.o \
 		serial_port.o \
 		receiver.o \
 		auto_brightness.o \
+		edit_shortcut.o \
 		qrc_res.o \
 		moc_mainwidget.o \
 		moc_homepage.o \
@@ -210,7 +213,8 @@ OBJECTS       = main.o \
 		moc_gearbox.o \
 		moc_serial_port.o \
 		moc_receiver.o \
-		moc_auto_brightness.o
+		moc_auto_brightness.o \
+		moc_edit_shortcut.o
 DIST          = /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/features/spec_pre.prf \
 		/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/common/unix.conf \
 		/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/common/linux.conf \
@@ -380,7 +384,8 @@ DIST          = /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linu
 		gearbox.h \
 		serial_port.h \
 		receiver.h \
-		auto_brightness.h main.cpp \
+		auto_brightness.h \
+		edit_shortcut.h main.cpp \
 		mainwidget.cpp \
 		homepage.cpp \
 		weight.cpp \
@@ -421,7 +426,8 @@ DIST          = /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linu
 		gearbox.cpp \
 		serial_port.cpp \
 		receiver.cpp \
-		auto_brightness.cpp
+		auto_brightness.cpp \
+		edit_shortcut.cpp
 QMAKE_TARGET  = 7in
 DESTDIR       = 
 TARGET        = 7in
@@ -430,7 +436,7 @@ TARGET        = 7in
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h $(OBJECTS)  
+$(TARGET): ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h ui_edit_shortcut.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: 7in.pro /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++/qmake.conf /opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/features/spec_pre.prf \
@@ -729,9 +735,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources/res.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwidget.h homepage.h weight.h video.h informationquery.h index.h zc.h power.h enigne.h liquid.h pressure.h temperature.h error.h warning.h driverpower.h isgpower.h help.h set.h login.h management.h adduser.h superuserpage.h generalsettings.h optionalfunction.h choosecartype.h weighingparameter.h frmnum.h buttondialog.h mytimer.h readdata.h frminput.h buttonwidget.h textwidget.h timewidget.h database_7in.h messagewidget.h lightwidget.h gearbox.h serial_port.h receiver.h auto_brightness.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwidget.cpp homepage.cpp weight.cpp video.cpp informationquery.cpp index.cpp zc.cpp power.cpp enigne.cpp liquid.cpp pressure.cpp temperature.cpp error.cpp warning.cpp driverpower.cpp isgpower.cpp help.cpp set.cpp login.cpp management.cpp adduser.cpp superuserpage.cpp generalsettings.cpp optionalfunction.cpp choosecartype.cpp weighingparameter.cpp frmnum.cpp buttondialog.cpp mytimer.cpp readdata.cpp frminput.cpp buttonwidget.cpp textwidget.cpp timewidget.cpp database_7in.cpp messagewidget.cpp lightwidget.cpp gearbox.cpp serial_port.cpp receiver.cpp auto_brightness.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwidget.ui homepage.ui weight.ui video.ui informationquery.ui index.ui zc.ui power.ui enigne.ui liquid.ui pressure.ui temperature.ui error.ui warning.ui driverpower.ui isgpower.ui help.ui set.ui login.ui management.ui adduser.ui superuserpage.ui generalsettings.ui optionalfunction.ui choosecartype.ui weighingparameter.ui frmnum.ui buttondialog.ui frminput.ui buttonwidget.ui textwidget.ui timewidget.ui messagewidget.ui lightwidget.ui gearbox.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwidget.h homepage.h weight.h video.h informationquery.h index.h zc.h power.h enigne.h liquid.h pressure.h temperature.h error.h warning.h driverpower.h isgpower.h help.h set.h login.h management.h adduser.h superuserpage.h generalsettings.h optionalfunction.h choosecartype.h weighingparameter.h frmnum.h buttondialog.h mytimer.h readdata.h frminput.h buttonwidget.h textwidget.h timewidget.h database_7in.h messagewidget.h lightwidget.h gearbox.h serial_port.h receiver.h auto_brightness.h edit_shortcut.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwidget.cpp homepage.cpp weight.cpp video.cpp informationquery.cpp index.cpp zc.cpp power.cpp enigne.cpp liquid.cpp pressure.cpp temperature.cpp error.cpp warning.cpp driverpower.cpp isgpower.cpp help.cpp set.cpp login.cpp management.cpp adduser.cpp superuserpage.cpp generalsettings.cpp optionalfunction.cpp choosecartype.cpp weighingparameter.cpp frmnum.cpp buttondialog.cpp mytimer.cpp readdata.cpp frminput.cpp buttonwidget.cpp textwidget.cpp timewidget.cpp database_7in.cpp messagewidget.cpp lightwidget.cpp gearbox.cpp serial_port.cpp receiver.cpp auto_brightness.cpp edit_shortcut.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwidget.ui homepage.ui weight.ui video.ui informationquery.ui index.ui zc.ui power.ui enigne.ui liquid.ui pressure.ui temperature.ui error.ui warning.ui driverpower.ui isgpower.ui help.ui set.ui login.ui management.ui adduser.ui superuserpage.ui generalsettings.ui optionalfunction.ui choosecartype.ui weighingparameter.ui frmnum.ui buttondialog.ui frminput.ui buttonwidget.ui textwidget.ui timewidget.ui messagewidget.ui lightwidget.ui gearbox.ui edit_shortcut.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -758,6 +764,7 @@ compiler_rcc_make_all: qrc_res.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_res.cpp
 qrc_res.cpp: resources/res.qrc \
+		resources/fadongji.png \
 		resources/5.png \
 		resources/Group42.png \
 		resources/LOGO2.png \
@@ -772,9 +779,11 @@ qrc_res.cpp: resources/res.qrc \
 		resources/Group@2x.png \
 		resources/Group52.png \
 		resources/5_4.png \
+		resources/temp.png \
 		resources/118.png \
 		resources/Group.png \
 		resources/11.png \
+		resources/gearbox1_anxia.PNG \
 		resources/new.qrc \
 		resources/6.png \
 		resources/img.qrc \
@@ -785,18 +794,20 @@ qrc_res.cpp: resources/res.qrc \
 		resources/41.png \
 		resources/Group2.png \
 		resources/LOGO.png \
+		resources/biansu.PNG \
 		resources/gearbox.png \
 		resources/res.qrc \
 		resources/37.png \
 		resources/117.png \
+		resources/yali.png \
 		resources/43.png \
 		resources/0_4.png \
 		resources/LOGO@2x.png
 	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/rcc -name res resources/res.qrc -o qrc_res.cpp
 
-compiler_moc_header_make_all: moc_mainwidget.cpp moc_homepage.cpp moc_weight.cpp moc_video.cpp moc_informationquery.cpp moc_index.cpp moc_zc.cpp moc_power.cpp moc_enigne.cpp moc_liquid.cpp moc_pressure.cpp moc_temperature.cpp moc_error.cpp moc_warning.cpp moc_driverpower.cpp moc_isgpower.cpp moc_help.cpp moc_set.cpp moc_login.cpp moc_management.cpp moc_adduser.cpp moc_superuserpage.cpp moc_generalsettings.cpp moc_optionalfunction.cpp moc_choosecartype.cpp moc_weighingparameter.cpp moc_frmnum.cpp moc_buttondialog.cpp moc_mytimer.cpp moc_frminput.cpp moc_buttonwidget.cpp moc_textwidget.cpp moc_timewidget.cpp moc_messagewidget.cpp moc_lightwidget.cpp moc_gearbox.cpp moc_serial_port.cpp moc_receiver.cpp moc_auto_brightness.cpp
+compiler_moc_header_make_all: moc_mainwidget.cpp moc_homepage.cpp moc_weight.cpp moc_video.cpp moc_informationquery.cpp moc_index.cpp moc_zc.cpp moc_power.cpp moc_enigne.cpp moc_liquid.cpp moc_pressure.cpp moc_temperature.cpp moc_error.cpp moc_warning.cpp moc_driverpower.cpp moc_isgpower.cpp moc_help.cpp moc_set.cpp moc_login.cpp moc_management.cpp moc_adduser.cpp moc_superuserpage.cpp moc_generalsettings.cpp moc_optionalfunction.cpp moc_choosecartype.cpp moc_weighingparameter.cpp moc_frmnum.cpp moc_buttondialog.cpp moc_mytimer.cpp moc_frminput.cpp moc_buttonwidget.cpp moc_textwidget.cpp moc_timewidget.cpp moc_messagewidget.cpp moc_lightwidget.cpp moc_gearbox.cpp moc_serial_port.cpp moc_receiver.cpp moc_auto_brightness.cpp moc_edit_shortcut.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwidget.cpp moc_homepage.cpp moc_weight.cpp moc_video.cpp moc_informationquery.cpp moc_index.cpp moc_zc.cpp moc_power.cpp moc_enigne.cpp moc_liquid.cpp moc_pressure.cpp moc_temperature.cpp moc_error.cpp moc_warning.cpp moc_driverpower.cpp moc_isgpower.cpp moc_help.cpp moc_set.cpp moc_login.cpp moc_management.cpp moc_adduser.cpp moc_superuserpage.cpp moc_generalsettings.cpp moc_optionalfunction.cpp moc_choosecartype.cpp moc_weighingparameter.cpp moc_frmnum.cpp moc_buttondialog.cpp moc_mytimer.cpp moc_frminput.cpp moc_buttonwidget.cpp moc_textwidget.cpp moc_timewidget.cpp moc_messagewidget.cpp moc_lightwidget.cpp moc_gearbox.cpp moc_serial_port.cpp moc_receiver.cpp moc_auto_brightness.cpp
+	-$(DEL_FILE) moc_mainwidget.cpp moc_homepage.cpp moc_weight.cpp moc_video.cpp moc_informationquery.cpp moc_index.cpp moc_zc.cpp moc_power.cpp moc_enigne.cpp moc_liquid.cpp moc_pressure.cpp moc_temperature.cpp moc_error.cpp moc_warning.cpp moc_driverpower.cpp moc_isgpower.cpp moc_help.cpp moc_set.cpp moc_login.cpp moc_management.cpp moc_adduser.cpp moc_superuserpage.cpp moc_generalsettings.cpp moc_optionalfunction.cpp moc_choosecartype.cpp moc_weighingparameter.cpp moc_frmnum.cpp moc_buttondialog.cpp moc_mytimer.cpp moc_frminput.cpp moc_buttonwidget.cpp moc_textwidget.cpp moc_timewidget.cpp moc_messagewidget.cpp moc_lightwidget.cpp moc_gearbox.cpp moc_serial_port.cpp moc_receiver.cpp moc_auto_brightness.cpp moc_edit_shortcut.cpp
 moc_mainwidget.cpp: homepage.h \
 		weight.h \
 		informationquery.h \
@@ -838,6 +849,7 @@ moc_mainwidget.cpp: homepage.h \
 		mytimer.h \
 		gearbox.h \
 		auto_brightness.h \
+		edit_shortcut.h \
 		mainwidget.h
 	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/moc $(DEFINES) -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++ -I/root/7in_pm -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimediaWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimedia -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtGui -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSql -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSerialPort -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtNetwork -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtConcurrent -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtCore -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/arm-poky-linux-gnueabi -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/backward -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include-fixed -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include mainwidget.h -o moc_mainwidget.cpp
 
@@ -1010,11 +1022,14 @@ moc_auto_brightness.cpp: serial_port.h \
 		auto_brightness.h
 	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/moc $(DEFINES) -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++ -I/root/7in_pm -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimediaWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimedia -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtGui -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSql -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSerialPort -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtNetwork -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtConcurrent -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtCore -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/arm-poky-linux-gnueabi -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/backward -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include-fixed -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include auto_brightness.h -o moc_auto_brightness.cpp
 
+moc_edit_shortcut.cpp: edit_shortcut.h
+	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/moc $(DEFINES) -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/linux-oe-g++ -I/root/7in_pm -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimediaWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtMultimedia -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtWidgets -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtGui -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSql -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtSerialPort -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtNetwork -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtConcurrent -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/qt5/QtCore -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0 -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/arm-poky-linux-gnueabi -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include/c++/5.3.0/backward -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/gcc/arm-poky-linux-gnueabi/5.3.0/include -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/5.3.0/include-fixed -I/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/include edit_shortcut.h -o moc_edit_shortcut.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h
+compiler_uic_make_all: ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h ui_edit_shortcut.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h
+	-$(DEL_FILE) ui_mainwidget.h ui_homepage.h ui_weight.h ui_video.h ui_informationquery.h ui_index.h ui_zc.h ui_power.h ui_enigne.h ui_liquid.h ui_pressure.h ui_temperature.h ui_error.h ui_warning.h ui_driverpower.h ui_isgpower.h ui_help.h ui_set.h ui_login.h ui_management.h ui_adduser.h ui_superuserpage.h ui_generalsettings.h ui_optionalfunction.h ui_choosecartype.h ui_weighingparameter.h ui_frmnum.h ui_buttondialog.h ui_frminput.h ui_buttonwidget.h ui_textwidget.h ui_timewidget.h ui_messagewidget.h ui_lightwidget.h ui_gearbox.h ui_edit_shortcut.h
 ui_mainwidget.h: mainwidget.ui
 	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/uic mainwidget.ui -o ui_mainwidget.h
 
@@ -1120,6 +1135,9 @@ ui_lightwidget.h: lightwidget.ui
 ui_gearbox.h: gearbox.ui
 	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/uic gearbox.ui -o ui_gearbox.h
 
+ui_edit_shortcut.h: edit_shortcut.ui
+	/opt/fsl-imx-x11/4.1.15-2.1.0/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/uic edit_shortcut.ui -o ui_edit_shortcut.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -1171,7 +1189,8 @@ main.o: main.cpp mainwidget.h \
 		readdata.h \
 		mytimer.h \
 		gearbox.h \
-		auto_brightness.h
+		auto_brightness.h \
+		edit_shortcut.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwidget.o: mainwidget.cpp mainwidget.h \
@@ -1216,6 +1235,7 @@ mainwidget.o: mainwidget.cpp mainwidget.h \
 		mytimer.h \
 		gearbox.h \
 		auto_brightness.h \
+		edit_shortcut.h \
 		ui_mainwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o mainwidget.cpp
 
@@ -1430,6 +1450,10 @@ auto_brightness.o: auto_brightness.cpp auto_brightness.h \
 		serial_port.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o auto_brightness.o auto_brightness.cpp
 
+edit_shortcut.o: edit_shortcut.cpp edit_shortcut.h \
+		ui_edit_shortcut.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o edit_shortcut.o edit_shortcut.cpp
+
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp
 
@@ -1549,6 +1573,9 @@ moc_receiver.o: moc_receiver.cpp
 
 moc_auto_brightness.o: moc_auto_brightness.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_auto_brightness.o moc_auto_brightness.cpp
+
+moc_edit_shortcut.o: moc_edit_shortcut.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_edit_shortcut.o moc_edit_shortcut.cpp
 
 ####### Install
 

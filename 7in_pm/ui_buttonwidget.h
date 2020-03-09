@@ -32,68 +32,69 @@ public:
     {
         if (ButtonWidget->objectName().isEmpty())
             ButtonWidget->setObjectName(QStringLiteral("ButtonWidget"));
-        ButtonWidget->resize(447, 310);
-        ButtonWidget->setMinimumSize(QSize(447, 310));
-        ButtonWidget->setMaximumSize(QSize(447, 310));
+        ButtonWidget->resize(600, 500);
+        ButtonWidget->setMinimumSize(QSize(600, 500));
+        ButtonWidget->setMaximumSize(QSize(600, 500));
         ButtonWidget->setStyleSheet(QStringLiteral(""));
         btn1 = new QPushButton(ButtonWidget);
         btn1->setObjectName(QStringLiteral("btn1"));
-        btn1->setGeometry(QRect(123, 88, 200, 60));
-        btn1->setMinimumSize(QSize(200, 60));
-        btn1->setMaximumSize(QSize(200, 60));
+        btn1->setGeometry(QRect(140, 140, 300, 90));
+        btn1->setMinimumSize(QSize(300, 90));
+        btn1->setMaximumSize(QSize(300, 90));
         btn1->setStyleSheet(QString::fromUtf8("QPushButton#btn1{\n"
 "\n"
-"background-image:url(:/\346\214\211\351\224\256_\351\200\211\351\241\271.png);\n"
+"border-image:url(:/\346\214\211\351\224\256_\351\200\211\351\241\271.png);\n"
 "border:none;\n"
-"font:  18pt \"Microsoft YaHei UI\";\n"
+"font:  30pt \"Microsoft YaHei UI\";\n"
 "\n"
 "	color: rgb(0, 0, 0);\n"
 "\n"
 "}\n"
 "QPushButton#btn1:pressed{\n"
-"background-image: url(:/\346\214\211\351\224\256_\351\200\211\351\241\271_\346\214\211\344\270\213.png);\n"
+"border-image: url(:/\346\214\211\351\224\256_\351\200\211\351\241\271_\346\214\211\344\270\213.png);\n"
 "border:none;\n"
-"font:  18pt \"Microsoft YaHei UI\";\n"
+"font:  30pt \"Microsoft YaHei UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "\n"
 "}"));
         btn2 = new QPushButton(ButtonWidget);
         btn2->setObjectName(QStringLiteral("btn2"));
-        btn2->setGeometry(QRect(123, 166, 200, 60));
-        btn2->setMinimumSize(QSize(200, 60));
-        btn2->setMaximumSize(QSize(200, 60));
+        btn2->setGeometry(QRect(140, 250, 300, 90));
+        btn2->setMinimumSize(QSize(300, 90));
+        btn2->setMaximumSize(QSize(300, 90));
         btn2->setStyleSheet(QString::fromUtf8("QPushButton#btn2{\n"
 "\n"
-"background-image:url(:/\346\214\211\351\224\256_\351\200\211\351\241\271.png);\n"
+"border-image:url(:/\346\214\211\351\224\256_\351\200\211\351\241\271.png);\n"
 "border:none;\n"
-"font: 18pt  \"Microsoft YaHei UI\";\n"
+"font: 30pt  \"Microsoft YaHei UI\";\n"
 "	color: rgb(0, 0, 0);\n"
 "}\n"
 "QPushButton#btn2:pressed{\n"
-"background-image: url(:/\346\214\211\351\224\256_\351\200\211\351\241\271_\346\214\211\344\270\213.png);\n"
+"border-image: url(:/\346\214\211\351\224\256_\351\200\211\351\241\271_\346\214\211\344\270\213.png);\n"
 "border:none;\n"
-"font:  18pt \"Microsoft YaHei UI\";\n"
+"font:  30pt \"Microsoft YaHei UI\";\n"
 "color:rgb(0, 0, 0);\n"
 "}"));
         close = new QPushButton(ButtonWidget);
         close->setObjectName(QStringLiteral("close"));
-        close->setGeometry(QRect(390, 10, 40, 40));
+        close->setGeometry(QRect(520, 20, 51, 51));
         close->setStyleSheet(QString::fromUtf8("QPushButton#close{\n"
 "\n"
-"background-image:url(:/29.png);\n"
+"border-image:url(:/29.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton#close:pressed{\n"
-"background-image: url(:/\344\276\247\351\224\256_\345\205\263\351\227\255\345\274\271\347\252\227_\346\214\211\344\270\213.png);\n"
+"border-image: url(:/\344\276\247\351\224\256_\345\205\263\351\227\255\345\274\271\347\252\227_\346\214\211\344\270\213.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}"));
         label = new QLabel(ButtonWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 0, 447, 310));
+        label->setGeometry(QRect(0, 10, 600, 500));
+        label->setMinimumSize(QSize(600, 500));
         label->setStyleSheet(QString::fromUtf8("background-image: url(:/\345\274\271\347\252\227.png);"));
         label->raise();
         btn1->raise();

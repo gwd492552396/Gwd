@@ -10,9 +10,7 @@ SuperUserPage::SuperUserPage(QWidget *parent) :
     Database_7in * db = new Database_7in();
     ui->le_limitspeed->setText(db->selectdata("车辆限速")+" km/h");
     ui->le_number->setText(db->selectdata("车架号"));
-    text = new TextWidget(this);
-    text->hide();
-    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
+
 }
 
 SuperUserPage::~SuperUserPage()
@@ -52,20 +50,32 @@ void SuperUserPage::on_btn_clear_clicked()
 }
 void SuperUserPage::on_btn_exit_clicked()
 {
-    emit exit(6);
+    emit exit(18);
+    emit loginstatus(-1);
+    emit senddata("未登录");
 }
 
 void SuperUserPage::on_btn_back_clicked()
 {
     emit previous(18);
 }
+void SuperUserPage::on_btn_back_home_clicked()
+{
+    emit previous(3);
+}
 
 void SuperUserPage::on_le_limitspeed_clicked()
 {
-        text->init("车辆限速");
+    TextWidget *text = new TextWidget(this);
+    text->hide();
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
+    text->init("车辆限速");
 }
 
 void SuperUserPage::on_le_number_clicked()
 {
-        text->init("车架号");
+    TextWidget *text = new TextWidget(this);
+    text->hide();
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
+    text->init("车架号");
 }

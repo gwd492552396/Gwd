@@ -36,7 +36,11 @@ public:
     QLabel *l_3;
     QSpacerItem *verticalSpacer_4;
     QLabel *l_4;
-    QSpacerItem *horizontalSpacer;
+    QWidget *widget_3;
+    QVBoxLayout *verticalLayout_3;
+    QSpacerItem *verticalSpacer_5;
+    QLabel *label;
+    QSpacerItem *verticalSpacer_10;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_2;
     QSpacerItem *verticalSpacer_6;
@@ -167,9 +171,38 @@ public:
 
         horizontalLayout->addWidget(widget);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        widget_3 = new QWidget(Help);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        widget_3->setStyleSheet(QStringLiteral("background:transparent;"));
+        verticalLayout_3 = new QVBoxLayout(widget_3);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout->addItem(horizontalSpacer);
+        verticalLayout_3->addItem(verticalSpacer_5);
+
+        label = new QLabel(widget_3);
+        label->setObjectName(QStringLiteral("label"));
+        label->setMinimumSize(QSize(0, 200));
+        label->setStyleSheet(QLatin1String("\n"
+"border:3px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
+"font: 28pt \"Microsoft YaHei UI\";\n"
+"color:rgb(44, 89, 191);\n"
+"background-color:rgb(255,255,255)\n"
+""));
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label);
+
+        verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_3->addItem(verticalSpacer_10);
+
+
+        horizontalLayout->addWidget(widget_3);
 
         widget_2 = new QWidget(Help);
         widget_2->setObjectName(QStringLiteral("widget_2"));
@@ -281,9 +314,12 @@ public:
         l_2->setText(QApplication::translate("Help", "\345\217\221\345\212\250\346\234\272\344\277\241\346\201\257", 0));
         l_3->setText(QApplication::translate("Help", "\347\247\260\351\207\215\347\263\273\347\273\237", 0));
         l_4->setText(QApplication::translate("Help", "\345\233\236\345\210\260\344\270\273\347\225\214\351\235\242", 0));
+        label->setText(QApplication::translate("Help", "\345\277\253\346\215\267\351\224\256\345\220\215\347\247\260\350\247\201\n"
+"\345\220\204\345\277\253\346\215\267\351\224\256\346\227\201\n"
+"\346\226\207\345\255\227\350\257\264\346\230\216", 0));
         r_1->setText(QApplication::translate("Help", "\345\270\256\345\212\251\344\277\241\346\201\257", 0));
-        r_2->setText(QApplication::translate("Help", "\345\216\213\345\212\233\344\277\241\346\201\257", 0));
-        r_3->setText(QApplication::translate("Help", "\345\217\230\351\200\237\347\256\261\344\277\241\346\201\257", 0));
+        r_2->setText(QApplication::translate("Help", "\345\217\230\351\200\237\347\256\261\344\277\241\346\201\257", 0));
+        r_3->setText(QApplication::translate("Help", "\345\216\213\345\212\233\344\277\241\346\201\257", 0));
         r_4->setText(QApplication::translate("Help", "\350\277\224\345\233\236", 0));
     } // retranslateUi
 

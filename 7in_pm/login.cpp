@@ -7,60 +7,37 @@ Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
 {
-       ui->setupUi(this);
+    ui->setupUi(this);
 
-
-
-//    QGridLayout *glayout = new QGridLayout;
-//    QGridLayout *g1 = new QGridLayout;
-//    keynum = new frmNum();
-//    keyinput = new frmInput();
-      keyinput = frmInput::Instance();
-      keynum = frmNum::Instance();
-      keyinput->move(410,330);
-      keynum->move(410,330);
-//    keynum->setVisible(false);           //modified by gwd
-//    keyinput->setVisible(true);
     ui->le_name->setMaximumWidth(120);
     ui->le_passewd->setMaximumWidth(120);
 
-
-
-
-//    glayout->addWidget(ui->label_tubiao,0,0,2,1,Qt::AlignRight);             //modified by gwd
-//    glayout->addWidget(ui->label_name,0,1,1,1,Qt::AlignRight);
-//    glayout->addWidget(ui->label_passwd,1,1,1,1,Qt::AlignRight);
-//    glayout->addWidget(ui->le_name,0,2,1,1,Qt::AlignLeft);
-//    glayout->addWidget(ui->le_passewd,1,2,1,1,Qt::AlignLeft);
-//    glayout->setHorizontalSpacing(15);
-//    glayout->setVerticalSpacing(10);
-
-//    g1->addLayout(glayout,0,0,1,3,Qt::AlignHCenter);
-//    g1->addWidget(keynum,1,0,2,3,Qt::AlignHCenter | Qt::AlignVCenter);
-//    g1->addWidget(keyinput,1,0,2,3,Qt::AlignHCenter | Qt::AlignVCenter);
-//    g1->addWidget(ui->btn_back,2,2,1,1,Qt::AlignRight | Qt::AlignVCenter);
-//    g1->addWidget(ui->btn_login,2,0,1,1,Qt::AlignLeft | Qt::AlignVCenter);
-
-//    g1->setHorizontalSpacing(20);
-//    g1->setVerticalSpacing(5);
-//    g1->setContentsMargins(20,30,20,10);
-
-//    setLayout(g1);
-    ui->le_name->setFocus();
-
+    keyinput = frmInput::Instance();
+    keynum = frmNum::Instance();
+    keyinput->move(350,330);
+    keynum->move(410,330);
     connect(keynum,SIGNAL(change(int)),this,SLOT(receive(int)));
     connect(keyinput,SIGNAL(change(int)),this,SLOT(receive(int)));
-
-
-
+    ui->le_name->setFocus();
     database = new Database_7in();
     database->initdb();
+    emit log(QString::number(database->result1));
+
+   // ui->le_name->activateWindow();
 }
 
 Login::~Login()
 {
     delete ui;
 }
+
+//void Login::mousePressEvent(QMouseEvent *ev)
+//{
+//   if (ev->button() == Qt::LeftButton)
+//   {
+//       if (ev->x())
+//   }
+//}
 
 
 void Login::on_btn_login_clicked()
@@ -70,21 +47,25 @@ void Login::on_btn_login_clicked()
     if(username.isEmpty() || password.isEmpty())
     {
         MessageWidget * mess = new MessageWidget(this);
+        connect(mess,SIGNAL(message_close()),this,SLOT(message_close()));
         mess->init("登录失败","请输入用户名和密码");
-        emit log("failed,please input\n");
         ui->le_name->setText("");
         ui->le_passewd->setText("");
         ui->le_name->setFocus();
+        keynum->hide();
+        keyinput->hide();
         return;
     }
     else if(username.length()!= 6 || password.length()!= 6)
     {
-         MessageWidget * mess = new MessageWidget(this);
+        MessageWidget * mess = new MessageWidget(this);
+        connect(mess,SIGNAL(message_close()),this,SLOT(message_close()));
         mess->init("登录失败","用户名或密码长度错误");
-        emit log("failed,length error\n");
         ui->le_name->setText("");
         ui->le_passewd->setText("");
         ui->le_name->setFocus();
+        keynum->hide();
+        keyinput->hide();
         return;
     }
     QString str = "";
@@ -96,16 +77,20 @@ void Login::on_btn_login_clicked()
         ui->le_passewd->setText("");
         ui->le_name->setFocus();
          MessageWidget * mess = new MessageWidget(this);
+         connect(mess,SIGNAL(message_close()),this,SLOT(message_close()));
         mess->init("登录失败","用户名不存在");
-        emit log("failed,non-existent\n");
+        keynum->hide();
+        keyinput->hide();
     }
     else if(str != password)
     {
         ui->le_passewd->setText("");
         ui->le_passewd->setFocus();
          MessageWidget * mess = new MessageWidget(this);
+         connect(mess,SIGNAL(message_close()),this,SLOT(message_close()));
         mess->init("登录失败","密码错误");
-        emit log("failed,password error\n");
+        keynum->hide();
+        keyinput->hide();
     }
 
     else
@@ -128,6 +113,16 @@ void Login::on_btn_back_clicked()
     emit previous(18);
 }
 
+void Login::message_close()
+{
+    keynum->show();
+}
+
+void Login::on_btn_fast_login_clicked()
+{
+    emit previous(20);
+}
+
 void Login::receive(int i)
 {
     if(i == 0)
@@ -140,4 +135,10 @@ void Login::receive(int i)
         keyinput->setVisible(false);
         keynum->setVisible(true);
     }
+}
+
+void Login::receive_fast_login(QString name)
+{
+    ui->le_name->setText(name);
+    ui->le_passewd->setFocus();
 }

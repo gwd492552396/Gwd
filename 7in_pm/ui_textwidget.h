@@ -39,7 +39,7 @@ public:
         TextWidget->setStyleSheet(QStringLiteral(""));
         le_number = new QLineEdit(TextWidget);
         le_number->setObjectName(QStringLiteral("le_number"));
-        le_number->setGeometry(QRect(150, 110, 281, 61));
+        le_number->setGeometry(QRect(160, 110, 281, 61));
         le_number->setMinimumSize(QSize(149, 31));
         le_number->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
 "font: 22pt \"Ubuntu\";\n"
@@ -47,23 +47,23 @@ public:
         le_number->setAlignment(Qt::AlignCenter);
         close = new QPushButton(TextWidget);
         close->setObjectName(QStringLiteral("close"));
-        close->setGeometry(QRect(540, 10, 40, 40));
+        close->setGeometry(QRect(520, 10, 61, 61));
         close->setStyleSheet(QString::fromUtf8("QPushButton#close{\n"
 "\n"
-"background-image:url(:/29.png);\n"
+"border-image:url(:/29.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton#close:pressed{\n"
-"background-image: url(:/\344\276\247\351\224\256_\345\205\263\351\227\255\345\274\271\347\252\227_\346\214\211\344\270\213.png);\n"
+"border-image: url(:/\344\276\247\351\224\256_\345\205\263\351\227\255\345\274\271\347\252\227_\346\214\211\344\270\213.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}"));
         lb_prog = new QLabel(TextWidget);
         lb_prog->setObjectName(QStringLiteral("lb_prog"));
-        lb_prog->setGeometry(QRect(180, 30, 231, 51));
+        lb_prog->setGeometry(QRect(140, 30, 311, 51));
         lb_prog->setMinimumSize(QSize(73, 24));
         lb_prog->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
 "font: 22pt \"Ubuntu\";\n"

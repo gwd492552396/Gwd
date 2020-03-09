@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWidget_t {
-    QByteArrayData data[35];
-    char stringdata0[454];
+    QByteArrayData data[67];
+    char stringdata0[1167];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,41 +43,91 @@ QT_MOC_LITERAL(10, 100, 10), // "slide_gear"
 QT_MOC_LITERAL(11, 111, 12), // "slide_engine"
 QT_MOC_LITERAL(12, 124, 14), // "slide_pressure"
 QT_MOC_LITERAL(13, 139, 3), // "log"
-QT_MOC_LITERAL(14, 143, 8), // "set_type"
-QT_MOC_LITERAL(15, 152, 4), // "type"
-QT_MOC_LITERAL(16, 157, 9), // "set_state"
-QT_MOC_LITERAL(17, 167, 5), // "state"
-QT_MOC_LITERAL(18, 173, 8), // "set_date"
-QT_MOC_LITERAL(19, 182, 4), // "date"
-QT_MOC_LITERAL(20, 187, 8), // "set_time"
-QT_MOC_LITERAL(21, 196, 4), // "time"
-QT_MOC_LITERAL(22, 201, 12), // "update_stack"
-QT_MOC_LITERAL(23, 214, 13), // "set_sys_value"
-QT_MOC_LITERAL(24, 228, 20), // "on_btn_video_clicked"
-QT_MOC_LITERAL(25, 249, 21), // "on_btn_weight_clicked"
-QT_MOC_LITERAL(26, 271, 19), // "on_btn_home_clicked"
-QT_MOC_LITERAL(27, 291, 19), // "on_btn_help_clicked"
-QT_MOC_LITERAL(28, 311, 19), // "on_btn_back_clicked"
-QT_MOC_LITERAL(29, 331, 23), // "on_btn_pressure_clicked"
-QT_MOC_LITERAL(30, 355, 21), // "on_btn_engine_clicked"
-QT_MOC_LITERAL(31, 377, 22), // "on_btn_gearbox_clicked"
-QT_MOC_LITERAL(32, 400, 11), // "receivename"
-QT_MOC_LITERAL(33, 412, 23), // "c_stackedwidget_changed"
-QT_MOC_LITERAL(34, 436, 17) // "set_receiver_stop"
+QT_MOC_LITERAL(14, 143, 10), // "edit_reset"
+QT_MOC_LITERAL(15, 154, 13), // "change_weight"
+QT_MOC_LITERAL(16, 168, 12), // "change_video"
+QT_MOC_LITERAL(17, 181, 8), // "set_type"
+QT_MOC_LITERAL(18, 190, 4), // "type"
+QT_MOC_LITERAL(19, 195, 9), // "set_state"
+QT_MOC_LITERAL(20, 205, 5), // "state"
+QT_MOC_LITERAL(21, 211, 8), // "set_date"
+QT_MOC_LITERAL(22, 220, 4), // "date"
+QT_MOC_LITERAL(23, 225, 8), // "set_time"
+QT_MOC_LITERAL(24, 234, 4), // "time"
+QT_MOC_LITERAL(25, 239, 12), // "update_stack"
+QT_MOC_LITERAL(26, 252, 13), // "set_sys_value"
+QT_MOC_LITERAL(27, 266, 21), // "on_btn_video1_clicked"
+QT_MOC_LITERAL(28, 288, 22), // "on_btn_weight1_clicked"
+QT_MOC_LITERAL(29, 311, 21), // "on_btn_video2_clicked"
+QT_MOC_LITERAL(30, 333, 22), // "on_btn_weight2_clicked"
+QT_MOC_LITERAL(31, 356, 21), // "on_btn_video3_clicked"
+QT_MOC_LITERAL(32, 378, 22), // "on_btn_weight3_clicked"
+QT_MOC_LITERAL(33, 401, 22), // "on_btn_weight6_clicked"
+QT_MOC_LITERAL(34, 424, 22), // "on_btn_weight7_clicked"
+QT_MOC_LITERAL(35, 447, 19), // "on_btn_home_clicked"
+QT_MOC_LITERAL(36, 467, 20), // "on_btn_help1_clicked"
+QT_MOC_LITERAL(37, 488, 20), // "on_btn_help2_clicked"
+QT_MOC_LITERAL(38, 509, 20), // "on_btn_help3_clicked"
+QT_MOC_LITERAL(39, 530, 19), // "on_btn_back_clicked"
+QT_MOC_LITERAL(40, 550, 24), // "on_btn_pressure1_clicked"
+QT_MOC_LITERAL(41, 575, 24), // "on_btn_pressure2_clicked"
+QT_MOC_LITERAL(42, 600, 24), // "on_btn_pressure3_clicked"
+QT_MOC_LITERAL(43, 625, 24), // "on_btn_pressure6_clicked"
+QT_MOC_LITERAL(44, 650, 24), // "on_btn_pressure7_clicked"
+QT_MOC_LITERAL(45, 675, 22), // "on_btn_engine1_clicked"
+QT_MOC_LITERAL(46, 698, 22), // "on_btn_engine2_clicked"
+QT_MOC_LITERAL(47, 721, 22), // "on_btn_engine3_clicked"
+QT_MOC_LITERAL(48, 744, 22), // "on_btn_engine6_clicked"
+QT_MOC_LITERAL(49, 767, 22), // "on_btn_engine7_clicked"
+QT_MOC_LITERAL(50, 790, 23), // "on_btn_gearbox1_clicked"
+QT_MOC_LITERAL(51, 814, 23), // "on_btn_gearbox2_clicked"
+QT_MOC_LITERAL(52, 838, 23), // "on_btn_gearbox3_clicked"
+QT_MOC_LITERAL(53, 862, 23), // "on_btn_gearbox6_clicked"
+QT_MOC_LITERAL(54, 886, 23), // "on_btn_gearbox7_clicked"
+QT_MOC_LITERAL(55, 910, 22), // "on_btn_temper2_clicked"
+QT_MOC_LITERAL(56, 933, 22), // "on_btn_temper3_clicked"
+QT_MOC_LITERAL(57, 956, 22), // "on_btn_temper6_clicked"
+QT_MOC_LITERAL(58, 979, 22), // "on_btn_temper7_clicked"
+QT_MOC_LITERAL(59, 1002, 22), // "on_btn_liquid2_clicked"
+QT_MOC_LITERAL(60, 1025, 22), // "on_btn_liquid3_clicked"
+QT_MOC_LITERAL(61, 1048, 22), // "on_btn_liquid6_clicked"
+QT_MOC_LITERAL(62, 1071, 22), // "on_btn_liquid7_clicked"
+QT_MOC_LITERAL(63, 1094, 11), // "receivename"
+QT_MOC_LITERAL(64, 1106, 23), // "c_stackedwidget_changed"
+QT_MOC_LITERAL(65, 1130, 17), // "set_receiver_stop"
+QT_MOC_LITERAL(66, 1148, 18) // "edit_shortcut_save"
 
     },
     "MainWidget\0slide_video\0\0slide_weight\0"
     "slide_power\0slide_home\0slide_help\0"
     "slide_isg\0slide_tm\0slide_set\0slide_gear\0"
     "slide_engine\0slide_pressure\0log\0"
+    "edit_reset\0change_weight\0change_video\0"
     "set_type\0type\0set_state\0state\0set_date\0"
     "date\0set_time\0time\0update_stack\0"
-    "set_sys_value\0on_btn_video_clicked\0"
-    "on_btn_weight_clicked\0on_btn_home_clicked\0"
-    "on_btn_help_clicked\0on_btn_back_clicked\0"
-    "on_btn_pressure_clicked\0on_btn_engine_clicked\0"
-    "on_btn_gearbox_clicked\0receivename\0"
-    "c_stackedwidget_changed\0set_receiver_stop"
+    "set_sys_value\0on_btn_video1_clicked\0"
+    "on_btn_weight1_clicked\0on_btn_video2_clicked\0"
+    "on_btn_weight2_clicked\0on_btn_video3_clicked\0"
+    "on_btn_weight3_clicked\0on_btn_weight6_clicked\0"
+    "on_btn_weight7_clicked\0on_btn_home_clicked\0"
+    "on_btn_help1_clicked\0on_btn_help2_clicked\0"
+    "on_btn_help3_clicked\0on_btn_back_clicked\0"
+    "on_btn_pressure1_clicked\0"
+    "on_btn_pressure2_clicked\0"
+    "on_btn_pressure3_clicked\0"
+    "on_btn_pressure6_clicked\0"
+    "on_btn_pressure7_clicked\0"
+    "on_btn_engine1_clicked\0on_btn_engine2_clicked\0"
+    "on_btn_engine3_clicked\0on_btn_engine6_clicked\0"
+    "on_btn_engine7_clicked\0on_btn_gearbox1_clicked\0"
+    "on_btn_gearbox2_clicked\0on_btn_gearbox3_clicked\0"
+    "on_btn_gearbox6_clicked\0on_btn_gearbox7_clicked\0"
+    "on_btn_temper2_clicked\0on_btn_temper3_clicked\0"
+    "on_btn_temper6_clicked\0on_btn_temper7_clicked\0"
+    "on_btn_liquid2_clicked\0on_btn_liquid3_clicked\0"
+    "on_btn_liquid6_clicked\0on_btn_liquid7_clicked\0"
+    "receivename\0c_stackedwidget_changed\0"
+    "set_receiver_stop\0edit_shortcut_save"
 };
 #undef QT_MOC_LITERAL
 
@@ -87,45 +137,77 @@ static const uint qt_meta_data_MainWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      29,   14, // methods
+      61,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      12,       // signalCount
+      13,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  159,    2, 0x06 /* Public */,
-       3,    1,  162,    2, 0x06 /* Public */,
-       4,    1,  165,    2, 0x06 /* Public */,
-       5,    1,  168,    2, 0x06 /* Public */,
-       6,    1,  171,    2, 0x06 /* Public */,
-       7,    1,  174,    2, 0x06 /* Public */,
-       8,    1,  177,    2, 0x06 /* Public */,
-       9,    1,  180,    2, 0x06 /* Public */,
-      10,    1,  183,    2, 0x06 /* Public */,
-      11,    1,  186,    2, 0x06 /* Public */,
-      12,    1,  189,    2, 0x06 /* Public */,
-      13,    1,  192,    2, 0x06 /* Public */,
+       1,    1,  319,    2, 0x06 /* Public */,
+       3,    1,  322,    2, 0x06 /* Public */,
+       4,    1,  325,    2, 0x06 /* Public */,
+       5,    1,  328,    2, 0x06 /* Public */,
+       6,    1,  331,    2, 0x06 /* Public */,
+       7,    1,  334,    2, 0x06 /* Public */,
+       8,    1,  337,    2, 0x06 /* Public */,
+       9,    1,  340,    2, 0x06 /* Public */,
+      10,    1,  343,    2, 0x06 /* Public */,
+      11,    1,  346,    2, 0x06 /* Public */,
+      12,    1,  349,    2, 0x06 /* Public */,
+      13,    1,  352,    2, 0x06 /* Public */,
+      14,    0,  355,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      14,    1,  195,    2, 0x08 /* Private */,
-      16,    1,  198,    2, 0x08 /* Private */,
-      18,    1,  201,    2, 0x08 /* Private */,
-      20,    1,  204,    2, 0x08 /* Private */,
-      22,    0,  207,    2, 0x08 /* Private */,
-      23,    0,  208,    2, 0x08 /* Private */,
-      24,    0,  209,    2, 0x08 /* Private */,
-      25,    0,  210,    2, 0x08 /* Private */,
-      26,    0,  211,    2, 0x08 /* Private */,
-      27,    0,  212,    2, 0x08 /* Private */,
-      28,    0,  213,    2, 0x08 /* Private */,
-      29,    0,  214,    2, 0x08 /* Private */,
-      30,    0,  215,    2, 0x08 /* Private */,
-      31,    0,  216,    2, 0x08 /* Private */,
-      32,    1,  217,    2, 0x08 /* Private */,
-      33,    1,  220,    2, 0x08 /* Private */,
-      34,    0,  223,    2, 0x08 /* Private */,
+      15,    0,  356,    2, 0x08 /* Private */,
+      16,    0,  357,    2, 0x08 /* Private */,
+      17,    1,  358,    2, 0x08 /* Private */,
+      19,    1,  361,    2, 0x08 /* Private */,
+      21,    1,  364,    2, 0x08 /* Private */,
+      23,    1,  367,    2, 0x08 /* Private */,
+      25,    0,  370,    2, 0x08 /* Private */,
+      26,    0,  371,    2, 0x08 /* Private */,
+      27,    0,  372,    2, 0x08 /* Private */,
+      28,    0,  373,    2, 0x08 /* Private */,
+      29,    0,  374,    2, 0x08 /* Private */,
+      30,    0,  375,    2, 0x08 /* Private */,
+      31,    0,  376,    2, 0x08 /* Private */,
+      32,    0,  377,    2, 0x08 /* Private */,
+      33,    0,  378,    2, 0x08 /* Private */,
+      34,    0,  379,    2, 0x08 /* Private */,
+      35,    0,  380,    2, 0x08 /* Private */,
+      36,    0,  381,    2, 0x08 /* Private */,
+      37,    0,  382,    2, 0x08 /* Private */,
+      38,    0,  383,    2, 0x08 /* Private */,
+      39,    0,  384,    2, 0x08 /* Private */,
+      40,    0,  385,    2, 0x08 /* Private */,
+      41,    0,  386,    2, 0x08 /* Private */,
+      42,    0,  387,    2, 0x08 /* Private */,
+      43,    0,  388,    2, 0x08 /* Private */,
+      44,    0,  389,    2, 0x08 /* Private */,
+      45,    0,  390,    2, 0x08 /* Private */,
+      46,    0,  391,    2, 0x08 /* Private */,
+      47,    0,  392,    2, 0x08 /* Private */,
+      48,    0,  393,    2, 0x08 /* Private */,
+      49,    0,  394,    2, 0x08 /* Private */,
+      50,    0,  395,    2, 0x08 /* Private */,
+      51,    0,  396,    2, 0x08 /* Private */,
+      52,    0,  397,    2, 0x08 /* Private */,
+      53,    0,  398,    2, 0x08 /* Private */,
+      54,    0,  399,    2, 0x08 /* Private */,
+      55,    0,  400,    2, 0x08 /* Private */,
+      56,    0,  401,    2, 0x08 /* Private */,
+      57,    0,  402,    2, 0x08 /* Private */,
+      58,    0,  403,    2, 0x08 /* Private */,
+      59,    0,  404,    2, 0x08 /* Private */,
+      60,    0,  405,    2, 0x08 /* Private */,
+      61,    0,  406,    2, 0x08 /* Private */,
+      62,    0,  407,    2, 0x08 /* Private */,
+      63,    1,  408,    2, 0x08 /* Private */,
+      64,    1,  411,    2, 0x08 /* Private */,
+      65,    0,  414,    2, 0x08 /* Private */,
+      66,    4,  415,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -140,12 +222,43 @@ static const uint qt_meta_data_MainWidget[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,   15,
-    QMetaType::Void, QMetaType::QString,   17,
-    QMetaType::Void, QMetaType::QString,   19,
-    QMetaType::Void, QMetaType::QString,   21,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   20,
+    QMetaType::Void, QMetaType::QString,   22,
+    QMetaType::Void, QMetaType::QString,   24,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -159,6 +272,7 @@ static const uint qt_meta_data_MainWidget[] = {
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    2,    2,    2,    2,
 
        0        // eod
 };
@@ -181,23 +295,55 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->slide_engine((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->slide_pressure((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->log((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 12: _t->set_type((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 13: _t->set_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 14: _t->set_date((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 15: _t->set_time((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 16: _t->update_stack(); break;
-        case 17: _t->set_sys_value(); break;
-        case 18: _t->on_btn_video_clicked(); break;
-        case 19: _t->on_btn_weight_clicked(); break;
-        case 20: _t->on_btn_home_clicked(); break;
-        case 21: _t->on_btn_help_clicked(); break;
-        case 22: _t->on_btn_back_clicked(); break;
-        case 23: _t->on_btn_pressure_clicked(); break;
-        case 24: _t->on_btn_engine_clicked(); break;
-        case 25: _t->on_btn_gearbox_clicked(); break;
-        case 26: _t->receivename((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 27: _t->c_stackedwidget_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 28: _t->set_receiver_stop(); break;
+        case 12: _t->edit_reset(); break;
+        case 13: _t->change_weight(); break;
+        case 14: _t->change_video(); break;
+        case 15: _t->set_type((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 16: _t->set_state((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 17: _t->set_date((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 18: _t->set_time((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 19: _t->update_stack(); break;
+        case 20: _t->set_sys_value(); break;
+        case 21: _t->on_btn_video1_clicked(); break;
+        case 22: _t->on_btn_weight1_clicked(); break;
+        case 23: _t->on_btn_video2_clicked(); break;
+        case 24: _t->on_btn_weight2_clicked(); break;
+        case 25: _t->on_btn_video3_clicked(); break;
+        case 26: _t->on_btn_weight3_clicked(); break;
+        case 27: _t->on_btn_weight6_clicked(); break;
+        case 28: _t->on_btn_weight7_clicked(); break;
+        case 29: _t->on_btn_home_clicked(); break;
+        case 30: _t->on_btn_help1_clicked(); break;
+        case 31: _t->on_btn_help2_clicked(); break;
+        case 32: _t->on_btn_help3_clicked(); break;
+        case 33: _t->on_btn_back_clicked(); break;
+        case 34: _t->on_btn_pressure1_clicked(); break;
+        case 35: _t->on_btn_pressure2_clicked(); break;
+        case 36: _t->on_btn_pressure3_clicked(); break;
+        case 37: _t->on_btn_pressure6_clicked(); break;
+        case 38: _t->on_btn_pressure7_clicked(); break;
+        case 39: _t->on_btn_engine1_clicked(); break;
+        case 40: _t->on_btn_engine2_clicked(); break;
+        case 41: _t->on_btn_engine3_clicked(); break;
+        case 42: _t->on_btn_engine6_clicked(); break;
+        case 43: _t->on_btn_engine7_clicked(); break;
+        case 44: _t->on_btn_gearbox1_clicked(); break;
+        case 45: _t->on_btn_gearbox2_clicked(); break;
+        case 46: _t->on_btn_gearbox3_clicked(); break;
+        case 47: _t->on_btn_gearbox6_clicked(); break;
+        case 48: _t->on_btn_gearbox7_clicked(); break;
+        case 49: _t->on_btn_temper2_clicked(); break;
+        case 50: _t->on_btn_temper3_clicked(); break;
+        case 51: _t->on_btn_temper6_clicked(); break;
+        case 52: _t->on_btn_temper7_clicked(); break;
+        case 53: _t->on_btn_liquid2_clicked(); break;
+        case 54: _t->on_btn_liquid3_clicked(); break;
+        case 55: _t->on_btn_liquid6_clicked(); break;
+        case 56: _t->on_btn_liquid7_clicked(); break;
+        case 57: _t->receivename((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 58: _t->c_stackedwidget_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 59: _t->set_receiver_stop(); break;
+        case 60: _t->edit_shortcut_save((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -287,6 +433,13 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
                 return;
             }
         }
+        {
+            typedef void (MainWidget::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWidget::edit_reset)) {
+                *result = 12;
+                return;
+            }
+        }
     }
 }
 
@@ -315,13 +468,13 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 29)
+        if (_id < 61)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 29;
+        _id -= 61;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 29)
+        if (_id < 61)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 29;
+        _id -= 61;
     }
     return _id;
 }
@@ -408,5 +561,11 @@ void MainWidget::log(QString _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 11, _a);
+}
+
+// SIGNAL 12
+void MainWidget::edit_reset()
+{
+    QMetaObject::activate(this, &staticMetaObject, 12, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

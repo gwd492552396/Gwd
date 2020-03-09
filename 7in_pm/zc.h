@@ -45,7 +45,7 @@ private slots:
 
     void on_btn_back_clicked();
 
-    void set_enigne_total_hours(const QString &eth);
+
 
 private:
     Ui::ZC *ui;

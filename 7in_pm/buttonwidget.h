@@ -17,6 +17,10 @@ public:
 
     void init(int flag);
     ~ButtonWidget();
+
+signals:
+    void language(QString);
+    void unit(QString);
 protected:
     //void paintEvent(QPaintEvent *event);
 

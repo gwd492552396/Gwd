@@ -127,5 +127,5 @@ void Warning::create_table()
 
 void Warning::on_btn_back_clicked()
 {
-    emit previous(2);
+    emit previous(5);
 }

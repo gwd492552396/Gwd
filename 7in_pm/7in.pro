@@ -61,7 +61,8 @@ SOURCES += main.cpp\
     gearbox.cpp \
     serial_port.cpp \
     receiver.cpp \
-    auto_brightness.cpp
+    auto_brightness.cpp \
+    edit_shortcut.cpp
 
 HEADERS  += mainwidget.h \
     homepage.h \
@@ -103,7 +104,8 @@ HEADERS  += mainwidget.h \
     gearbox.h \
     serial_port.h \
     receiver.h \
-    auto_brightness.h
+    auto_brightness.h \
+    edit_shortcut.h
 
 FORMS    += mainwidget.ui \
     homepage.ui \
@@ -139,7 +141,8 @@ FORMS    += mainwidget.ui \
     timewidget.ui \
     messagewidget.ui \
     lightwidget.ui \
-    gearbox.ui
+    gearbox.ui \
+    edit_shortcut.ui
 
 RESOURCES += \
     resources/res.qrc

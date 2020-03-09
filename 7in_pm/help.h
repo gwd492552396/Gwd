@@ -15,6 +15,9 @@ public:
     explicit Help(QWidget *parent = 0);
     ~Help();
 
+private slots:
+    void edit_shortcut_save(int,int,int,int);
+
 private:
     Ui::Help *ui;
 };

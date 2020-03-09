@@ -49,7 +49,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>80</height>
+       <height>60</height>
       </size>
      </property>
     </spacer>
@@ -62,7 +62,10 @@
        <height>16777215</height>
       </size>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -75,31 +78,47 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <property name="spacing">
-       <number>6</number>
-      </property>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="btn_temp">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#btn_temp{
+      <item>
+       <widget class="QWidget" name="widget_3" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_temp">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#btn_temp{
 background-image: url(:/按键_温度信息2.png);
 border:none;
 }
@@ -107,57 +126,28 @@ QPushButton#btn_temp:pressed{
 background-image: url(:/按键_温度信息_按下2.png);
 border:none;
 }</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="btn_liquid">
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#btn_liquid{
-background-image: url(:/按键_液位信息2.png);
-border:none;
-}
-QPushButton#btn_liquid:pressed{
-background-image: url(:/按键_液位信息_按下2.png);
-border:none;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="btn_pressure">
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#btn_pressure{
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_pressure">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#btn_pressure{
 background-image: url(:/按键_压力信息2.png);
 border:none;
 }
@@ -165,101 +155,57 @@ QPushButton#btn_pressure:pressed{
 background-image: url(:/按键_压力信息_按下2.png);
 border:none;
 }</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3" colspan="2">
-       <widget class="QWidget" name="total_hours" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>366</width>
-          <height>174</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>366</width>
-          <height>174</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数_宽2.png);</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
-         <item>
-          <widget class="QLabel" name="enegin_hours">
-           <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 32px;
-color: #FFFFFF;
-background:transparent;</string>
            </property>
            <property name="text">
-            <string>11时5分</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <string/>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_2">
-           <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 26px;
-color: #FFFFFF;
-background:transparent;</string>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-           <property name="text">
-            <string>发动机累计运行时长</string>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
+          </spacer>
          </item>
         </layout>
        </widget>
       </item>
-      <item row="0" column="0">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="5">
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="btn_gearbox">
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton#btn_gearbox{
+      <item>
+       <widget class="QWidget" name="widget_4" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_gearbox">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#btn_gearbox{
 background-image: url(:/gearbox.png);
 border:none;
 }
@@ -267,28 +213,73 @@ QPushButton#btn_gearbox:pressed{
 background-image: url(:/gearbox.png);
 border:none;
 }</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="btn_engine">
-        <property name="minimumSize">
-         <size>
-          <width>180</width>
-          <height>180</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/按键_发动机2.png);
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_liquid">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#btn_liquid{
+background-image: url(:/按键_液位信息2.png);
+border:none;
+}
+QPushButton#btn_liquid:pressed{
+background-image: url(:/按键_液位信息_按下2.png);
+border:none;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_engine">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>180</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-image: url(:/按键_发动机2.png);
 border:none;
 </string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>

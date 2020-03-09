@@ -43,6 +43,7 @@
 #include "gearbox.h"
 #include "serial_port.h"
 #include "auto_brightness.h"
+#include "edit_shortcut.h"
 namespace Ui {
 class MainWidget;
 }
@@ -71,12 +72,16 @@ signals:
     void slide_engine(int);
     void slide_pressure(int);
     void log(QString);
+    void edit_reset();
+
 
 
 
 
 
 private slots:
+    void change_weight();
+    void change_video();
 
     void set_type(const QString &type);
     void set_state(const QString &state);
@@ -85,15 +90,26 @@ private slots:
     void update_stack();
     void set_sys_value();
 
-    void on_btn_video_clicked();
+    void on_btn_video1_clicked();
+    void on_btn_weight1_clicked();
 
-    void on_btn_weight_clicked();
+    void on_btn_video2_clicked();
+    void on_btn_weight2_clicked();
+
+    void on_btn_video3_clicked();
+    void on_btn_weight3_clicked();
+
+    void on_btn_weight6_clicked();
+    void on_btn_weight7_clicked();
 
 //    void on_btn_power_clicked();
 
     void on_btn_home_clicked();
 
-    void on_btn_help_clicked();
+    void on_btn_help1_clicked();
+    void on_btn_help2_clicked();
+    void on_btn_help3_clicked();
+
 
 //    void on_btn_isg_clicked();
 
@@ -101,16 +117,40 @@ private slots:
 
     void on_btn_back_clicked();
 
-    void on_btn_pressure_clicked();
+    void on_btn_pressure1_clicked();
+    void on_btn_pressure2_clicked();
+    void on_btn_pressure3_clicked();
+    void on_btn_pressure6_clicked();
+    void on_btn_pressure7_clicked();
 
-    void on_btn_engine_clicked();
+    void on_btn_engine1_clicked();
+    void on_btn_engine2_clicked();
+    void on_btn_engine3_clicked();
+    void on_btn_engine6_clicked();
+    void on_btn_engine7_clicked();
 
-    void on_btn_gearbox_clicked();
+    void on_btn_gearbox1_clicked();
+    void on_btn_gearbox2_clicked();
+    void on_btn_gearbox3_clicked();
+    void on_btn_gearbox6_clicked();
+    void on_btn_gearbox7_clicked();
+
+    void on_btn_temper2_clicked();
+    void on_btn_temper3_clicked();
+    void on_btn_temper6_clicked();
+    void on_btn_temper7_clicked();
+
+    void on_btn_liquid2_clicked();
+    void on_btn_liquid3_clicked();
+    void on_btn_liquid6_clicked();
+    void on_btn_liquid7_clicked();
 
     void receivename(QString);
 
     void c_stackedwidget_changed(int);
     void set_receiver_stop();
+
+    void edit_shortcut_save(int,int,int,int);
 
 
 //    void serial_log(QString);
@@ -159,10 +199,16 @@ private:
     Serial_port *serial;
     Auto_brightness *auto_brightness;
     receiver *receiv;
-
+    edit_shortcut *shortcut;
+    Database_7in *db;
     void initUI();
 //    void init_serial_port();
     int camere_is_open;
+//    void setshortcut();
+    int count = 0;
+    int last_index = 3;
+    bool is_weight;
+    bool is_video;
 
 
 

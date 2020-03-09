@@ -36,7 +36,7 @@ void ButtonDialog::init(int f)
     }
     else if (flag == 4)
     {
-        ui->btn1->setText("西门子");
+        ui->btn1->setText("艾里逊");
         ui->btn2->setText("");
     }
     this->exec();

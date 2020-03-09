@@ -58,8 +58,7 @@ signals:
     void delete_row(const QString &key);
     //weight
     void real_time_weight(const QString &rtw);
-    void ban_weight(const QString &bw);
-    void total_weight(const QString &tw);
+    void rated_weight(const QString &tw);
     void total_times(const QString &tt);
     void ban_total_times(const QString &btt);
     //index

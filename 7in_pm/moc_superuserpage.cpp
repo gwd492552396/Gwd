@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SuperUserPage_t {
-    QByteArrayData data[19];
-    char stringdata0[254];
+    QByteArrayData data[22];
+    char stringdata0[300];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,25 +38,29 @@ QT_MOC_LITERAL(5, 30, 4), // "czcs"
 QT_MOC_LITERAL(6, 35, 5), // "clear"
 QT_MOC_LITERAL(7, 41, 4), // "exit"
 QT_MOC_LITERAL(8, 46, 8), // "previous"
-QT_MOC_LITERAL(9, 55, 19), // "on_btn_ybsz_clicked"
-QT_MOC_LITERAL(10, 75, 19), // "on_btn_kxgn_clicked"
-QT_MOC_LITERAL(11, 95, 19), // "on_btn_cxxz_clicked"
-QT_MOC_LITERAL(12, 115, 19), // "on_btn_czcs_clicked"
-QT_MOC_LITERAL(13, 135, 20), // "on_btn_clear_clicked"
-QT_MOC_LITERAL(14, 156, 19), // "on_btn_exit_clicked"
-QT_MOC_LITERAL(15, 176, 19), // "on_btn_back_clicked"
-QT_MOC_LITERAL(16, 196, 20), // "on_le_number_clicked"
-QT_MOC_LITERAL(17, 217, 24), // "on_le_limitspeed_clicked"
-QT_MOC_LITERAL(18, 242, 11) // "receivedata"
+QT_MOC_LITERAL(9, 55, 11), // "loginstatus"
+QT_MOC_LITERAL(10, 67, 8), // "senddata"
+QT_MOC_LITERAL(11, 76, 19), // "on_btn_ybsz_clicked"
+QT_MOC_LITERAL(12, 96, 19), // "on_btn_kxgn_clicked"
+QT_MOC_LITERAL(13, 116, 19), // "on_btn_cxxz_clicked"
+QT_MOC_LITERAL(14, 136, 19), // "on_btn_czcs_clicked"
+QT_MOC_LITERAL(15, 156, 20), // "on_btn_clear_clicked"
+QT_MOC_LITERAL(16, 177, 19), // "on_btn_exit_clicked"
+QT_MOC_LITERAL(17, 197, 24), // "on_btn_back_home_clicked"
+QT_MOC_LITERAL(18, 222, 19), // "on_btn_back_clicked"
+QT_MOC_LITERAL(19, 242, 20), // "on_le_number_clicked"
+QT_MOC_LITERAL(20, 263, 24), // "on_le_limitspeed_clicked"
+QT_MOC_LITERAL(21, 288, 11) // "receivedata"
 
     },
     "SuperUserPage\0ybsz\0\0kxgn\0cxxz\0czcs\0"
-    "clear\0exit\0previous\0on_btn_ybsz_clicked\0"
+    "clear\0exit\0previous\0loginstatus\0"
+    "senddata\0on_btn_ybsz_clicked\0"
     "on_btn_kxgn_clicked\0on_btn_cxxz_clicked\0"
     "on_btn_czcs_clicked\0on_btn_clear_clicked\0"
-    "on_btn_exit_clicked\0on_btn_back_clicked\0"
-    "on_le_number_clicked\0on_le_limitspeed_clicked\0"
-    "receivedata"
+    "on_btn_exit_clicked\0on_btn_back_home_clicked\0"
+    "on_btn_back_clicked\0on_le_number_clicked\0"
+    "on_le_limitspeed_clicked\0receivedata"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,33 +70,36 @@ static const uint qt_meta_data_SuperUserPage[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      20,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       9,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   99,    2, 0x06 /* Public */,
-       3,    1,  102,    2, 0x06 /* Public */,
-       4,    1,  105,    2, 0x06 /* Public */,
-       5,    1,  108,    2, 0x06 /* Public */,
-       6,    1,  111,    2, 0x06 /* Public */,
-       7,    1,  114,    2, 0x06 /* Public */,
-       8,    1,  117,    2, 0x06 /* Public */,
+       1,    1,  114,    2, 0x06 /* Public */,
+       3,    1,  117,    2, 0x06 /* Public */,
+       4,    1,  120,    2, 0x06 /* Public */,
+       5,    1,  123,    2, 0x06 /* Public */,
+       6,    1,  126,    2, 0x06 /* Public */,
+       7,    1,  129,    2, 0x06 /* Public */,
+       8,    1,  132,    2, 0x06 /* Public */,
+       9,    1,  135,    2, 0x06 /* Public */,
+      10,    1,  138,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    0,  120,    2, 0x08 /* Private */,
-      10,    0,  121,    2, 0x08 /* Private */,
-      11,    0,  122,    2, 0x08 /* Private */,
-      12,    0,  123,    2, 0x08 /* Private */,
-      13,    0,  124,    2, 0x08 /* Private */,
-      14,    0,  125,    2, 0x08 /* Private */,
-      15,    0,  126,    2, 0x08 /* Private */,
-      16,    0,  127,    2, 0x08 /* Private */,
-      17,    0,  128,    2, 0x08 /* Private */,
-      18,    2,  129,    2, 0x08 /* Private */,
+      11,    0,  141,    2, 0x08 /* Private */,
+      12,    0,  142,    2, 0x08 /* Private */,
+      13,    0,  143,    2, 0x08 /* Private */,
+      14,    0,  144,    2, 0x08 /* Private */,
+      15,    0,  145,    2, 0x08 /* Private */,
+      16,    0,  146,    2, 0x08 /* Private */,
+      17,    0,  147,    2, 0x08 /* Private */,
+      18,    0,  148,    2, 0x08 /* Private */,
+      19,    0,  149,    2, 0x08 /* Private */,
+      20,    0,  150,    2, 0x08 /* Private */,
+      21,    2,  151,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -102,8 +109,11 @@ static const uint qt_meta_data_SuperUserPage[] = {
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -131,16 +141,19 @@ void SuperUserPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 4: _t->clear((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 5: _t->exit((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->previous((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 7: _t->on_btn_ybsz_clicked(); break;
-        case 8: _t->on_btn_kxgn_clicked(); break;
-        case 9: _t->on_btn_cxxz_clicked(); break;
-        case 10: _t->on_btn_czcs_clicked(); break;
-        case 11: _t->on_btn_clear_clicked(); break;
-        case 12: _t->on_btn_exit_clicked(); break;
-        case 13: _t->on_btn_back_clicked(); break;
-        case 14: _t->on_le_number_clicked(); break;
-        case 15: _t->on_le_limitspeed_clicked(); break;
-        case 16: _t->receivedata((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 7: _t->loginstatus((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: _t->senddata((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->on_btn_ybsz_clicked(); break;
+        case 10: _t->on_btn_kxgn_clicked(); break;
+        case 11: _t->on_btn_cxxz_clicked(); break;
+        case 12: _t->on_btn_czcs_clicked(); break;
+        case 13: _t->on_btn_clear_clicked(); break;
+        case 14: _t->on_btn_exit_clicked(); break;
+        case 15: _t->on_btn_back_home_clicked(); break;
+        case 16: _t->on_btn_back_clicked(); break;
+        case 17: _t->on_le_number_clicked(); break;
+        case 18: _t->on_le_limitspeed_clicked(); break;
+        case 19: _t->receivedata((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -195,6 +208,20 @@ void SuperUserPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
                 return;
             }
         }
+        {
+            typedef void (SuperUserPage::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&SuperUserPage::loginstatus)) {
+                *result = 7;
+                return;
+            }
+        }
+        {
+            typedef void (SuperUserPage::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&SuperUserPage::senddata)) {
+                *result = 8;
+                return;
+            }
+        }
     }
 }
 
@@ -223,13 +250,13 @@ int SuperUserPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 20;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 17)
+        if (_id < 20)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 17;
+        _id -= 20;
     }
     return _id;
 }
@@ -281,5 +308,19 @@ void SuperUserPage::previous(int _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void SuperUserPage::loginstatus(int _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
+}
+
+// SIGNAL 8
+void SuperUserPage::senddata(QString _t1)
+{
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 8, _a);
 }
 QT_END_MOC_NAMESPACE

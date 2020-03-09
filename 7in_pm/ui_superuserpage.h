@@ -47,9 +47,14 @@ public:
     QPushButton *btn_clear;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer_3;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_5;
     QPushButton *btn_exit;
+    QPushButton *btn_back_home;
+    QSpacerItem *horizontalSpacer_6;
     QPushButton *btn_back;
+    QSpacerItem *horizontalSpacer_7;
 
     void setupUi(QWidget *SuperUserPage)
     {
@@ -253,14 +258,19 @@ public:
 
         verticalLayout->addItem(verticalSpacer_3);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(500);
+        widget = new QWidget(SuperUserPage);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setStyleSheet(QStringLiteral("background:transparent;"));
+        horizontalLayout_2 = new QHBoxLayout(widget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(-1, -1, -1, 40);
-        btn_exit = new QPushButton(SuperUserPage);
+        horizontalSpacer_5 = new QSpacerItem(60, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_5);
+
+        btn_exit = new QPushButton(widget);
         btn_exit->setObjectName(QStringLiteral("btn_exit"));
         btn_exit->setMinimumSize(QSize(186, 80));
-        btn_exit->setMaximumSize(QSize(93, 40));
+        btn_exit->setMaximumSize(QSize(186, 80));
         btn_exit->setStyleSheet(QString::fromUtf8("QPushButton#btn_exit{\n"
 "background-image:url(:/\346\214\211\351\224\256_\347\231\273\345\275\225 copy.png);\n"
 "border:none;\n"
@@ -272,10 +282,29 @@ public:
 
         horizontalLayout_2->addWidget(btn_exit);
 
-        btn_back = new QPushButton(SuperUserPage);
+        btn_back_home = new QPushButton(widget);
+        btn_back_home->setObjectName(QStringLiteral("btn_back_home"));
+        btn_back_home->setMinimumSize(QSize(250, 80));
+        btn_back_home->setMaximumSize(QSize(250, 80));
+        btn_back_home->setStyleSheet(QString::fromUtf8("QPushButton#btn_back_home{\n"
+"background-image: url(:/\346\214\211\351\224\256_\350\277\224\345\233\236\344\270\273\347\225\214\351\235\2423.png);\n"
+"border:none;\n"
+"}\n"
+"QPushButton#btn_back_home:pressed{\n"
+"\n"
+"background-image: url(:/\346\214\211\351\224\256_\350\277\224\345\233\236\344\270\273\347\225\214\351\235\2422.png);\n"
+"}"));
+
+        horizontalLayout_2->addWidget(btn_back_home);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_6);
+
+        btn_back = new QPushButton(widget);
         btn_back->setObjectName(QStringLiteral("btn_back"));
         btn_back->setMinimumSize(QSize(250, 80));
-        btn_back->setMaximumSize(QSize(125, 40));
+        btn_back->setMaximumSize(QSize(250, 80));
         btn_back->setStyleSheet(QString::fromUtf8("QPushButton#btn_back{\n"
 "background-image: url(:/\346\214\211\351\224\256_\344\270\212\344\270\200\351\241\2652.png);\n"
 "border:none;\n"
@@ -284,8 +313,12 @@ public:
 
         horizontalLayout_2->addWidget(btn_back);
 
+        horizontalSpacer_7 = new QSpacerItem(60, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        verticalLayout->addLayout(horizontalLayout_2);
+        horizontalLayout_2->addItem(horizontalSpacer_7);
+
+
+        verticalLayout->addWidget(widget);
 
 
         retranslateUi(SuperUserPage);
@@ -307,6 +340,7 @@ public:
         label_clear->setText(QApplication::translate("SuperUserPage", "\346\270\205\351\231\244\346\225\260\346\215\256", 0));
         btn_clear->setText(QApplication::translate("SuperUserPage", "   Clear", 0));
         btn_exit->setText(QString());
+        btn_back_home->setText(QString());
         btn_back->setText(QString());
     } // retranslateUi
 

@@ -33,6 +33,8 @@ signals:
     void previous(int);
     void log(QString);
     void ckb_autobri(bool);
+    void loginstatus_s(int);
+    void senddata(QString);
 
 private slots:
     void on_btn_lang_clicked();
@@ -41,6 +43,7 @@ private slots:
     void on_btn_time_clicked();
     void on_btn_back_home_clicked();
     void on_btn_back_clicked();
+    void on_btn_exit_clicked();
 
     void on_le_drivernum_clicked();
 
@@ -57,16 +60,19 @@ private slots:
     void set_sys_value();
     void ckb_autobri_change(int);
 
+    void language_changed(QString);
+    void unit_changed(QString);
+
 
 
 
 private:
     int flag;
     Database_7in *Db;
-    TextWidget * text;
-    timewidget * time ;
+//    TextWidget * text;
+//    timewidget * time ;
     Ui::GeneralSettings *ui;
-    LightWidget *light;
+//    LightWidget *light;
     QTimer *timer1;
 };
 

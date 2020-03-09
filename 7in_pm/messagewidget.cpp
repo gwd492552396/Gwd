@@ -30,5 +30,6 @@ void MessageWidget::init(QString message, QString error)
 
 void MessageWidget::on_close_clicked()
 {
+    emit message_close();
     this->close();
 }

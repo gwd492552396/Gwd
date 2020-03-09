@@ -20,6 +20,8 @@ Management::Management(QWidget *parent) :
     g->setExclusive(true);
     DB = new Database_7in();
     list = DB->getalluser();
+    if(list.size()!=0)
+    g->button(0)->setChecked(true);
 
     btnlist<<ui->pushButton_1<<ui->pushButton_2<<ui->pushButton_3<<ui->pushButton_4<<ui->pushButton_5<<ui->pushButton_6<<ui->pushButton_7<<ui->pushButton_8;
 
@@ -90,11 +92,25 @@ void Management::on_btn_del_clicked()
         labellist.at(i)->setEnabled(false);
         labellist.at(i)->setStyleSheet("font: 18px Microsoft YaHei UI ;color: rgb(78, 78, 78);background:transparent");
     }
+    if(list.size()!=0)
+    g->button(0)->setChecked(true);
+    if(username == user_now)
+    {
+        emit loginstatus_s(-1);
+        emit senddata("未登录");
+    }
 }
+
+
+void Management::get_user_now(QString user)
+{
+    user_now = user;
+}
+
 
 void Management::receive()
 {
-    log("management received");
+//    log("management received");
     //Database_7in * db;
     //list = db->getalluser();
     list = DB->getalluser();
@@ -115,6 +131,14 @@ void Management::receive()
     }
 }
 
+void Management::on_btn_fast_login_clicked()
+{
+    int id = g->checkedId();
+    QString fast_username = labellist.at(id)->text();
+    emit fast_login(fast_username);
+    emit previous(19);
+
+}
 
 void Management::on_btn_back_clicked()
 {

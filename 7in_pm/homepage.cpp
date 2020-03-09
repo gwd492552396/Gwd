@@ -37,13 +37,13 @@ void HomePage::change_weight()
     if(is_weight==true)
     {
         is_weight = false;
-        ui->hlayout->removeWidget(ui->btn_weight);
+//        ui->hlayout->removeWidget(ui->btn_weight);
         ui->btn_weight->setHidden(true);
     }
     else
     {
         is_weight = true;
-        ui->hlayout->addWidget(ui->btn_weight);
+//        ui->hlayout->addWidget(ui->btn_weight);
         ui->btn_weight->setHidden(false);
     }
 }
@@ -53,14 +53,14 @@ void HomePage::change_video()
     if(is_video == true)
     {
         is_video = false;
-        ui->hlayout->removeWidget(ui->btn_video);
+//        ui->hlayout->removeWidget(ui->btn_video);
         ui->btn_video->setHidden(true);
     }
 
     else
     {
         is_video = true;
-        ui->hlayout->addWidget(ui->btn_video);
+//        ui->hlayout->addWidget(ui->btn_video);
         ui->btn_video->setHidden(false);
     }
 

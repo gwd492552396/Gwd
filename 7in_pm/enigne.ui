@@ -26,7 +26,20 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="2">
+   <item row="4" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" colspan="2">
     <widget class="QWidget" name="widget" native="true">
      <property name="maximumSize">
       <size>
@@ -59,12 +72,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_7" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <property name="topMargin">
@@ -82,6 +101,9 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="enigne_temp">
               <property name="styleSheet">
@@ -107,13 +129,10 @@ background:transparent;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
-font-size: 20px;
-color: #FFFFFF;
-background:transparent;</string>
+               <string notr="true">border-image:url(:/temp.png)</string>
               </property>
               <property name="text">
-               <string> ℃</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -143,12 +162,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_8" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <property name="topMargin">
@@ -166,6 +191,9 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="enigne_pressure">
               <property name="styleSheet">
@@ -227,12 +255,18 @@ background:transparent;</string>
        <widget class="QWidget" name="widget_6" native="true">
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>300</height>
+          <width>240</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>240</height>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/显示_参数2.png);</string>
+         <string notr="true">background-image: url(:/显示_参数.png);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <property name="topMargin">
@@ -250,6 +284,9 @@ background:transparent;</string>
             <string notr="true">background:none;</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="enigne_speed">
               <property name="styleSheet">
@@ -323,19 +360,6 @@ background:transparent;</string>
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="0" column="0">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
@@ -349,7 +373,7 @@ background:transparent;</string>
      </property>
     </spacer>
    </item>
-   <item row="3" column="0" colspan="2">
+   <item row="5" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="spacing">
       <number>10</number>
@@ -406,6 +430,68 @@ border:none;
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QWidget" name="widget_9" native="true">
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QWidget" name="widget_5" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>366</width>
+          <height>174</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>366</width>
+          <height>174</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/显示_参数_宽2.png);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="enegin_hours">
+           <property name="styleSheet">
+            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 60px;
+color: #FFFFFF;
+background:transparent;</string>
+           </property>
+           <property name="text">
+            <string>000</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="styleSheet">
+            <string notr="true">font: 75 9pt &quot;Microsoft YaHei UI&quot;;
+font-size: 32px;
+color: #FFFFFF;
+background:transparent;</string>
+           </property>
+           <property name="text">
+            <string>发动机累计运行时长</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </item>
   </layout>
  </widget>

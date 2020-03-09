@@ -32,6 +32,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer;
     QProgressBar *power_bar;
+    QSpacerItem *verticalSpacer_2;
     QWidget *widget_8;
     QVBoxLayout *verticalLayout_6;
     QWidget *widget_6;
@@ -52,6 +53,7 @@ public:
     QLabel *label_7;
     QLabel *label_9;
     QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *verticalSpacer_3;
     QWidget *widget_7;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer_2;
@@ -74,6 +76,7 @@ public:
     QLabel *label_3;
     QLabel *label_6;
     QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer;
     QWidget *widget_9;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_8;
@@ -120,6 +123,10 @@ public:
 
 
         verticalLayout_7->addWidget(widget_11);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_7->addItem(verticalSpacer_2);
 
         widget_8 = new QWidget(Index);
         widget_8->setObjectName(QStringLiteral("widget_8"));
@@ -247,6 +254,10 @@ public:
 
 
         verticalLayout_6->addWidget(widget_6);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_6->addItem(verticalSpacer_3);
 
         widget_7 = new QWidget(widget_8);
         widget_7->setObjectName(QStringLiteral("widget_7"));
@@ -401,6 +412,10 @@ public:
 
 
         verticalLayout_7->addWidget(widget_8);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_7->addItem(verticalSpacer);
 
         widget_9 = new QWidget(Index);
         widget_9->setObjectName(QStringLiteral("widget_9"));

@@ -27,10 +27,7 @@ ZC::~ZC()
     delete ui;
 }
 
-void ZC::set_enigne_total_hours(const QString &eth)
-{
-    ui->enegin_hours->setText(eth);
-}
+
 
 void ZC::on_btn_temp_clicked()
 {

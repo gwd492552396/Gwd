@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Login_t {
-    QByteArrayData data[10];
-    char stringdata0[96];
+    QByteArrayData data[13];
+    char stringdata0[155];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,12 +38,16 @@ QT_MOC_LITERAL(5, 31, 11), // "loginstatus"
 QT_MOC_LITERAL(6, 43, 3), // "log"
 QT_MOC_LITERAL(7, 47, 20), // "on_btn_login_clicked"
 QT_MOC_LITERAL(8, 68, 19), // "on_btn_back_clicked"
-QT_MOC_LITERAL(9, 88, 7) // "receive"
+QT_MOC_LITERAL(9, 88, 25), // "on_btn_fast_login_clicked"
+QT_MOC_LITERAL(10, 114, 7), // "receive"
+QT_MOC_LITERAL(11, 122, 13), // "message_close"
+QT_MOC_LITERAL(12, 136, 18) // "receive_fast_login"
 
     },
     "Login\0login\0\0previous\0senddata\0"
     "loginstatus\0log\0on_btn_login_clicked\0"
-    "on_btn_back_clicked\0receive"
+    "on_btn_back_clicked\0on_btn_fast_login_clicked\0"
+    "receive\0message_close\0receive_fast_login"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +57,7 @@ static const uint qt_meta_data_Login[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,16 +65,19 @@ static const uint qt_meta_data_Login[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   54,    2, 0x06 /* Public */,
-       3,    1,   57,    2, 0x06 /* Public */,
-       4,    1,   60,    2, 0x06 /* Public */,
-       5,    1,   63,    2, 0x06 /* Public */,
-       6,    1,   66,    2, 0x06 /* Public */,
+       1,    1,   69,    2, 0x06 /* Public */,
+       3,    1,   72,    2, 0x06 /* Public */,
+       4,    1,   75,    2, 0x06 /* Public */,
+       5,    1,   78,    2, 0x06 /* Public */,
+       6,    1,   81,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   69,    2, 0x08 /* Private */,
-       8,    0,   70,    2, 0x08 /* Private */,
-       9,    1,   71,    2, 0x08 /* Private */,
+       7,    0,   84,    2, 0x08 /* Private */,
+       8,    0,   85,    2, 0x08 /* Private */,
+       9,    0,   86,    2, 0x08 /* Private */,
+      10,    1,   87,    2, 0x08 /* Private */,
+      11,    0,   90,    2, 0x08 /* Private */,
+      12,    1,   91,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -82,7 +89,10 @@ static const uint qt_meta_data_Login[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
 
        0        // eod
 };
@@ -100,7 +110,10 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 4: _t->log((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: _t->on_btn_login_clicked(); break;
         case 6: _t->on_btn_back_clicked(); break;
-        case 7: _t->receive((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->on_btn_fast_login_clicked(); break;
+        case 8: _t->receive((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->message_close(); break;
+        case 10: _t->receive_fast_login((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -169,13 +182,13 @@ int Login::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 11;
     }
     return _id;
 }

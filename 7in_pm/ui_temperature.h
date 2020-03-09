@@ -45,13 +45,6 @@ public:
     QLabel *enigne_temper;
     QLabel *label_4;
     QLabel *label_12;
-    QWidget *widget_3;
-    QVBoxLayout *verticalLayout_3;
-    QWidget *widget_7;
-    QVBoxLayout *verticalLayout_7;
-    QLabel *hydraulic_temper;
-    QLabel *label_5;
-    QLabel *label_3;
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
@@ -113,10 +106,7 @@ public:
         label = new QLabel(widget_4);
         label->setObjectName(QStringLiteral("label"));
         label->setMaximumSize(QSize(60, 20));
-        label->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
+        label->setStyleSheet(QStringLiteral("border-image:url(:/temp.png)"));
 
         verticalLayout_4->addWidget(label);
 
@@ -164,10 +154,7 @@ public:
         label_4 = new QLabel(widget_5);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setMaximumSize(QSize(60, 20));
-        label_4->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
+        label_4->setStyleSheet(QStringLiteral("border-image:url(:/temp.png)"));
 
         verticalLayout_5->addWidget(label_4);
 
@@ -186,57 +173,6 @@ public:
 
 
         horizontalLayout_2->addWidget(widget_6);
-
-        widget_3 = new QWidget(widget);
-        widget_3->setObjectName(QStringLiteral("widget_3"));
-        sizePolicy.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
-        widget_3->setSizePolicy(sizePolicy);
-        widget_3->setMinimumSize(QSize(300, 300));
-        widget_3->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);\n"
-""));
-        verticalLayout_3 = new QVBoxLayout(widget_3);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(-1, 0, -1, 0);
-        widget_7 = new QWidget(widget_3);
-        widget_7->setObjectName(QStringLiteral("widget_7"));
-        widget_7->setLayoutDirection(Qt::RightToLeft);
-        verticalLayout_7 = new QVBoxLayout(widget_7);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        hydraulic_temper = new QLabel(widget_7);
-        hydraulic_temper->setObjectName(QStringLiteral("hydraulic_temper"));
-        hydraulic_temper->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        hydraulic_temper->setAlignment(Qt::AlignBottom|Qt::AlignHCenter);
-
-        verticalLayout_7->addWidget(hydraulic_temper);
-
-        label_5 = new QLabel(widget_7);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setMaximumSize(QSize(60, 20));
-        label_5->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-
-        verticalLayout_7->addWidget(label_5);
-
-
-        verticalLayout_3->addWidget(widget_7);
-
-        label_3 = new QLabel(widget_3);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 50px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        label_3->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_3->addWidget(label_3);
-
-
-        horizontalLayout_2->addWidget(widget_3);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -294,14 +230,11 @@ public:
     {
         Temperature->setWindowTitle(QApplication::translate("Temperature", "Form", 0));
         gearbox_temper->setText(QApplication::translate("Temperature", "000", 0));
-        label->setText(QApplication::translate("Temperature", "    \342\204\203", 0));
+        label->setText(QString());
         label_2->setText(QApplication::translate("Temperature", "\345\217\230\351\200\237\347\256\261\346\270\251\345\272\246", 0));
         enigne_temper->setText(QApplication::translate("Temperature", "000", 0));
-        label_4->setText(QApplication::translate("Temperature", "    \342\204\203", 0));
+        label_4->setText(QString());
         label_12->setText(QApplication::translate("Temperature", "\345\217\221\345\212\250\346\234\272\346\260\264\346\270\251", 0));
-        hydraulic_temper->setText(QApplication::translate("Temperature", "000", 0));
-        label_5->setText(QApplication::translate("Temperature", "    \342\204\203", 0));
-        label_3->setText(QApplication::translate("Temperature", "\346\266\262\345\216\213\346\262\271\346\270\251", 0));
         sign->setText(QApplication::translate("Temperature", "\346\270\251\345\272\246\344\277\241\346\201\257", 0));
         btn_back->setText(QString());
     } // retranslateUi

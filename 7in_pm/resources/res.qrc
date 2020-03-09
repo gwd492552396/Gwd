@@ -407,5 +407,18 @@
         <file>减小.png</file>
         <file>增加.png</file>
         <file>help.png</file>
+        <file>temp.png</file>
+        <file>侧键_发动机_按下2.png</file>
+        <file>gearbox1_anxia.PNG</file>
+        <file>压力_按下.png</file>
+        <file>biansu.PNG</file>
+        <file>fadongji.png</file>
+        <file>yali.png</file>
+        <file>侧键_影像2_disable.PNG</file>
+        <file>侧键_称重2_disable.PNG</file>
+        <file>侧键_温度.PNG</file>
+        <file>侧键_液位.PNG</file>
+        <file>侧键_液位_按下.png</file>
+        <file>侧键_温度_按下.png</file>
     </qresource>
 </RCC>

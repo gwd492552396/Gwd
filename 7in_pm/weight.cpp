@@ -28,12 +28,7 @@ void Weight::set_real_time_weight(const QString &rtw)
     ui->real_time_weight->setText(rtw);
 }
 
-void Weight::set_ban_weight(const QString &bw)
-{
-    ui->ban_total_weight->setText(bw);
-}
-
-void Weight::set_total_weight(const QString &tw)
+void Weight::set_rated_weight(const QString &tw)
 {
     ui->total_weight->setText(tw);
 }

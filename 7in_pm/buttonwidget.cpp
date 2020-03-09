@@ -38,7 +38,7 @@ void ButtonWidget::init(int f)
     }
     else if (flag == 4)
     {
-        ui->btn1->setText("西门子");
+        ui->btn1->setText("艾里逊");
         ui->btn2->setText("");
     }
     this->show();
@@ -50,11 +50,15 @@ void ButtonWidget::on_btn1_clicked()
 {
     if(flag == 1)
     {
+        emit language("中文");
+        this->close();
         //QMessageBox::about(NULL,tr("a"),tr("中文"));
 
     }
     else if(flag == 2)
     {
+        emit unit("公制");
+        this->close();
         //QMessageBox::about(NULL,tr("a"),tr("公制"));
 
     }
@@ -72,11 +76,13 @@ void ButtonWidget::on_btn2_clicked()
 {
     if(flag == 1){
     //QMessageBox::about(NULL,tr("a"),tr("英文"));
-
+        emit language("英文");
+        this->close();
     }
     else if(flag == 2){
     //QMessageBox::about(NULL,tr("a"),tr("英制"));
-
+        emit unit("英制");
+        this->close();
     }
     else if(flag == 3)
     {

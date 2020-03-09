@@ -1,6 +1,10 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 #include <QDebug>
+
+#define test 0                 //总日志开关
+#define shortcut_test 0        //快捷键修改日志开关
+
 MainWidget::MainWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MainWidget), receiv(NULL)
@@ -9,25 +13,17 @@ MainWidget::MainWidget(QWidget *parent) :
     camere_is_open = 0;
     video_is_running = 0;
     initUI();
-    // init_serial_port();
+
     serial = new Serial_port();
     serial->init_Serial_port(0,115200);
 
 
-    wStack.append(index);
-    //    read_data = new ReadData;
-    ui->c_stackedWidget->setCurrentWidget(index);               //added by gwd
+    wStack.append(home_page);                                       //original: index
+    ui->c_stackedWidget->setCurrentWidget(home_page);               //added by gwd
     mytimer = new MyTimer();
     mytimer->init_can(0);
-    mytimer->start();
-
-    //    mytimer2 = new MyTimer();
-    //    mytimer2->init_can(1);
-    //    mytimer2->start();
 
     auto_brightness = new Auto_brightness();
-
-//     auto_brightness->start();
     connect(general,SIGNAL(ckb_autobri(bool)),auto_brightness,SLOT(set_auto_status(bool)));
 
 
@@ -40,8 +36,7 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(mytimer,SIGNAL(total_times(QString)),weight,SLOT(set_total_times(QString)));
     connect(mytimer,SIGNAL(ban_total_times(QString)),weight,SLOT(set_ban_total_times(QString)));
     connect(mytimer,SIGNAL(real_time_weight(QString)),weight,SLOT(set_real_time_weight(QString)));
-    connect(mytimer,SIGNAL(total_weight(QString)),weight,SLOT(set_total_weight(QString)));
-    connect(mytimer,SIGNAL(ban_weight(QString)),weight,SLOT(set_ban_weight(QString)));
+    connect(mytimer,SIGNAL(rated_weight(QString)),weight,SLOT(set_rated_weight(QString)));
 
     connect(mytimer,SIGNAL(direct_current(QString)),driver_power,SLOT(set_direct_current(QString)));
     connect(mytimer,SIGNAL(real_torque(QString)),driver_power,SLOT(set_real_torque(QString)));
@@ -81,6 +76,7 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(mytimer,SIGNAL(gearbox_out_rev(QString)),gear_box,SLOT(set_gearbox_out_rev(QString)));
     connect(mytimer,SIGNAL(gearbox_temper(QString)),gear_box,SLOT(set_gearbox_temper(QString)));
     connect(mytimer,SIGNAL(gearbox_pressure(QString)),gear_box,SLOT(set_gearbox_pressure(QString)));
+    connect(mytimer,SIGNAL(gear_rate(QString)),gear_box,SLOT(set_gearbox_rate(QString)));
 
     connect(mytimer,SIGNAL(power_change(QString)),home_page,SLOT(power_changed(QString)));
 
@@ -103,8 +99,11 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(mytimer,SIGNAL(max_voltage(QString)),power,SLOT(set_max_voltage(QString)));
     connect(mytimer,SIGNAL(charing(QString)),power,SLOT(set_charing(QString)));
 
-    connect(mytimer,SIGNAL(enigne_total_hours(QString)),zc,SLOT(set_enigne_total_hours(QString)));
+    connect(mytimer,SIGNAL(enigne_total_hours(QString)),enigne,SLOT(set_enigne_total_hours(QString)));
 
+    mytimer->start();
+
+#if test == 1
     connect(mytimer,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));              //added by gwd ,log
     connect(adduser,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
     connect(login,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
@@ -112,7 +111,10 @@ MainWidget::MainWidget(QWidget *parent) :
     connect(this,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
     connect(general,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
     connect(video,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
-    //    connect(auto_brightness,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+    connect(auto_brightness,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+    emit log("7in start to run");
+    connect(frmNum::_instance,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+#endif
 
     auto_brightness->init();
     auto_brightness->start();
@@ -120,18 +122,17 @@ MainWidget::MainWidget(QWidget *parent) :
 
     QTimer *timer = new QTimer;
     connect(timer, SIGNAL(timeout()),this,SLOT(set_sys_value()));
-    timer->start(100); // 每隔1s
-
-    emit log("main widget OK");
+    timer->start(1000); // 每隔1s
 }
 
 MainWidget::~MainWidget()
 {
 
-//    mytimer->quit();
-//    auto_brightness->quit();
-    receiv->stream_off();
-    receiv->quit();
+    if (video_is_running == 1)
+    {
+        receiv->video_stop();
+        video_is_running = 0;
+    }
     delete ui;
 }
 
@@ -146,6 +147,29 @@ void MainWidget::set_sys_value()
     QString d = date.toString("MM月dd日");
     set_time(str);
     set_date(d);
+
+/*    if((ui->c_stackedWidget->currentIndex() != 6)&&(ui->c_stackedWidget->currentIndex() != 16)
+            &&(ui->c_stackedWidget->currentIndex() != 19)&&(ui->c_stackedWidget->currentIndex() != 21))*///it's not index or video or login or adduser
+    if(ui->c_stackedWidget->currentIndex() == 3)
+    {
+        if(ui->c_stackedWidget->currentIndex() == last_index)
+        {
+            count ++ ;
+            if(count >= 60)                     //for test
+            {
+                ui->c_stackedWidget->setCurrentWidget(index);
+                count = 0;
+            }
+        }
+        else
+        {
+            count = 0;
+            last_index = ui->c_stackedWidget->currentIndex();
+        }
+    }else
+    {
+        count = 0;
+    }
 }
 
 void MainWidget::paintEvent(QPaintEvent *event)                     //modified by gwd
@@ -161,12 +185,70 @@ void MainWidget::paintEvent(QPaintEvent *event)                     //modified b
 void MainWidget::keyPressEvent(QKeyEvent *ev)                         //added by gwd
 {
     switch (ev->key()) {
+
     case Qt::Key_B:
-        emit slide_help(17);break;
+        switch (ui->r1->currentIndex()) {
+        case 0:
+            emit slide_help(17);
+            break;
+        case 1:
+            emit slide_pressure(10);
+            break;
+        case 2:
+            emit slide_gear(27);
+            break;
+        default:
+            break;
+        }break;
+
     case Qt::Key_C:
-        emit slide_pressure(10);break;
+        switch (ui->r2->currentIndex()) {
+        case 0:
+            emit slide_pressure(10);
+            break;
+        case 1:
+            emit slide_pressure(13);
+            break;
+        case 2:
+            emit slide_gear(27);
+            break;
+        case 3:
+            emit slide_gear(9);
+            break;
+        case 4:
+            emit slide_weight(4);
+            break;
+        case 5:
+            emit slide_engine(8);
+            break;
+        default:
+            break;
+        }break;
+
     case Qt::Key_D:
-        emit slide_gear(27);break;
+        switch (ui->r3->currentIndex()) {
+        case 0:
+            emit slide_gear(27);
+            break;
+        case 1:
+            emit slide_engine(8);
+            break;
+        case 2:
+            emit slide_engine(13);
+            break;
+        case 3:
+            emit slide_engine(9);
+            break;
+        case 4:
+            emit slide_weight(4);
+            break;
+        case 5:
+            emit slide_pressure(10);
+            break;
+        default:
+            break;
+        }break;
+
     case Qt::Key_E:
     {
         if(!wStack.isEmpty())
@@ -182,16 +264,108 @@ void MainWidget::keyPressEvent(QKeyEvent *ev)                         //added by
         }
     }
         break;
+
     case Qt::Key_G:
-        emit slide_video(16);break;
+        switch (ui->l1->currentIndex()) {
+        case 0:
+            if(is_video)
+            {
+                MessageWidget * mess = new MessageWidget(this);
+                mess->init("操作失败","暂不支持环车影像");
+            }
+            else
+            {
+                emit slide_video(16);
+            }
+            break;
+        case 1:
+            emit slide_engine(8);
+            break;
+        case 2:
+            if(is_weight)
+            {
+                MessageWidget * mess = new MessageWidget(this);
+                mess->init("操作失败","暂不支持称重系统");
+            }
+            else
+            {
+                emit slide_weight(4);
+            }
+            break;
+        default:
+            break;
+        }break;
+
     case Qt::Key_F:
-        emit slide_engine(8);break;
+        switch (ui->l2->currentIndex()) {
+        case 0:
+            emit slide_engine(8);
+            break;
+        case 1:
+            emit slide_engine(9);
+            break;
+        case 2:
+            emit slide_gear(27);
+            break;
+        case 3:
+            emit slide_gear(13);
+            break;
+        case 4:
+            if(is_weight)
+            {
+                MessageWidget * mess = new MessageWidget(this);
+                mess->init("操作失败","暂不支持称重系统");
+            }
+            else
+            {
+                emit slide_weight(4);
+            }
+        case 5:
+            emit slide_pressure(10);
+            break;
+        default:
+            break;
+        }break;
+
     case Qt::Key_J:
-        emit slide_weight(4);break;
+        switch (ui->l3->currentIndex()) {
+        case 0:
+            if(is_weight)
+            {
+                MessageWidget * mess = new MessageWidget(this);
+                mess->init("操作失败","暂不支持称重系统");
+            }
+            else
+            {
+                emit slide_weight(4);
+            }
+            break;
+        case 1:
+            emit slide_pressure(10);
+            break;
+        case 2:
+            emit slide_gear(27);
+            break;
+        case 3:
+            emit slide_gear(13);
+            break;
+        case 4:
+            emit slide_gear(9);
+            break;
+        case 5:
+            emit slide_engine(8);
+        default:
+            break;
+        }break;
+
     case Qt::Key_I:
         emit slide_home(6);break;
+
     case Qt::Key_A:
+#if test == 1
         this->close();
+#endif
+
     default:
         break;
     }
@@ -231,6 +405,7 @@ void MainWidget::initUI()
     cartype = new ChooseCarType;
     weigh = new WeighingParameter;
     gear_box = new gearbox;
+    shortcut = new edit_shortcut;
 
     ui->c_stackedWidget->addWidget(zc); //2
     ui->c_stackedWidget->addWidget(home_page);//3
@@ -258,7 +433,8 @@ void MainWidget::initUI()
     ui->c_stackedWidget->addWidget(cartype);//25
     ui->c_stackedWidget->addWidget(weigh);//26
     ui->c_stackedWidget->addWidget(gear_box);//27
-    ui->c_stackedWidget->setCurrentWidget(index);
+    ui->c_stackedWidget->addWidget(shortcut);//28
+    ui->c_stackedWidget->setCurrentWidget(home_page);
     connect(this,SIGNAL(slide_video(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(this,SIGNAL(slide_weight(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(this,SIGNAL(slide_power(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
@@ -279,6 +455,9 @@ void MainWidget::initUI()
     connect(home_page,SIGNAL(previous(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(func,SIGNAL(video()),home_page,SLOT(change_video()));
     connect(func,SIGNAL(weight()),home_page,SLOT(change_weight()));
+    connect(func,SIGNAL(weight()),shortcut,SLOT(change_weight()));
+    connect(func,SIGNAL(video()),this,SLOT(change_video()));
+    connect(func,SIGNAL(weight()),this,SLOT(change_weight()));
 
     connect(query,SIGNAL(zc(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(query,SIGNAL(power(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
@@ -338,6 +517,7 @@ void MainWidget::initUI()
 
     connect(func,SIGNAL(back_home(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(func,SIGNAL(previous(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
+    connect(func,SIGNAL(slide_edit(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
 
     connect(cartype,SIGNAL(back_home(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
     connect(cartype,SIGNAL(previous(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
@@ -347,18 +527,45 @@ void MainWidget::initUI()
 
     connect(gear_box,SIGNAL(previous(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
 
+    connect(shortcut,SIGNAL(back_home(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
+    connect(shortcut,SIGNAL(previous(int)),ui->c_stackedWidget,SLOT(setCurrentIndex(int)));
+    connect(this,SIGNAL(edit_reset()),shortcut,SLOT(on_btn_reset_clicked()));
+
 
     connect(ui->c_stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(c_stackedwidget_changed(int)));
     connect(ui->c_stackedWidget,SIGNAL(widgetRemoved(int)),this,SLOT(c_stackedwidget_removed(int)));
     //传递值的信号绑定
     connect(login,SIGNAL(senddata(QString)),this,SLOT(receivename(QString)));
+    connect(userpage,SIGNAL(senddata(QString)),this,SLOT(receivename(QString)));
+    connect(general,SIGNAL(senddata(QString)),this,SLOT(receivename(QString)));
+    connect(management,SIGNAL(senddata(QString)),this,SLOT(receivename(QString)));
+
+    connect(login,SIGNAL(senddata(QString)),management,SLOT(get_user_now(QString)));
 
     connect(login,SIGNAL(loginstatus(int)),set1,SLOT(loginstatus(int)));
     connect(login,SIGNAL(loginstatus(int)),general,SLOT(loginstatus(int)));
+    connect(userpage,SIGNAL(loginstatus(int)),set1,SLOT(loginstatus(int)));
+    connect(userpage,SIGNAL(loginstatus(int)),general,SLOT(loginstatus(int)));
+    connect(general,SIGNAL(loginstatus_s(int)),set1,SLOT(loginstatus(int)));
+    connect(general,SIGNAL(loginstatus_s(int)),general,SLOT(loginstatus(int)));
+    connect(management,SIGNAL(loginstatus_s(int)),set1,SLOT(loginstatus(int)));
+    connect(management,SIGNAL(loginstatus_s(int)),general,SLOT(loginstatus(int)));
+
 
     connect(adduser,SIGNAL(send()),management,SLOT(receive()));
+    connect(management,SIGNAL(fast_login(QString)),login,SLOT(receive_fast_login(QString)));
 
     connect(ui->c_stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(update_stack()));
+    connect(shortcut,SIGNAL(edit_shortcut_save(int,int,int,int)),this,SLOT(edit_shortcut_save(int,int,int,int)));
+    connect(shortcut,SIGNAL(edit_shortcut_save(int,int,int,int)),help,SLOT(edit_shortcut_save(int,int,int,int)));
+
+    ui->l1->setCurrentIndex(0);
+    ui->l2->setCurrentIndex(0);
+    ui->l3->setCurrentIndex(0);
+    ui->r1->setCurrentIndex(0);
+    ui->r2->setCurrentIndex(5);
+    ui->r3->setCurrentIndex(5);
+    ui->r2->setCurrentIndex(2);
 
 
 
@@ -371,6 +578,49 @@ void MainWidget::receivename(QString name)
     ui->name->setText(name);
 }
 
+void MainWidget::change_weight()
+{
+    if(is_weight==true)
+    {
+        is_weight = false;
+        ui->btn_weight1->setStyleSheet("background-image: url(:/侧键_称重2.png);border:none;");
+        ui->btn_weight2->setStyleSheet("background-image: url(:/侧键_称重2.png);border:none;");
+        ui->btn_weight3->setStyleSheet("background-image: url(:/侧键_称重2.png);border:none;");
+        ui->btn_weight6->setStyleSheet("background-image: url(:/侧键_称重2.png);border:none;");
+        ui->btn_weight7->setStyleSheet("background-image: url(:/侧键_称重2.png);border:none;");
+//        ui->hlayout->removeWidget(ui->btn_weight);
+//        ui->btn_weight->setHidden(true);
+    }
+    else
+    {
+        is_weight = true;
+        ui->btn_weight1->setStyleSheet("background-image: url(:/侧键_称重2_disable.PNG);border:none;");
+        ui->btn_weight2->setStyleSheet("background-image: url(:/侧键_称重2_disable.PNG);border:none;");
+        ui->btn_weight3->setStyleSheet("background-image: url(:/侧键_称重2_disable.PNG);border:none;");
+        ui->btn_weight6->setStyleSheet("background-image: url(:/侧键_称重2_disable.PNG);border:none;");
+        ui->btn_weight7->setStyleSheet("background-image: url(:/侧键_称重2_disable.PNG);border:none;");
+//        ui->hlayout->addWidget(ui->btn_weight);
+//        ui->btn_weight->setHidden(false);
+    }
+}
+
+void MainWidget::change_video()
+{
+    if(is_video == true)
+    {
+        is_video = false;
+        ui->btn_video1->setStyleSheet("background-image: url(:/侧键_影像2.png);border:none;");
+//        ui->btn_video->setHidden(true);
+    }
+
+    else
+    {
+        is_video = true;
+        ui->btn_video1->setStyleSheet("background-image: url(:/侧键_影像2_disable.PNG);border:none;");
+//        ui->btn_video->setHidden(false);
+    }
+
+}
 
 
 
@@ -413,24 +663,109 @@ void MainWidget::update_stack()
 
     QWidget *temp = ui->c_stackedWidget-> currentWidget();
     wStack.append(temp);
-
-
 }
 
 
-
-
-void MainWidget::on_btn_video_clicked()
+void MainWidget::on_btn_video1_clicked()
 {
-    //video->start();
-    emit slide_video(16);
+    if(is_video)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持环车影像");
+    }
+    else
+    {
+        emit slide_video(16);
+    }
 }
 
-void MainWidget::on_btn_weight_clicked()
+void MainWidget::on_btn_video2_clicked()
 {
-    emit slide_weight(4);
+    if(is_video)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持环车影像");
+    }
+    else
+    {
+        emit slide_video(16);
+    }
 }
 
+void MainWidget::on_btn_video3_clicked()
+{
+    if(is_video)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持环车影像");
+    }
+    else
+    {
+        emit slide_video(16);
+    }
+}
+
+
+void MainWidget::on_btn_weight1_clicked()
+{
+    if(is_weight)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持称重系统");
+    }
+    else
+    {
+        emit slide_weight(4);
+    }
+}
+void MainWidget::on_btn_weight2_clicked()
+{
+    if(is_weight)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持称重系统");
+    }
+    else
+    {
+        emit slide_weight(4);
+    }
+}
+void MainWidget::on_btn_weight3_clicked()
+{
+    if(is_weight)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持称重系统");
+    }
+    else
+    {
+        emit slide_weight(4);
+    }
+}
+void MainWidget::on_btn_weight6_clicked()
+{
+    if(is_weight)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持称重系统");
+    }
+    else
+    {
+        emit slide_weight(4);
+    }
+}
+void MainWidget::on_btn_weight7_clicked()
+{
+    if(is_weight)
+    {
+        MessageWidget * mess = new MessageWidget(this);
+        mess->init("操作失败","暂不支持称重系统");
+    }
+    else
+    {
+        emit slide_weight(4);
+    }
+}
 //void MainWidget::on_btn_power_clicked()
 //{
 //    emit slide_power(7);
@@ -441,7 +776,15 @@ void MainWidget::on_btn_home_clicked()
     emit slide_home(6);
 }
 
-void MainWidget::on_btn_help_clicked()
+void MainWidget::on_btn_help1_clicked()
+{
+    emit slide_help(17);
+}
+void MainWidget::on_btn_help2_clicked()
+{
+    emit slide_help(17);
+}
+void MainWidget::on_btn_help3_clicked()
 {
     emit slide_help(17);
 }
@@ -449,17 +792,97 @@ void MainWidget::on_btn_help_clicked()
 //{
 //    emit slide_set(18);
 //}
-void MainWidget::on_btn_gearbox_clicked()
+void MainWidget::on_btn_gearbox1_clicked()
 {
     emit slide_gear(27);
 }
-void MainWidget::on_btn_engine_clicked()
+void MainWidget::on_btn_gearbox2_clicked()
+{
+    emit slide_gear(27);
+}
+void MainWidget::on_btn_gearbox3_clicked()
+{
+    emit slide_gear(27);
+}
+void MainWidget::on_btn_gearbox6_clicked()
+{
+    emit slide_gear(27);
+}
+void MainWidget::on_btn_gearbox7_clicked()
+{
+    emit slide_gear(27);
+}
+void MainWidget::on_btn_engine1_clicked()
 {
     emit slide_engine(8);
 }
-void MainWidget::on_btn_pressure_clicked()
+void MainWidget::on_btn_engine2_clicked()
+{
+    emit slide_engine(8);
+}
+void MainWidget::on_btn_engine3_clicked()
+{
+    emit slide_engine(8);
+}
+void MainWidget::on_btn_engine6_clicked()
+{
+    emit slide_engine(8);
+}
+void MainWidget::on_btn_engine7_clicked()
+{
+    emit slide_engine(8);
+}
+void MainWidget::on_btn_pressure1_clicked()
 {
     emit slide_pressure(10);
+}
+void MainWidget::on_btn_pressure2_clicked()
+{
+    emit slide_pressure(10);
+}
+void MainWidget::on_btn_pressure3_clicked()
+{
+    emit slide_pressure(10);
+}
+void MainWidget::on_btn_pressure6_clicked()
+{
+    emit slide_pressure(10);
+}
+void MainWidget::on_btn_pressure7_clicked()
+{
+    emit slide_pressure(10);
+}
+void MainWidget::on_btn_liquid2_clicked()
+{
+    emit slide_pressure(13);
+}
+void MainWidget::on_btn_liquid3_clicked()
+{
+    emit slide_pressure(13);
+}
+void MainWidget::on_btn_liquid6_clicked()
+{
+    emit slide_pressure(13);
+}
+void MainWidget::on_btn_liquid7_clicked()
+{
+    emit slide_pressure(13);
+}
+void MainWidget::on_btn_temper2_clicked()
+{
+    emit slide_pressure(9);
+}
+void MainWidget::on_btn_temper3_clicked()
+{
+    emit slide_pressure(9);
+}
+void MainWidget::on_btn_temper6_clicked()
+{
+    emit slide_pressure(9);
+}
+void MainWidget::on_btn_temper7_clicked()
+{
+    emit slide_pressure(9);
 }
 //void MainWidget::on_btn_isg_clicked()
 //{
@@ -489,7 +912,7 @@ void MainWidget::on_btn_back_clicked()
 void MainWidget::c_stackedwidget_changed(int next_index){
 
     if((next_index == 19) || (next_index == 21))
-    {    emit log("keyboard");
+    {
         frmNum::_instance->setVisible(true);
         frmInput::_instance->setVisible(true);
     }
@@ -499,33 +922,27 @@ void MainWidget::c_stackedwidget_changed(int next_index){
         frmInput::_instance->setVisible(false);
     }
 
-    if((next_index == 16)&&(video_is_running == 0)){
+    if(next_index == 28)
+    {
+        emit edit_reset();
+    }
 
-
-        if (receiv) {
-            receiv->stream_off();
-            receiv->quit();
-            receiv = NULL;
-        }
-
-
+    if(next_index == 16){
         receiv = new receiver();
-        log("new receiver");
-//        connect(receiv,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+#if test == 1
+        connect(receiv,SIGNAL(log(QString)),serial,SLOT(serial_write(QString)));
+#endif
         receiv->setParent(this);
-        log("set receiver parent");
-        receiv->init_video();
-        log("init receiver");
-        connect(receiv,SIGNAL(SendImage(QImage)),video,SLOT(ReceiveImage(QImage)));
-        connect(receiv,SIGNAL(receiver_stop()),this,SLOT(set_receiver_stop()));
-        receiv->start();
-        log("receiver thread begin to run");
-        receiv->stream_on();
-        log("receiver stream on");
-        // receiv->stop = 0;
+        receiv->init_video_overlay();
+        receiv->video_start();
         video_is_running = 1;
-
-
+    }
+    else{
+        if (video_is_running == 1)
+        {
+            receiv->video_stop();
+            video_is_running = 0;
+        }
     }
 }
 
@@ -535,3 +952,98 @@ void MainWidget::set_receiver_stop()
     video_is_running = 0;
 }
 
+
+void MainWidget::edit_shortcut_save(int l2,int l3,int r2,int r3)
+{
+    switch (l2) {
+    case 1:
+        ui->l2->setCurrentIndex(1);
+        break;
+    case 2:
+        ui->l2->setCurrentIndex(3);
+        break;
+    case 3:
+        ui->l2->setCurrentIndex(4);
+        break;
+    case 4:
+        ui->l2->setCurrentIndex(0);
+        break;
+    case 5:
+        ui->l2->setCurrentIndex(2);
+        break;
+    case 6:
+        ui->l2->setCurrentIndex(5);
+        break;
+    default:
+        break;
+    }
+
+    switch (l3) {
+    case 1:
+        ui->l3->setCurrentIndex(4);
+        break;
+    case 2:
+        ui->l3->setCurrentIndex(3);
+        break;
+    case 3:
+        ui->l3->setCurrentIndex(0);
+        break;
+    case 4:
+        ui->l3->setCurrentIndex(5);
+        break;
+    case 5:
+        ui->l3->setCurrentIndex(2);
+        break;
+    case 6:
+        ui->l3->setCurrentIndex(1);
+        break;
+    default:
+        break;
+    }
+
+    switch (r2) {
+    case 1:
+        ui->r2->setCurrentIndex(3);
+        break;
+    case 2:
+        ui->r2->setCurrentIndex(1);
+        break;
+    case 3:
+        ui->r2->setCurrentIndex(4);
+        break;
+    case 4:
+        ui->r2->setCurrentIndex(5);
+        break;
+    case 5:
+        ui->r2->setCurrentIndex(2);
+        break;
+    case 6:
+        ui->r2->setCurrentIndex(0);
+        break;
+    default:
+        break;
+    }
+
+    switch (r3) {
+    case 1:
+        ui->r3->setCurrentIndex(3);
+        break;
+    case 2:
+        ui->r3->setCurrentIndex(2);
+        break;
+    case 3:
+        ui->r3->setCurrentIndex(4);
+        break;
+    case 4:
+        ui->r3->setCurrentIndex(1);
+        break;
+    case 5:
+        ui->r3->setCurrentIndex(0);
+        break;
+    case 6:
+        ui->r3->setCurrentIndex(5);
+        break;
+    default:
+        break;
+    }
+}

@@ -70,13 +70,14 @@ public:
         btn_login->setObjectName(QStringLiteral("btn_login"));
         btn_login->setMinimumSize(QSize(568, 190));
         btn_login->setStyleSheet(QString::fromUtf8("QPushButton#btn_login{\n"
-"background-image:url(:/\346\214\211\351\224\256_\347\224\250\346\210\267\347\231\273\345\275\2252.png);\n"
+"border-image:url(:/\346\214\211\351\224\256_\347\224\250\346\210\267\347\231\273\345\275\2252.png);\n"
 "border:none;\n"
 "}\n"
 "QPushButton#btn_login:pressed{\n"
-"background-image: url(:/i\346\214\211\351\224\256_\347\224\250\346\210\267\347\231\273\345\275\225_\346\214\211\344\270\2132.png);\n"
+"border-image: url(:/\346\214\211\351\224\256_\347\224\250\346\210\267\347\231\273\345\275\225_\346\214\211\344\270\2132.png);\n"
 "border:none;\n"
-"}"));
+"}\n"
+""));
 
         gridLayout->addWidget(btn_login, 1, 1, 1, 1);
 

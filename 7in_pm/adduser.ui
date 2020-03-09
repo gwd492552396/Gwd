@@ -154,51 +154,60 @@ border:none;
         </property>
        </spacer>
       </item>
-      <item row="2" column="3">
-       <widget class="QLineEdit" name="le_passwd">
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_name">
         <property name="minimumSize">
          <size>
-          <width>149</width>
-          <height>31</height>
+          <width>250</width>
+          <height>38</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>149</width>
-          <height>31</height>
+          <width>250</width>
+          <height>100</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>Microsoft JhengHei UI</family>
+          <pointsize>26</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(0,0,0);
-font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
-</string>
+         <string notr="true">color:rgb(255, 255, 255);
+background:transparent;
+font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
         </property>
         <property name="text">
-         <string/>
+         <string>输入六位用户名</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" rowspan="3">
-       <widget class="QLabel" name="label_tubiao">
-        <property name="minimumSize">
+      <item row="2" column="4">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>94</width>
-          <height>94</height>
+          <width>40</width>
+          <height>20</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>94</width>
-          <height>94</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-image: url(:/图标_普通用户.png);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
+       </spacer>
       </item>
       <item row="3" column="3">
        <widget class="QLineEdit" name="le_passwd2">
@@ -216,36 +225,17 @@ font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(0,0,0);
-font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
+font: 75 16pt &quot;Microsoft JhengHei UI&quot;;
 </string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLabel" name="label_passwd2">
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-font: 25px &quot;Microsoft YaHei UI&quot;;
-font-size: 25px;
-background:transparent;
-</string>
-        </property>
-        <property name="text">
-         <string>确认六位密码</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
       <item row="2" column="2">
        <widget class="QLabel" name="label_passwd">
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-font: 25px &quot;Microsoft YaHei UI&quot;;
-font-size: 25px;
+         <string notr="true">color:rgb(255, 255, 255);
 background:transparent;
-</string>
+font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
         </property>
         <property name="text">
          <string>设置六位密码</string>
@@ -255,47 +245,45 @@ background:transparent;
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="label_name">
+      <item row="2" column="3">
+       <widget class="QLineEdit" name="le_passwd">
         <property name="minimumSize">
          <size>
-          <width>93</width>
-          <height>38</height>
+          <width>149</width>
+          <height>31</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>500</width>
-          <height>100</height>
+          <width>149</width>
+          <height>31</height>
          </size>
         </property>
-        <property name="font">
-         <font>
-          <family>Microsoft YaHei UI</family>
-          <pointsize>-1</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
-font: 25px &quot;Microsoft YaHei UI&quot;;
-background:transparent;</string>
+         <string notr="true">color: rgb(0,0,0);
+font: 75 16pt &quot;Microsoft JhengHei UI&quot;;
+</string>
         </property>
         <property name="text">
-         <string>输入用户名</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
+         <string/>
         </property>
        </widget>
+      </item>
+      <item row="0" column="2">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>80</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item row="1" column="3">
        <widget class="QLineEdit" name="le_name">
@@ -319,7 +307,7 @@ background:transparent;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">color: rgb(0,0,0);
-font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
+font: 75 16pt &quot;Microsoft JhengHei UI&quot;;
 </string>
         </property>
         <property name="text">
@@ -340,34 +328,42 @@ font: 75 12pt &quot;Microsoft JhengHei UI&quot;;
         </property>
        </spacer>
       </item>
-      <item row="2" column="4">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+      <item row="1" column="1" rowspan="3">
+       <widget class="QLabel" name="label_tubiao">
+        <property name="minimumSize">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>94</width>
+          <height>94</height>
          </size>
         </property>
-       </spacer>
+        <property name="maximumSize">
+         <size>
+          <width>94</width>
+          <height>94</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-image: url(:/图标_普通用户.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
-      <item row="0" column="2">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_passwd2">
+        <property name="styleSheet">
+         <string notr="true">color:rgb(255, 255, 255);
+background:transparent;
+font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
         </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+        <property name="text">
+         <string>确认六位密码</string>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </widget>

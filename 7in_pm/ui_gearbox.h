@@ -17,6 +17,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,6 +29,7 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
     QWidget *widget_5;
     QVBoxLayout *verticalLayout_2;
     QWidget *widget_6;
@@ -51,8 +53,10 @@ public:
     QLabel *gearbox_out_rev;
     QLabel *label_2;
     QLabel *label_6;
+    QSpacerItem *horizontalSpacer_2;
     QWidget *widget_10;
     QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer_3;
     QWidget *widget_11;
     QVBoxLayout *verticalLayout_9;
     QWidget *widget_13;
@@ -67,6 +71,7 @@ public:
     QLabel *oil_pressure;
     QLabel *label_13;
     QLabel *label_9;
+    QSpacerItem *horizontalSpacer_4;
     QWidget *widget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_7;
@@ -90,6 +95,10 @@ public:
         horizontalLayout->setSpacing(30);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(5, -1, 5, -1);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
         widget_5 = new QWidget(widget);
         widget_5->setObjectName(QStringLiteral("widget_5"));
         widget_5->setMinimumSize(QSize(240, 240));
@@ -252,13 +261,24 @@ public:
 
         horizontalLayout->addWidget(widget_3);
 
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
 
         verticalLayout->addWidget(widget);
 
         widget_10 = new QWidget(gearbox);
         widget_10->setObjectName(QStringLiteral("widget_10"));
+        widget_10->setStyleSheet(QStringLiteral("background:transparent;"));
         horizontalLayout_3 = new QHBoxLayout(widget_10);
+        horizontalLayout_3->setSpacing(30);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 9, 0, -1);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_3);
+
         widget_11 = new QWidget(widget_10);
         widget_11->setObjectName(QStringLiteral("widget_11"));
         widget_11->setMinimumSize(QSize(240, 240));
@@ -285,10 +305,7 @@ public:
         label_11 = new QLabel(widget_13);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setMaximumSize(QSize(60, 20));
-        label_11->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
+        label_11->setStyleSheet(QStringLiteral("border-image:url(:/temp.png)"));
 
         verticalLayout_10->addWidget(label_11);
 
@@ -357,6 +374,10 @@ public:
 
         horizontalLayout_3->addWidget(widget_12);
 
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
 
         verticalLayout->addWidget(widget_10);
 
@@ -407,7 +428,7 @@ public:
         label_2->setText(QApplication::translate("gearbox", "   rpm", 0));
         label_6->setText(QApplication::translate("gearbox", "\350\276\223\345\207\272\350\275\264\350\275\254\351\200\237", 0));
         oil_temper->setText(QApplication::translate("gearbox", "000", 0));
-        label_11->setText(QApplication::translate("gearbox", "     \342\204\203", 0));
+        label_11->setText(QString());
         label_8->setText(QApplication::translate("gearbox", "\346\262\271\346\270\251", 0));
         oil_pressure->setText(QApplication::translate("gearbox", "000", 0));
         label_13->setText(QApplication::translate("gearbox", "    kPa", 0));

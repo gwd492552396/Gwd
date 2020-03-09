@@ -40,6 +40,163 @@
     </spacer>
    </item>
    <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>150</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 36px &quot;Microsoft JhengHei UI&quot;;
+color:rgb(255,255,255);
+font-size: 36px;
+background:transparent;</string>
+     </property>
+     <property name="title">
+      <string>车型选择:</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton">
+        <property name="styleSheet">
+         <string notr="true">
+QRadioButton::indicator {
+    width:                  20px;
+    height:                 20px;
+    border-radius:          10px;
+}
+ 
+QRadioButton::indicator:unchecked {
+    background-color:       white;
+    border:                 2px solid black;
+}
+ 
+QRadioButton::indicator:checked {
+    background-color:       rgb(5, 63, 183);
+    border:                 2px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string>刚性车</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_2">
+        <property name="styleSheet">
+         <string notr="true">
+QRadioButton::indicator {
+    width:                  20px;
+    height:                 20px;
+    border-radius:          10px;
+}
+ 
+QRadioButton::indicator:unchecked {
+    background-color:       white;
+    border:                 2px solid black;
+}
+ 
+QRadioButton::indicator:checked {
+    background-color:       rgb(5, 63, 183);
+    border:                 2px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string>电动轮</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_10">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_3">
+        <property name="styleSheet">
+         <string notr="true">
+QRadioButton::indicator {
+    width:                  20px;
+    height:                 20px;
+    border-radius:          10px;
+}
+ 
+QRadioButton::indicator:unchecked {
+    background-color:       white;
+    border:                 2px solid black;
+}
+ 
+QRadioButton::indicator:checked {
+    background-color:       rgb(5, 63, 183);
+    border:                 2px solid white;
+}</string>
+        </property>
+        <property name="text">
+         <string>混动车</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QWidget" name="widget_2" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -92,7 +249,7 @@ color:rgb(255,255,255);
 font-size:36px;</string>
         </property>
         <property name="text">
-         <string>驱动系统选择</string>
+         <string>传动箱选择</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -132,7 +289,7 @@ border-radius:5px;
 }</string>
         </property>
         <property name="text">
-         <string>西门子</string>
+         <string>艾里逊</string>
         </property>
        </widget>
       </item>

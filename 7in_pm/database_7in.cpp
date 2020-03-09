@@ -35,15 +35,15 @@ void Database_7in::initdb()
     result1 = rc;
     if (rc != SQLITE_OK)
     {
-        MessageWidget *mess = new MessageWidget();
-        mess->init("数据库打开失败",sqlite3_errmsg(db));
+/*        MessageWidget *mess = new MessageWidget();
+        mess->init("数据库打开失败",sqlite3_errmsg(db)); */     //modified by gwd in  2.6
         sqlite3_close(db);
         return;
     }
     else
     {
-        MessageWidget *mess = new MessageWidget();
-        mess->init("数据库打开成功","");
+//        MessageWidget *mess = new MessageWidget();
+//        mess->init("数据库打开成功","");                    //modified by gwd in  2.6
     }
     if(!istableexist(db,"user"))
     {
@@ -53,15 +53,15 @@ void Database_7in::initdb()
 
         if(rc != SQLITE_OK)
         {
-            MessageWidget *mess = new MessageWidget();
-            mess->init("创建用户表失败",error);
+//            MessageWidget *mess = new MessageWidget();
+//            mess->init("创建用户表失败",error);                   //modified by gwd in  2.6
         }
         sql = "insert into user VALUES(\"123456\",\"passwd\",0)";
         rc = sqlite3_exec(db,sql,NULL,0,&error);
         if(rc != SQLITE_OK)
         {
-            MessageWidget *mess = new MessageWidget();
-            mess->init("添加数据失败",error);
+//            MessageWidget *mess = new MessageWidget();
+//            mess->init("添加数据失败",error);                          //modified by gwd in  2.6
         }
     }
 
@@ -71,8 +71,8 @@ void Database_7in::initdb()
         rc = sqlite3_exec(db,sql,NULL,0,&error);
         if(rc != SQLITE_OK)
         {
-            MessageWidget *mess = new MessageWidget();
-            mess->init("创建参数表失败",error);
+//            MessageWidget *mess = new MessageWidget();
+//            mess->init("创建参数表失败",error);                  //modified by gwd in  2.6
         }
 
         sql = "insert into parameter values (?, ?)";
@@ -80,11 +80,12 @@ void Database_7in::initdb()
 
 
         QStringList types;
-        types << "司机代号" << "车辆代号" << "称重参数" << "超速预警预设值" << "红黄分界值" << "黄绿分界值" << "标定参数" << "额定载重量"<<"车架号"<<"车辆限速"<<"屏幕亮度";
+        types << "司机代号" << "车辆代号" << "称重参数" << "超速预警预设值" << "红黄分界值" << "黄绿分界值" << "标定参数" << "额定载重量"<<"车架号"<<"车辆限速"<<"屏幕亮度"
+              <<"l1"<<"l2"<<"l3"<<"r1"<<"r2"<<"r3";                       //modified by gwd in 2.7
 
         QStringList values;
-        values << "003" << "024" << "12345678" << "80" << "10" << "90" << "12345678" << "12345678" << "100" << "80"<<"10";
-        for(int i = 0 ;i< 11;i++)                                                           //modified by gwd
+        values << "003" << "024" << "12345678" << "80" << "10" << "90" << "12345678" << "12345678" << "100" << "80"<<"10"<<"0"<<"0"<<"0"<<"0"<<"0"<<"0";
+        for(int i = 0 ;i< 17;i++)                                                           //modified by gwd in 2.7
         {
 //            std::string str = types.at(i).toStdString();
 //            const char * ch = str.c_str();

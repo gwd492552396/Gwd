@@ -26,19 +26,18 @@ signals:
     void create(int);
     void previous(int);
     void send();
-    void log(QString);
+
 
 private slots:
     void receive(int);
     void on_btn_create_clicked();
 
     void on_btn_back_clicked();
+    void message_close();
 
-    void logout(QString);
 
 
 private:
-    MessageWidget * mess;
     Database_7in *Db;
     frmInput *keyinput;
     frmNum *keynum;

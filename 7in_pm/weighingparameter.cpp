@@ -6,14 +6,11 @@ WeighingParameter::WeighingParameter(QWidget *parent) :
     ui(new Ui::WeighingParameter)
 {
     ui->setupUi(this);
-    text = new TextWidget(this);
-    text->hide();
     Db = new Database_7in();
     ui->le_canshu->setText(Db->selectdata("标定参数"));
     ui->le_ry->setText(Db->selectdata("红黄分界值"));
     ui->le_yg->setText(Db->selectdata("黄绿分界值"));
     ui->le_weight->setText(Db->selectdata("额定载重量"));
-    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
 }
 
 WeighingParameter::~WeighingParameter()
@@ -45,21 +42,28 @@ void WeighingParameter::receivedata(QString name , QString number)
 
 void WeighingParameter::on_le_ry_clicked()
 {
+    TextWidget *text = new TextWidget(this);
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     text->init("红黄分界值");
 }
 
 void WeighingParameter::on_le_yg_clicked()
 {
+    TextWidget *text = new TextWidget(this);
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     text->init("黄绿分界值");
 }
 
 void WeighingParameter::on_le_canshu_clicked()
 {
+    TextWidget *text = new TextWidget(this);
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     text->init("标定参数");
 }
 
 void WeighingParameter::on_le_weight_clicked()
 {
-
+    TextWidget *text = new TextWidget(this);
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     text->init("额定载重量");
 }

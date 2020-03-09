@@ -38,16 +38,16 @@ public:
     QWidget *widget_2;
     QGridLayout *gridLayout_2;
     QSpacerItem *horizontalSpacer_2;
-    QLineEdit *le_passwd;
-    QLabel *label_tubiao;
-    QLineEdit *le_passwd2;
-    QLabel *label_passwd2;
-    QLabel *label_passwd;
     QLabel *label_name;
+    QSpacerItem *horizontalSpacer;
+    QLineEdit *le_passwd2;
+    QLabel *label_passwd;
+    QLineEdit *le_passwd;
+    QSpacerItem *verticalSpacer_2;
     QLineEdit *le_name;
     QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer;
-    QSpacerItem *verticalSpacer_2;
+    QLabel *label_tubiao;
+    QLabel *label_passwd2;
 
     void setupUi(QWidget *AddUser)
     {
@@ -113,15 +113,78 @@ public:
 
         gridLayout_2->addItem(horizontalSpacer_2, 1, 0, 1, 1);
 
+        label_name = new QLabel(widget_2);
+        label_name->setObjectName(QStringLiteral("label_name"));
+        label_name->setMinimumSize(QSize(250, 38));
+        label_name->setMaximumSize(QSize(250, 100));
+        QFont font;
+        font.setFamily(QStringLiteral("Microsoft JhengHei UI"));
+        font.setPointSize(26);
+        font.setBold(false);
+        font.setItalic(false);
+        font.setWeight(9);
+        label_name->setFont(font);
+        label_name->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
+"background:transparent;\n"
+"font: 75 26pt \"Microsoft JhengHei UI\";"));
+        label_name->setTextFormat(Qt::AutoText);
+        label_name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_name->setWordWrap(true);
+
+        gridLayout_2->addWidget(label_name, 1, 2, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer, 2, 4, 1, 1);
+
+        le_passwd2 = new QLineEdit(widget_2);
+        le_passwd2->setObjectName(QStringLiteral("le_passwd2"));
+        le_passwd2->setMinimumSize(QSize(149, 31));
+        le_passwd2->setMaximumSize(QSize(149, 31));
+        le_passwd2->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
+"font: 75 16pt \"Microsoft JhengHei UI\";\n"
+""));
+
+        gridLayout_2->addWidget(le_passwd2, 3, 3, 1, 1);
+
+        label_passwd = new QLabel(widget_2);
+        label_passwd->setObjectName(QStringLiteral("label_passwd"));
+        label_passwd->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
+"background:transparent;\n"
+"font: 75 26pt \"Microsoft JhengHei UI\";"));
+        label_passwd->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout_2->addWidget(label_passwd, 2, 2, 1, 1);
+
         le_passwd = new QLineEdit(widget_2);
         le_passwd->setObjectName(QStringLiteral("le_passwd"));
         le_passwd->setMinimumSize(QSize(149, 31));
         le_passwd->setMaximumSize(QSize(149, 31));
         le_passwd->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
-"font: 75 12pt \"Microsoft JhengHei UI\";\n"
+"font: 75 16pt \"Microsoft JhengHei UI\";\n"
 ""));
 
         gridLayout_2->addWidget(le_passwd, 2, 3, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 80, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_2->addItem(verticalSpacer_2, 0, 2, 1, 1);
+
+        le_name = new QLineEdit(widget_2);
+        le_name->setObjectName(QStringLiteral("le_name"));
+        le_name->setMinimumSize(QSize(149, 31));
+        le_name->setMaximumSize(QSize(149, 31));
+        le_name->setContextMenuPolicy(Qt::NoContextMenu);
+        le_name->setLayoutDirection(Qt::LeftToRight);
+        le_name->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
+"font: 75 16pt \"Microsoft JhengHei UI\";\n"
+""));
+
+        gridLayout_2->addWidget(le_name, 1, 3, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer, 4, 2, 1, 1);
 
         label_tubiao = new QLabel(widget_2);
         label_tubiao->setObjectName(QStringLiteral("label_tubiao"));
@@ -131,80 +194,14 @@ public:
 
         gridLayout_2->addWidget(label_tubiao, 1, 1, 3, 1);
 
-        le_passwd2 = new QLineEdit(widget_2);
-        le_passwd2->setObjectName(QStringLiteral("le_passwd2"));
-        le_passwd2->setMinimumSize(QSize(149, 31));
-        le_passwd2->setMaximumSize(QSize(149, 31));
-        le_passwd2->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
-"font: 75 12pt \"Microsoft JhengHei UI\";\n"
-""));
-
-        gridLayout_2->addWidget(le_passwd2, 3, 3, 1, 1);
-
         label_passwd2 = new QLabel(widget_2);
         label_passwd2->setObjectName(QStringLiteral("label_passwd2"));
-        label_passwd2->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
-"font: 25px \"Microsoft YaHei UI\";\n"
-"font-size: 25px;\n"
+        label_passwd2->setStyleSheet(QLatin1String("color:rgb(255, 255, 255);\n"
 "background:transparent;\n"
-""));
+"font: 75 26pt \"Microsoft JhengHei UI\";"));
         label_passwd2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout_2->addWidget(label_passwd2, 3, 2, 1, 1);
-
-        label_passwd = new QLabel(widget_2);
-        label_passwd->setObjectName(QStringLiteral("label_passwd"));
-        label_passwd->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
-"font: 25px \"Microsoft YaHei UI\";\n"
-"font-size: 25px;\n"
-"background:transparent;\n"
-""));
-        label_passwd->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_2->addWidget(label_passwd, 2, 2, 1, 1);
-
-        label_name = new QLabel(widget_2);
-        label_name->setObjectName(QStringLiteral("label_name"));
-        label_name->setMinimumSize(QSize(93, 38));
-        label_name->setMaximumSize(QSize(500, 100));
-        QFont font;
-        font.setFamily(QStringLiteral("Microsoft YaHei UI"));
-        font.setBold(false);
-        font.setItalic(false);
-        font.setWeight(50);
-        label_name->setFont(font);
-        label_name->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
-"font: 25px \"Microsoft YaHei UI\";\n"
-"background:transparent;"));
-        label_name->setTextFormat(Qt::AutoText);
-        label_name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        label_name->setWordWrap(true);
-
-        gridLayout_2->addWidget(label_name, 1, 2, 1, 1);
-
-        le_name = new QLineEdit(widget_2);
-        le_name->setObjectName(QStringLiteral("le_name"));
-        le_name->setMinimumSize(QSize(149, 31));
-        le_name->setMaximumSize(QSize(149, 31));
-        le_name->setContextMenuPolicy(Qt::NoContextMenu);
-        le_name->setLayoutDirection(Qt::LeftToRight);
-        le_name->setStyleSheet(QLatin1String("color: rgb(0,0,0);\n"
-"font: 75 12pt \"Microsoft JhengHei UI\";\n"
-""));
-
-        gridLayout_2->addWidget(le_name, 1, 3, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer, 4, 2, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer, 2, 4, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        gridLayout_2->addItem(verticalSpacer_2, 0, 2, 1, 1);
 
 
         gridLayout->addWidget(widget_2, 0, 0, 1, 3);
@@ -220,12 +217,12 @@ public:
         AddUser->setWindowTitle(QApplication::translate("AddUser", "Form", 0));
         btn_create->setText(QString());
         btn_back->setText(QString());
+        label_name->setText(QApplication::translate("AddUser", "\350\276\223\345\205\245\345\205\255\344\275\215\347\224\250\346\210\267\345\220\215", 0));
+        label_passwd->setText(QApplication::translate("AddUser", "\350\256\276\347\275\256\345\205\255\344\275\215\345\257\206\347\240\201", 0));
         le_passwd->setText(QString());
+        le_name->setText(QString());
         label_tubiao->setText(QString());
         label_passwd2->setText(QApplication::translate("AddUser", "\347\241\256\350\256\244\345\205\255\344\275\215\345\257\206\347\240\201", 0));
-        label_passwd->setText(QApplication::translate("AddUser", "\350\256\276\347\275\256\345\205\255\344\275\215\345\257\206\347\240\201", 0));
-        label_name->setText(QApplication::translate("AddUser", "\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", 0));
-        le_name->setText(QString());
     } // retranslateUi
 
 };

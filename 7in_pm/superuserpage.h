@@ -25,6 +25,8 @@ signals:
     void clear(int);
     void exit(int);
     void previous(int);
+    void loginstatus(int);
+    void senddata(QString);
 
 private slots:
     void on_btn_ybsz_clicked();
@@ -36,15 +38,16 @@ private slots:
     void on_btn_clear_clicked();
 
     void on_btn_exit_clicked();
-
+    void on_btn_back_home_clicked();
     void on_btn_back_clicked();
     void on_le_number_clicked();
     void on_le_limitspeed_clicked();
     void receivedata(QString ,QString);
 
+
 private:
     Ui::SuperUserPage *ui;
-    TextWidget *text;
+//    TextWidget *text;
     Database_7in * db;
 };
 

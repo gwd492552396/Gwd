@@ -26,8 +26,7 @@ private slots:
 
     void set_total_times(const QString &tt);
     void set_real_time_weight(const QString &rtw);
-    void set_ban_weight(const QString &bw);
-    void set_total_weight(const QString &tw);
+    void set_rated_weight(const QString &tw);
     void set_ban_total_times(const QString &btt);
 
 private:

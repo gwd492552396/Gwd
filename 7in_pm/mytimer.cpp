@@ -9,6 +9,8 @@
 #define up1 "ifconfig can1 up"//打开CAN1
 #define down1 "ifconfig can1 down"//关闭CAN1
 
+#define can_test 0
+
 
 MyTimer::MyTimer(QObject *parent) : QThread(parent)
 {
@@ -62,12 +64,34 @@ void MyTimer::run()
 {
     Database_7in *db = new Database_7in();
     cache = new QList<QString>;
+
+    emit speedup_percent("---");
+    emit slowdown_percent("---");
+    emit battety_vol("---");
+    emit enging_rev("---");
+    emit enigne_total_hours("---");
+    emit enigen_oli_pressure("---");
+    emit hydraulic(QString::number(100));
+    emit cooling(QString::number(100));
+    emit enigen_water_temper("---");
+    emit gearbox_temper("---");
+    emit gearbox_pressure("---");
+    emit gearbox_out_rev("---");
+    emit gearbox_in_rev("---");
+    emit real_time_weight("---");
+    emit rated_weight("---");
+    emit ban_total_times("---");
+    emit total_times("---");
+    emit gear_rate("---");
+
     while(1)
     {
         read(s, &frame, sizeof(frame));//接收总线上的报文保存在frame中
         QString s0;
         bool ok;
+#if can_test == 1
         emit log("ID:"+QString::number(frame.can_id & 0x7fffffff,16));        //log the id
+#endif
         for(int i = 0;i<8;i++)
         {
             QString str = QString("%1").arg(frame.data[i]&0xFF,8,2,QLatin1Char('0'));
@@ -75,10 +99,12 @@ void MyTimer::run()
             hex = hex.append(QString::number(str.toUInt(&ok,2),16));
             s0 += str;
         }
+#if can_test == 1
         emit log("Data(Bin):"+s0);               //log the message   s0 is the data
         emit log("Data(Hex):"+hex);
-        hex = "" ;
         emit log("");
+#endif
+        hex = "" ;
 
         QString s3 = "BMS电池故障";
         QString s4 = "BMS电池报警";
@@ -88,7 +114,6 @@ void MyTimer::run()
         case 0x1818d0f3:
         {
 
-            emit log("section 1");
             //                rd->set_power_battery_voltage(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)*0.1));
             //                rd->set_power_battery_current(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.1-1000));
             //                rd->set_soc(QString::number(QString::number(s0.mid(32,8).toInt(&ok,2)).toInt(&ok,10)*0.4));
@@ -130,13 +155,6 @@ void MyTimer::run()
                     }
                     cache->append(ss);
                     emit error_insert(s1,ss,s3);
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
-                    emit error_insert("123","456","789");
                     emit error_insert("123","456","789");
                     db->inserterror(s1,ss,s3);
                 }
@@ -487,447 +505,25 @@ void MyTimer::run()
 //            }
 //            break;
 //        }
-//        case 0x18f101f4:{
-//            emit log("section 6 \n");
-//            emit log("\n");
-//            break;}
-//        case 0x18ff2bf4:{
-//            emit log("section 7 \n");
-//            emit log("\n");
-//            break;}
-//        case 0x18ff2cf4:{
-//            emit log("section 8 \n");
-//            emit log("\n");
-//            //            rd->set_max_power(QString::number(QString::number(s0.mid(0,8).toInt(&ok,2)).toInt(&ok,10)*2));
-//            emit max_power(QString::number(QString::number(s0.mid(0,8).toInt(&ok,2)).toInt(&ok,10)*2));
-//            break;}
-//        case 0x18ff2df4:
-//        {
-//            emit log("section 9 \n");
-//            emit log("\n");
-//            int charge = QString::number(s0.mid(32,4).toInt(&ok,2)).toInt(&ok,10);
-//            int bms = QString::number(s0.mid(36,4).toInt(&ok,2)).toInt(&ok,10);
-//            if(bms == 1){
-//                //                    rd->set_bms_state("自检ok");
-//                emit bms_state("自检ok");
-//            }
-//            else if(bms == 0){
-//                //                    rd->set_bms_state("预留");
-//                emit bms_state("预留");
-//            }
-//            if(charge == 0){
-//                //                    rd->set_charing("未充电");
-//                emit charing("未充电");
-//            }else if(charge == 1)
-//            {
-//                //                    rd->set_charing("充电中");
-//                emit charing("充电中");
-//            }else if(charge == 2)
-//            {
-//                //                    rd->set_charing("结束充电");
-//                emit charing("结束充电");
-//            }else if(charge ==3)
-//            {
-//                //                    rd->set_charing("禁止充电");
-//                emit charing("禁止充电");
-//            }
-//            break;
-//        }
-//        case 0x0cff00d1:
-//        {
-//            emit log("section 10 \n");
-//            emit log("\n");
-//            //                rd->set_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
-//            //                rd->set_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
-//            //                rd->set_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
-//            emit real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
-//            emit real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
-//            emit direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
 
-//            QString state = s0.mid(48,2);
-//            QString mode = s0.mid(50,2);
-//            QString direction = s0.mid(52,2);
-//            QString fault = s0.mid(54,2);
-
-//            if(state == "00"){
-//                //                    rd->set_running_state("停机");
-//                emit running_state("停机");
-//            }else if(state == "01"){
-//                //                    rd->set_running_state("运行");
-//                emit running_state("运行");
-//            }
-
-//            if(mode == "01"){
-//                //                    rd->set_work_mode("驱动");
-//                emit work_mode("驱动");
-//            }else if(mode == "10"){
-//                //                    rd->set_work_mode("制动/发电");
-//                emit work_mode("制动/发电");
-//            }
-
-//            if(direction == "01"){
-//                //                    rd->set_mc_direction("正转");
-//                emit mc_direction("正转");
-//            }else if(direction == "10"){
-//                //                    rd->set_mc_direction("反转");
-//                emit mc_direction("反转");
-//            }
-
-//            if(fault == "01"){
-//                //                     rd->set_falut_state("正常");
-//                emit falut_state("正常");
-//            }else if(fault == "10"){
-//                //                     rd->set_falut_state("故障");
-//                emit falut_state("故障");
-//            }
-
-//            break;
-//        }
-//        case 0x0cff01d1:
-//        {
-//            emit log("section 11 \n");
-//            emit log("\n");
-//                //            rd->set_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//                //            rd->set_driver_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//                //            rd->set_em_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
-//                emit driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//                emit driver_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//                emit em_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
-//        }
-//        case 0x0cff02d1:
-//        {
-//            emit log("section 12 \n");
-//            emit log("\n");
-//            QString s2 = db->geterror("0CFF02D1",8);
-//            QDateTime time;
-//            QString s1 = time.currentDateTime().toString("MM-dd hh:mm");
-//            if(s0.mid(8,16) == "0000000000000000"){
-//                int i = ifinclude(s2);
-//                if(i!=-1)
-//                {
-
-//                    emit delete_row(cache->at(i));
-//                    cache->removeAt(i);
-//                }
-
-//            }
-//            else{
-//                QString ss;
-//                if(s0.mid(8,16) == "0000000000000001")
-//                {
-//                    ss = s2 + "预冲故障";
-//                }
-//                else if (s0.mid(8,16) == "0000000000000010")
-//                    ss = s2 + "主接触器故障";
-//                else if (s0.mid(8,16) == "0000000000000100")
-//                    ss = s2 +"IGBT故障";
-//                else if (s0.mid(8,16) == "0000000000001000")
-//                    ss = s2 + "过流故障";
-//                else if (s0.mid(8,16) == "0000000000010000")
-//                    ss = s2 + "一般过温";
-//                else if (s0.mid(8,16) == "0000000000100000")
-//                    ss = s2 + "严重过温";
-//                else if (s0.mid(8,16) == "0000000001000000")
-//                    ss = s2 + "一般过压";
-//                else if (s0.mid(8,16) == "0000000010000000")
-//                    ss = s2 + "严重过压";
-//                else if (s0.mid(8,16) == "0000000100000000")
-//                    ss = s2 + "一般欠压";
-//                else if (s0.mid(8,16) == "0000001000000000")
-//                    ss = s2 + "严重欠压";
-//                else if (s0.mid(8,16) == "0000010000000000")
-//                    ss = s2 + "一般堵转";
-//                else if (s0.mid(8,16) == "0000100000000000")
-//                    ss = s2 + "严重堵转";
-//                else if (s0.mid(8,16) == "0001000000000000")
-//                    ss = s2 + "超速故障";
-//                else if (s0.mid(8,16) == "0010000000000000")
-//                    ss = s2 + "点火信号故障";
-//                else if (s0.mid(8,16) == "0100000000000000")
-//                    ss = s2 + "低压电源电压低";
-//                else if (s0.mid(8,16) == "1000000000000000")
-//                    ss = s2 + "总线故障";
-//                if(!cache->contains(ss))
-//                {
-//                    int i = ifinclude(s2);
-//                    if(i != -1)
-//                    {
-
-//                      emit delete_row(cache->at(i));
-//                        cache->removeAt(i);
-//                    }
-//                    cache->append(ss);
-//                    emit error_insert(s1,ss,s5);
-//                }
-//            }
-
-
-//            QString s = db->geterror("0CFF02D1",24);
-//            if(s0.mid(24,16) == "0000000000000000"){
-//                int i = ifinclude(s);
-//                if(i!=-1)
-//                {
-
-//                    emit delete_row(cache->at(i));
-//                    cache->removeAt(i);
-//                }
-
-//            }
-//            else{
-//                QString ss;
-//                if(s0.mid(24,16) == "0000000000000001")
-//                {
-//                    ss = s + "中电电压故障";
-//                }
-//                else if (s0.mid(24,16) == "0000000000000010")
-//                    ss = s + "旋变角度故障";
-//                else if (s0.mid(24,16) == "0000000000000100")
-//                    ss = s +"旋变硬件故障";
-//                else if (s0.mid(24,16) == "0000000000001000")
-//                    ss = s + "电流滤波故障";
-//                else if (s0.mid(24,16) == "0000000000010000")
-//                    ss = s + "趋零故障";
-//                else if (s0.mid(24,16) == "0000000000100000")
-//                    ss = s + "IGBT温度一般异常";
-//                else if (s0.mid(24,16) == "0000000001000000")
-//                    ss = s + "IGBT温度严重异常";
-//                else if (s0.mid(24,16) == "0000000010000000")
-//                    ss = s + "W相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0000000100000000")
-//                    ss = s + "W相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0000001000000000")
-//                    ss = s + "V相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0000010000000000")
-//                    ss = s + "V相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0000100000000000")
-//                    ss = s + "U相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0001000000000000")
-//                    ss = s + "U相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0010000000000000")
-//                    ss = s + "自检故障";
-//                else if (s0.mid(24,16) == "0100000000000000")
-//                    ss = s + "电机一般过温";
-//                else if (s0.mid(24,16) == "1000000000000000")
-//                    ss = s + "电机严重过温故障";
-//                if(!cache->contains(ss))
-//                {
-//                    int i = ifinclude(s);
-//                    if(i != -1)
-//                    {
-
-//                        emit delete_row(cache->at(i));
-//                        cache->removeAt(i);
-//                    }
-//                    cache->append(ss);
-//                    emit error_insert(s1,ss,s5);
-//                }
-//            }
-//            break;
-//        }
-
-//        case 0x0cff00d2:
-//        {
-//            emit log("section 13 \n");
-//            emit log("\n");
-//            //                rd->set_isg_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
-//            //                rd->set_isg_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
-//            //                rd->set_isg_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
-//            emit isg_real_torque(QString::number(QString::number(s0.mid(0,16).toInt(&ok,2)).toInt(&ok,10)-3200));
-//            emit isg_real_rev(QString::number(QString::number(s0.mid(16,16).toInt(&ok,2)).toInt(&ok,10)*0.125-4000));
-//            emit isg_direct_current(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.05-1600));
-
-//            QString state = s0.mid(48,2);
-//            QString mode = s0.mid(50,2);
-//            QString direction = s0.mid(52,2);
-//            QString fault = s0.mid(54,2);
-
-//            if(state == "00"){
-//                //                    rd->set_isg_running_state("停机");
-//                emit isg_running_state("停机");
-//            }else if(state == "01"){
-//                //                    rd->set_isg_running_state("运行");
-//                emit isg_running_state("运行");
-//            }
-
-//            if(mode == "00"){
-//                //                    rd->set_isg_work_mode("驱动");
-//                emit isg_work_mode("驱动");
-//            }else if(mode == "10"){
-//                //                    rd->set_isg_work_mode("制动/发电");
-//                emit isg_work_mode("制动/发电");
-//            }
-
-//            if(direction == "00"){
-//                //                    rd->set_isg_mc_direction("正转");
-//                emit isg_mc_direction("正转");
-//            }else if(direction == "10"){
-//                //                    rd->set_isg_mc_direction("反转");
-//                emit isg_mc_direction("反转");
-//            }
-//            if(fault == "00"){
-//                //                     rd->set_isg_falut_state("正常");
-//                emit isg_falut_state("正常");
-//            }else if(fault == "10"){
-//                emit isg_falut_state("故障");
-//                //                     rd->set_isg_falut_state("故障");
-//            }
-//            break;
-//        }
-//        case 0x0cff01d2:{
-//            emit log("section 14 \n");
-//            emit log("\n");
-//            //            rd->set_isg_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//            //            rd->set_isg_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//            //            rd->set_isg_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
-//            emit isg_driver_temper(QString::number(QString::number(s0.mid(16,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//            emit isg_mc_control(QString::number(QString::number(s0.mid(24,8).toInt(&ok,2)).toInt(&ok,10)-40));
-//            emit isg_control_input(QString::number(QString::number(s0.mid(32,16).toInt(&ok,2)).toInt(&ok,10)*0.015));
-//            break;}
-//        case 0x0cff02d2:
-//            {
-//            emit log("section 15 \n");
-//            emit log("\n");
-//            QString s2 = db->geterror("0CFF02D2",8);
-//            QDateTime time;
-//            QString s1 = time.currentDateTime().toString("MM-dd hh:mm");
-//            if(s0.mid(8,16) == "0000000000000000"){
-//                int i = ifinclude(s2);
-//                if(i!=-1)
-//                {
-
-//                    emit delete_row(cache->at(i));
-//                    cache->removeAt(i);
-//                }
-
-//            }
-//            else{
-//                QString ss;
-//                if(s0.mid(8,16) == "0000000000000001")
-//                    ss = s2 + "预冲故障";
-//                else if (s0.mid(8,16) == "0000000000000010")
-//                    ss = s2 + "主接触器故障";
-//                else if (s0.mid(8,16) == "0000000000000100")
-//                    ss = s2 +"IGBT故障";
-//                else if (s0.mid(8,16) == "0000000000001000")
-//                    ss = s2 + "过流故障";
-//                else if (s0.mid(8,16) == "0000000000010000")
-//                    ss = s2 + "一般过温";
-//                else if (s0.mid(8,16) == "0000000000100000")
-//                    ss = s2 + "严重过温";
-//                else if (s0.mid(8,16) == "0000000001000000")
-//                    ss = s2 + "一般过压";
-//                else if (s0.mid(8,16) == "0000000010000000")
-//                    ss = s2 + "严重过压";
-//                else if (s0.mid(8,16) == "0000000100000000")
-//                    ss = s2 + "一般欠压";
-//                else if (s0.mid(8,16) == "0000001000000000")
-//                    ss = s2 + "严重欠压";
-//                else if (s0.mid(8,16) == "0000010000000000")
-//                    ss = s2 + "一般堵转";
-//                else if (s0.mid(8,16) == "0000100000000000")
-//                    ss = s2 + "严重堵转";
-//                else if (s0.mid(8,16) == "0001000000000000")
-//                    ss = s2 + "超速故障";
-//                else if (s0.mid(8,16) == "0010000000000000")
-//                    ss = s2 + "点火信号故障";
-//                else if (s0.mid(8,16) == "0100000000000000")
-//                    ss = s2 + "低压电源电压低";
-//                else if (s0.mid(8,16) == "1000000000000000")
-//                    ss = s2 + "总线故障";
-//                if(!cache->contains(ss))
-//                {
-//                    int i = ifinclude(s2);
-//                    if(i != -1)
-//                    {
-
-//                        emit delete_row(cache->at(i));
-//                        cache->removeAt(i);
-//                    }
-//                    cache->append(ss);
-//                    emit error_insert(s1,ss,s5);
-//                }
-//            }
-//            s2 = db->geterror("0CFF02D2",24);
-//            if(s0.mid(24,16) == "0000000000000000"){
-//                int i = ifinclude(s2);
-//                if(i!=-1)
-//                {
-
-//                    emit delete_row(cache->at(i));
-//                    cache->removeAt(i);
-//                }
-
-//            }
-//            else{
-//                QString ss;
-//                if(s0.mid(24,16) == "0000000000000001")
-//                {
-//                    ss = s2 + "中电电压故障";
-//                }
-//                else if (s0.mid(24,16) == "0000000000000010")
-//                    ss = s2 + "旋变角度故障";
-//                else if (s0.mid(24,16) == "0000000000000100")
-//                    ss = s2 +"旋变硬件故障";
-//                else if (s0.mid(24,16) == "0000000000001000")
-//                    ss = s2 + "电流滤波故障";
-//                else if (s0.mid(24,16) == "0000000000010000")
-//                    ss = s2 + "趋零故障";
-//                else if (s0.mid(24,16) == "0000000000100000")
-//                    ss = s2 + "IGBT温度一般异常";
-//                else if (s0.mid(24,16) == "0000000001000000")
-//                    ss = s2 + "IGBT温度严重异常";
-//                else if (s0.mid(24,16) == "0000000010000000")
-//                    ss = s2 + "W相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0000000100000000")
-//                    ss = s2 + "W相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0000001000000000")
-//                    ss = s2 + "V相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0000010000000000")
-//                    ss = s2 + "V相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0000100000000000")
-//                    ss = s2 + "U相下管IGBT故障";
-//                else if (s0.mid(24,16) == "0001000000000000")
-//                    ss = s2 + "U相上管IGBT故障";
-//                else if (s0.mid(24,16) == "0010000000000000")
-//                    ss = s2 + "自检故障";
-//                else if (s0.mid(24,16) == "0100000000000000")
-//                    ss = s2 + "电机一般过温";
-//                else if (s0.mid(24,16) == "1000000000000000")
-//                    ss = s2 + "电机严重过温故障";
-//                if(!cache->contains(ss))
-//                {
-//                    int i = ifinclude(s2);
-//                    if(i != -1)
-//                    {
-
-//                      emit delete_row(cache->at(i));
-//                        cache->removeAt(i);
-//                    }
-//                    cache->append(ss);
-//                    emit error_insert(s1,ss,s5);
-//                }
-//            }
-//            break;
-//        }
-//        case 0x0cff0303:
-//        {
-//            emit log("section 16 \n");
-//            emit log("\n");
-//            break;
-//        }
-//        case 0x0cff0403:
-//        {
-//            emit log("section 17 \n");
-//            emit log("\n");
-//            break;
-//        }
-        case 0x18EA0021:                            //delete
+        case 0x0CFFF821:                          //加速踏板百分比、缓行踏板百分比
         {
-            emit speedup_percent(QString::number(s0.mid(0,8).toInt(&ok,2)*0.2));
-            emit slowdown_percent(QString::number(s0.mid(8,8).toInt(&ok,2)*0.2));
+            temp = (frame.data[0])*0.2;
+            if (temp > 0 && temp < 100)
+            {
+                emit speedup_percent(QString::number(temp));
+            }
+            else emit speedup_percent("---");
+
+            temp = (frame.data[1])*0.2;
+            if (temp > 0 && temp < 100)
+            {
+                emit slowdown_percent(QString::number(temp));
+            }
+            else emit slowdown_percent("---");
             break;
         }
-        case 0X18FD0321:
+        case 0X18FD0321:                       //电池电压
         {
             temp = (frame.data[0] + ( frame.data[1] << 8 ))*0.05;
             if (temp > 0 && temp < 50)
@@ -937,7 +533,7 @@ void MyTimer::run()
             else emit battety_vol("---");
             break;
         }
-        case 0x0CF00400:
+        case 0x0CF00400:                       //发动机转数
         {
             temp = (frame.data[3] + ( frame.data[4] << 8 ))* 0.125;
             if (temp > 0 && temp < 5000)
@@ -948,19 +544,22 @@ void MyTimer::run()
             break;
 
         }
-        case 0x18FEE500:
-        {       
+        case 0x18FEE500:                       //发动机工作小时数
+        {
+            float time = (frame.data[0] + (frame.data[1] << 8) + (frame.data[2] << 16) + (frame.data[3] << 24))*0.05;
             temp = (frame.data[0] + (frame.data[1] << 8) + (frame.data[2] << 16) + (frame.data[3] << 24))*0.05;
+            time = time - temp;
+            int time1 = time * 60;
             if (temp > 0 && temp < 210554060)
             {
-                emit enigne_total_hours(QString::number(temp));
+                emit enigne_total_hours(QString::number(temp)+"h"+QString::number(time1)+"min");
             }
             else emit enigne_total_hours("---");
             break;
         }
-        case 0x18FEEF00:
+        case 0x18FEEF00:                    //发动机液压力
         {
-            temp = ( frame.data[3] ) *4 ;
+            temp = ( frame.data[3] ) * 4 ;
             if (temp > 0 && temp < 1000)
             {
                 emit enigen_oli_pressure(QString::number(temp));
@@ -968,20 +567,50 @@ void MyTimer::run()
             else emit enigen_oli_pressure("---");
             break;
         }
-        case 0X18FC0090:
+
+        case 0X18FC0090:                                     //称重系统
         {
-            emit real_time_weight(QString::number(s0.mid(16,16).toInt(&ok,2)*0.01));
+            temp = (frame.data[2] + ( frame.data[3] << 8 ))*0.01;
+            if (temp > 0 && temp < 642)
+            {
+                emit real_time_weight(QString::number(temp));
+            }
+            else emit real_time_weight("---");
+
+            temp = (frame.data[0] + ( frame.data[1] << 8 ))*0.01;
+            if (temp > 0 && temp < 642)
+            {
+                emit rated_weight(QString::number(temp));
+            }
+            else emit rated_weight("---");
+
+            temp = (frame.data[4] + ( frame.data[5] << 8 ))*1;
+            if (temp > 0 && temp < 65535)
+            {
+                emit ban_total_times(QString::number(temp));
+            }
+            else emit ban_total_times("---");
+
+            temp = (frame.data[6] + ( frame.data[7] << 8 ))*1;
+            if (temp > 0 && temp < 65535)
+            {
+                emit total_times(QString::number(temp));
+            }
+            else emit total_times("---");
+
             break;
         }
+
+
         case 0X18FD0121:
         {
-            temp = frame.data[2] & 0x01;
+            temp = frame.data[2] & 0x01;                  //液压油位低
             if (temp == 1)
                 emit hydraulic(QString::number(8));
             else
                 emit hydraulic(QString::number(100));
 
-            temp = frame.data[3] & 0x10;
+            temp = frame.data[3] & 0x10;                //冷却液位低
             temp = temp >> 4;
             if (temp == 1)
                 emit cooling(QString::number(8));
@@ -989,7 +618,7 @@ void MyTimer::run()
                 emit cooling(QString::number(100));
             break;
         }
-        case 0x18FEEE00:
+        case 0x18FEEE00:                             //冷却液温度
         {
             temp = (frame.data[0]) - 40 ;
             if (temp > -40 && temp < 210)
@@ -1000,7 +629,7 @@ void MyTimer::run()
 
             break;
         }
-        case 0x18FEF803:
+        case 0x18FEF803:                    //传动箱油温
         {
             temp = (frame.data[4] + (frame.data[5] << 8))*0.03125 - 273;
             if (temp > -273 && temp < 1735)
@@ -1010,7 +639,7 @@ void MyTimer::run()
             else emit gearbox_temper("---");
 
 
-            temp = (frame.data[3]) *16;
+            temp = (frame.data[3]) *16;                 //传输油液压力
             if (temp > 0 && temp < 4000)
             {
                 emit gearbox_pressure(QString::number(temp));
@@ -1020,20 +649,31 @@ void MyTimer::run()
         }
         case 0x0CF00203:
         {
-            temp = (frame.data[1] + ( frame.data[2] << 8 ))* 0.125;
+            temp = (frame.data[1] + ( frame.data[2] << 8 ))* 0.125;    //输出轴速度
             if (temp > 0 && temp < 8031)
             {
                 emit gearbox_out_rev(QString::number(temp));
             }
             else emit gearbox_out_rev("---");
 
-            temp = (frame.data[5] + ( frame.data[6] << 8 ))* 0.125;
+            temp = (frame.data[5] + ( frame.data[6] << 8 ))* 0.125;    //输入轴速度
             if (temp > 0 && temp < 8031)
             {
                 emit gearbox_in_rev(QString::number(temp));
             }
             else emit gearbox_in_rev("---");
         }
+          case 0x18F00503:
+        {
+            temp = (frame.data[1] + ( frame.data[2] << 8 ))* 0.1;    //变速箱变比
+            if (temp > 0 && temp < 6425)
+            {
+                emit gearbox_out_rev(QString::number(temp/100));
+            }
+            else emit gearbox_out_rev("---");
+        }
+
+
 
         qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));                  //random number for test
         int f = qrand()%10;
@@ -1102,8 +742,8 @@ void MyTimer::run()
         //    rd->set_enigne_total_hours(QString::number(f));
 //        emit enigne_total_hours(QString::number(f));
 
+        }
     }
-}
 }
 
 

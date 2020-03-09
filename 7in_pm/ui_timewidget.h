@@ -45,10 +45,10 @@ public:
         timewidget->setMaximumSize(QSize(600, 500));
         le_year = new QLineEdit(timewidget);
         le_year->setObjectName(QStringLiteral("le_year"));
-        le_year->setGeometry(QRect(169, 39, 68, 31));
-        le_year->setMinimumSize(QSize(68, 31));
-        le_year->setMaximumSize(QSize(68, 31));
-        le_year->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        le_year->setGeometry(QRect(70, 20, 136, 62));
+        le_year->setMinimumSize(QSize(136, 62));
+        le_year->setMaximumSize(QSize(136, 62));
+        le_year->setStyleSheet(QLatin1String("font: 40px \"Microsoft YaHei UI\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgb(0, 0, 0);\n"
 "color: rgba(13, 53, 136, 1);\n"
@@ -57,19 +57,19 @@ public:
         le_year->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(timewidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(242, 40, 32, 31));
+        label_2->setGeometry(QRect(210, 40, 32, 31));
         label_2->setMinimumSize(QSize(32, 31));
         label_2->setSizeIncrement(QSize(32, 31));
         label_2->setStyleSheet(QLatin1String("font-family: MicrosoftYaHei;\n"
-"font-size: 18px;\n"
+"font-size: 32px;\n"
 "color: #FFFFFF;"));
         label_2->setAlignment(Qt::AlignCenter);
         le_month = new QLineEdit(timewidget);
         le_month->setObjectName(QStringLiteral("le_month"));
-        le_month->setGeometry(QRect(279, 39, 43, 31));
-        le_month->setMinimumSize(QSize(43, 31));
-        le_month->setMaximumSize(QSize(43, 31));
-        le_month->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        le_month->setGeometry(QRect(240, 20, 86, 62));
+        le_month->setMinimumSize(QSize(86, 62));
+        le_month->setMaximumSize(QSize(86, 62));
+        le_month->setStyleSheet(QLatin1String("font: 40px \"Microsoft YaHei UI\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgb(0, 0, 0);\n"
 "color: rgba(13, 53, 136, 1);\n"
@@ -78,10 +78,10 @@ public:
         le_month->setAlignment(Qt::AlignCenter);
         le_day = new QLineEdit(timewidget);
         le_day->setObjectName(QStringLiteral("le_day"));
-        le_day->setGeometry(QRect(359, 39, 43, 31));
-        le_day->setMinimumSize(QSize(43, 31));
-        le_day->setMaximumSize(QSize(43, 31));
-        le_day->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        le_day->setGeometry(QRect(370, 20, 86, 62));
+        le_day->setMinimumSize(QSize(86, 62));
+        le_day->setMaximumSize(QSize(86, 62));
+        le_day->setStyleSheet(QLatin1String("font: 40px \"Microsoft YaHei UI\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgb(0, 0, 0);\n"
 "color: rgba(13, 53, 136, 1);\n"
@@ -90,28 +90,28 @@ public:
         le_day->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(timewidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(327, 40, 32, 31));
+        label_4->setGeometry(QRect(330, 40, 32, 31));
         label_4->setMinimumSize(QSize(32, 31));
         label_4->setSizeIncrement(QSize(32, 31));
         label_4->setStyleSheet(QLatin1String("font-family: MicrosoftYaHei;\n"
-"font-size: 18px;\n"
+"font-size: 32px;\n"
 "color: #FFFFFF;"));
         label_4->setAlignment(Qt::AlignCenter);
         label_5 = new QLabel(timewidget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(407, 40, 32, 31));
+        label_5->setGeometry(QRect(460, 40, 32, 31));
         label_5->setMinimumSize(QSize(32, 31));
         label_5->setSizeIncrement(QSize(32, 31));
         label_5->setStyleSheet(QLatin1String("font-family: MicrosoftYaHei;\n"
-"font-size: 18px;\n"
+"font-size: 32px;\n"
 "color: #FFFFFF;"));
         label_5->setAlignment(Qt::AlignCenter);
         le_minute = new QLineEdit(timewidget);
         le_minute->setObjectName(QStringLiteral("le_minute"));
-        le_minute->setGeometry(QRect(307, 79, 43, 31));
-        le_minute->setMinimumSize(QSize(43, 31));
-        le_minute->setMaximumSize(QSize(43, 31));
-        le_minute->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        le_minute->setGeometry(QRect(300, 90, 86, 62));
+        le_minute->setMinimumSize(QSize(86, 62));
+        le_minute->setMaximumSize(QSize(86, 62));
+        le_minute->setStyleSheet(QLatin1String("font: 40px \"Microsoft YaHei UI\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgb(0, 0, 0);\n"
 "color: rgba(13, 53, 136, 1);\n"
@@ -120,10 +120,10 @@ public:
         le_minute->setAlignment(Qt::AlignCenter);
         le_hour = new QLineEdit(timewidget);
         le_hour->setObjectName(QStringLiteral("le_hour"));
-        le_hour->setGeometry(QRect(222, 79, 43, 31));
-        le_hour->setMinimumSize(QSize(43, 31));
-        le_hour->setMaximumSize(QSize(43, 31));
-        le_hour->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        le_hour->setGeometry(QRect(170, 90, 86, 62));
+        le_hour->setMinimumSize(QSize(86, 62));
+        le_hour->setMaximumSize(QSize(86, 62));
+        le_hour->setStyleSheet(QLatin1String("font: 40px \"Microsoft YaHei UI\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgb(0, 0, 0);\n"
 "color: rgba(13, 53, 136, 1);\n"
@@ -132,20 +132,20 @@ public:
         le_hour->setAlignment(Qt::AlignCenter);
         label_6 = new QLabel(timewidget);
         label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(355, 80, 32, 31));
+        label_6->setGeometry(QRect(390, 110, 32, 31));
         label_6->setMinimumSize(QSize(32, 31));
         label_6->setSizeIncrement(QSize(32, 31));
         label_6->setStyleSheet(QLatin1String("font-family: MicrosoftYaHei;\n"
-"font-size: 18px;\n"
+"font-size: 32px;\n"
 "color: #FFFFFF;"));
         label_6->setAlignment(Qt::AlignCenter);
         label_7 = new QLabel(timewidget);
         label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setGeometry(QRect(270, 80, 32, 31));
+        label_7->setGeometry(QRect(260, 110, 32, 31));
         label_7->setMinimumSize(QSize(32, 31));
         label_7->setSizeIncrement(QSize(32, 31));
         label_7->setStyleSheet(QLatin1String("font-family: MicrosoftYaHei;\n"
-"font-size: 18px;\n"
+"font-size: 32px;\n"
 "color: #FFFFFF;"));
         label_7->setAlignment(Qt::AlignCenter);
         close = new QPushButton(timewidget);

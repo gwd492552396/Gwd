@@ -81,7 +81,7 @@ background:transparent;
 font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
        </property>
        <property name="text">
-        <string>输入用户名</string>
+        <string>输入六位用户名</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -103,13 +103,10 @@ font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 18px &quot;Microsoft JhengHei&quot;;
+        <string notr="true">font:24px &quot;Microsoft JhengHei&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgba(255,255,255);
 color:rgb(0,0,0)</string>
-       </property>
-       <property name="placeholderText">
-        <string>请输入用户名</string>
        </property>
       </widget>
      </item>
@@ -146,16 +143,13 @@ font: 75 26pt &quot;Microsoft JhengHei UI&quot;;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">font:18px &quot;Microsoft JhengHei&quot;;
+        <string notr="true">font:24px &quot;Microsoft JhengHei&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgba(255,255,255);
 color:rgb(0,0,0)</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
-       </property>
-       <property name="placeholderText">
-        <string>请输入密码</string>
        </property>
       </widget>
      </item>
@@ -230,6 +224,31 @@ border:none;
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_fast_login">
+        <property name="minimumSize">
+         <size>
+          <width>250</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+border:5px solid rgb(44,86,191);
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+font: 25pt &quot;Microsoft YaHei UI&quot;;
+color:rgb(44, 89, 191);
+background-color:rgb(0,0,0)
+</string>
+        </property>
+        <property name="text">
+         <string>选择已有用户</string>
         </property>
        </widget>
       </item>

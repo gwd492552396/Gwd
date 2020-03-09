@@ -13,11 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,20 +25,23 @@ QT_BEGIN_NAMESPACE
 class Ui_InformationQuery
 {
 public:
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer_2;
+    QWidget *widget_3;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *btn_zc;
+    QWidget *widget_2;
+    QVBoxLayout *verticalLayout;
+    QPushButton *btn_error;
+    QPushButton *btn_waring;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QPushButton *btn_backhome;
     QSpacerItem *horizontalSpacer;
     QPushButton *btn_back;
-    QPushButton *btn_error;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_3;
-    QSpacerItem *horizontalSpacer_2;
-    QPushButton *btn_waring;
-    QPushButton *btn_lubricate;
-    QSpacerItem *verticalSpacer_2;
 
     void setupUi(QWidget *InformationQuery)
     {
@@ -47,27 +50,93 @@ public:
         InformationQuery->resize(1080, 652);
         InformationQuery->setMinimumSize(QSize(674, 400));
         InformationQuery->setStyleSheet(QStringLiteral("background:transparent;"));
-        gridLayout = new QGridLayout(InformationQuery);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setVerticalSpacing(10);
-        btn_zc = new QPushButton(InformationQuery);
+        verticalLayout_2 = new QVBoxLayout(InformationQuery);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+        widget_3 = new QWidget(InformationQuery);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        horizontalLayout_2 = new QHBoxLayout(widget_3);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+        btn_zc = new QPushButton(widget_3);
         btn_zc->setObjectName(QStringLiteral("btn_zc"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(btn_zc->sizePolicy().hasHeightForWidth());
         btn_zc->setSizePolicy(sizePolicy);
-        btn_zc->setMinimumSize(QSize(360, 120));
+        btn_zc->setMinimumSize(QSize(420, 320));
+        btn_zc->setMaximumSize(QSize(420, 320));
         btn_zc->setStyleSheet(QString::fromUtf8("QPushButton#btn_zc{\n"
 "border-image: url(:/\346\214\211\351\224\256_\346\225\264\350\275\2462.png);\n"
 "\n"
 "}\n"
 "QPushButton#btn_zc:pressed{\n"
-"border-image: url(:/\346\214\211\351\224\256_\346\225\264\350\275\246_\346\214\211\344\270\2132png);\n"
+"border-image: url(:/\346\214\211\351\224\256_\346\225\264\350\275\246_\346\214\211\344\270\2132.png);\n"
 "\n"
 "}"));
 
-        gridLayout->addWidget(btn_zc, 1, 1, 1, 1);
+        horizontalLayout_2->addWidget(btn_zc);
+
+        widget_2 = new QWidget(widget_3);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        verticalLayout = new QVBoxLayout(widget_2);
+        verticalLayout->setSpacing(0);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        btn_error = new QPushButton(widget_2);
+        btn_error->setObjectName(QStringLiteral("btn_error"));
+        sizePolicy.setHeightForWidth(btn_error->sizePolicy().hasHeightForWidth());
+        btn_error->setSizePolicy(sizePolicy);
+        btn_error->setMinimumSize(QSize(420, 160));
+        btn_error->setMaximumSize(QSize(420, 160));
+        btn_error->setStyleSheet(QString::fromUtf8("QPushButton#btn_error{\n"
+"border-image: url(:/\346\214\211\351\224\256_\346\225\205\351\232\234\344\277\241\346\201\2572.png);\n"
+"\n"
+"}\n"
+"QPushButton#btn_error:pressed{\n"
+"border-image: url(:/\346\214\211\351\224\256_\346\225\205\351\232\234\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
+"\n"
+"}"));
+
+        verticalLayout->addWidget(btn_error);
+
+        btn_waring = new QPushButton(widget_2);
+        btn_waring->setObjectName(QStringLiteral("btn_waring"));
+        sizePolicy.setHeightForWidth(btn_waring->sizePolicy().hasHeightForWidth());
+        btn_waring->setSizePolicy(sizePolicy);
+        btn_waring->setMinimumSize(QSize(420, 160));
+        btn_waring->setMaximumSize(QSize(420, 160));
+        btn_waring->setStyleSheet(QString::fromUtf8("QPushButton#btn_waring{\n"
+"border-image: url(:/\351\200\211\351\241\271_\346\212\245\350\255\246\344\277\241\346\201\2572.png);\n"
+"\n"
+"}\n"
+"QPushButton#btn_waring:pressed{\n"
+"border-image: url(:/\351\200\211\351\241\271_\346\212\245\350\255\246\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
+"\n"
+"}"));
+
+        verticalLayout->addWidget(btn_waring);
+
+
+        horizontalLayout_2->addWidget(widget_2);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+
+        verticalLayout_2->addWidget(widget_3);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
 
         widget = new QWidget(InformationQuery);
         widget->setObjectName(QStringLiteral("widget"));
@@ -108,72 +177,7 @@ public:
         horizontalLayout->addWidget(btn_back);
 
 
-        gridLayout->addWidget(widget, 5, 1, 1, 2);
-
-        btn_error = new QPushButton(InformationQuery);
-        btn_error->setObjectName(QStringLiteral("btn_error"));
-        sizePolicy.setHeightForWidth(btn_error->sizePolicy().hasHeightForWidth());
-        btn_error->setSizePolicy(sizePolicy);
-        btn_error->setMinimumSize(QSize(480, 160));
-        btn_error->setStyleSheet(QString::fromUtf8("QPushButton#btn_error{\n"
-"border-image: url(:/\346\214\211\351\224\256_\346\225\205\351\232\234\344\277\241\346\201\2572.png);\n"
-"\n"
-"}\n"
-"QPushButton#btn_error:pressed{\n"
-"border-image: url(:/\346\214\211\351\224\256_\346\225\205\351\232\234\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
-"\n"
-"}"));
-
-        gridLayout->addWidget(btn_error, 1, 2, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 0, 2, 1, 1);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_3, 1, 3, 1, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_2, 1, 0, 1, 1);
-
-        btn_waring = new QPushButton(InformationQuery);
-        btn_waring->setObjectName(QStringLiteral("btn_waring"));
-        sizePolicy.setHeightForWidth(btn_waring->sizePolicy().hasHeightForWidth());
-        btn_waring->setSizePolicy(sizePolicy);
-        btn_waring->setMinimumSize(QSize(480, 160));
-        btn_waring->setStyleSheet(QString::fromUtf8("QPushButton#btn_waring{\n"
-"border-image: url(:/\351\200\211\351\241\271_\346\212\245\350\255\246\344\277\241\346\201\2572.png);\n"
-"\n"
-"}\n"
-"QPushButton#btn_waring:pressed{\n"
-"border-image: url(:/\351\200\211\351\241\271_\346\212\245\350\255\246\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
-"\n"
-"}"));
-
-        gridLayout->addWidget(btn_waring, 3, 2, 1, 1);
-
-        btn_lubricate = new QPushButton(InformationQuery);
-        btn_lubricate->setObjectName(QStringLiteral("btn_lubricate"));
-        sizePolicy.setHeightForWidth(btn_lubricate->sizePolicy().hasHeightForWidth());
-        btn_lubricate->setSizePolicy(sizePolicy);
-        btn_lubricate->setMinimumSize(QSize(480, 160));
-        btn_lubricate->setStyleSheet(QString::fromUtf8("QPushButton#btn_lubricate{\n"
-"border-image: url(:/\351\200\211\351\241\271_\351\233\206\344\270\255\346\266\246\346\273\2212.png);\n"
-"\n"
-"}\n"
-"QPushButton#btn_lubricate:pressed{\n"
-"border-image: url(:/\351\200\211\351\241\271_\351\233\206\344\270\255\346\266\246\346\273\221_\346\214\211\344\270\2132.png);\n"
-"\n"
-"\n"
-"}"));
-
-        gridLayout->addWidget(btn_lubricate, 3, 1, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_2, 4, 1, 1, 1);
+        verticalLayout_2->addWidget(widget);
 
 
         retranslateUi(InformationQuery);
@@ -185,11 +189,10 @@ public:
     {
         InformationQuery->setWindowTitle(QApplication::translate("InformationQuery", "Form", 0));
         btn_zc->setText(QString());
-        btn_backhome->setText(QString());
-        btn_back->setText(QString());
         btn_error->setText(QString());
         btn_waring->setText(QString());
-        btn_lubricate->setText(QString());
+        btn_backhome->setText(QString());
+        btn_back->setText(QString());
     } // retranslateUi
 
 };

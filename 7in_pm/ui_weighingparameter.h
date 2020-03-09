@@ -286,11 +286,11 @@ public:
     void retranslateUi(QWidget *WeighingParameter)
     {
         WeighingParameter->setWindowTitle(QApplication::translate("WeighingParameter", "Form", 0));
-        label_3->setText(QApplication::translate("WeighingParameter", "\346\240\207\345\256\232\345\217\202\346\225\260\347\225\214\351\235\242", 0));
+        label_3->setText(QApplication::translate("WeighingParameter", "\346\240\207\345\256\232\345\217\202\346\225\260\345\200\274", 0));
         label_2->setText(QApplication::translate("WeighingParameter", "\351\273\204\347\273\277\345\210\206\347\225\214\350\256\276\345\256\232\345\200\274", 0));
         le_canshu->setText(QString());
         le_weight->setText(QString());
-        label->setText(QApplication::translate("WeighingParameter", "\347\272\242\351\273\204\345\210\206\350\247\243\347\202\271\350\256\276\345\256\232\345\200\274", 0));
+        label->setText(QApplication::translate("WeighingParameter", "\347\272\242\351\273\204\345\210\206\347\225\214\350\256\276\345\256\232\345\200\274", 0));
         le_ry->setText(QString());
         label_4->setText(QApplication::translate("WeighingParameter", "\351\242\235\345\256\232\350\275\275\351\207\215\351\207\217", 0));
         le_yg->setText(QString());

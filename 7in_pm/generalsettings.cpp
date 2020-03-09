@@ -8,27 +8,20 @@ GeneralSettings::GeneralSettings(QWidget *parent) :
     ui(new Ui::GeneralSettings)
 {
     ui->setupUi(this);
-    text = new TextWidget(this);
 
-    text->hide();
-    time = new timewidget(this);
-    time->hide();
-    light = new LightWidget(this);
-    light->hide();
-    connect(light,SIGNAL(light_changed(QString)),this,SLOT(set_light(QString)));
     Db = new Database_7in();
     ui->le_carnum->setText(Db->selectdata("车辆代号"));
     ui->le_drivernum->setText(Db->selectdata("司机代号"));
     ui->le_limit->setText(Db->selectdata("超速预警预设值") +" km/h");
     ui->le_weigh->setText(Db->selectdata("称重参数"));
-    ui->btn_bright->setText(Db->selectdata("屏幕亮度")+"0");
+   // ui->btn_bright->setText(Db->selectdata("屏幕亮度")+"0");
+    ui->btn_bright->setText("7");
     ui->btn_bright->hide();
     ui->label_3->hide();
     ui->ckb_autobri->isChecked();
     QDateTime t;
     ui->btn_time->setText(t.currentDateTime().toString("M")+"月"+t.currentDateTime().toString("d")+"日 "+t.currentDateTime().toString("h")+":"+t.currentDateTime().toString("m"));
-    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
-    connect(time,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
+//    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     connect(ui->ckb_autobri,SIGNAL(stateChanged(int)),this,SLOT(ckb_autobri_change(int)));
 
 
@@ -47,7 +40,7 @@ void GeneralSettings::set_sys_value()
     //设置系统时间显示格式
     QString str = time.toString("hh:mm");
     QString d = date.toString("MM月dd日");
-ui->btn_time->setText(d+str);
+    ui->btn_time->setText(d+str);
 }
 
 GeneralSettings::~GeneralSettings()
@@ -72,6 +65,14 @@ void GeneralSettings::receivedata(QString name, QString number)
 void GeneralSettings::loginstatus(int f)
 {
     flag = f;
+    if( flag == 0 )
+    {
+        ui->btn_exit->hide();
+    }
+    else
+    {
+        ui->btn_exit->show();
+    }
 }
 
 void GeneralSettings::ckb_autobri_change(int state)
@@ -96,6 +97,7 @@ void GeneralSettings::on_btn_lang_clicked()
 
     ButtonWidget * wid = new ButtonWidget(this);
     wid->init(1);
+    connect(wid,SIGNAL(language(QString)),this,SLOT(language_changed(QString)));
 }
 
 void GeneralSettings::on_btn_unit_clicked()
@@ -103,11 +105,13 @@ void GeneralSettings::on_btn_unit_clicked()
 
     ButtonWidget * wid = new ButtonWidget(this);
     wid->init(2);
+    connect(wid,SIGNAL(unit(QString)),this,SLOT(unit_changed(QString)));
 }
 
 void GeneralSettings::on_btn_bright_clicked()
 {
-
+    LightWidget *light = new LightWidget(this);
+    connect(light,SIGNAL(light_changed(QString)),this,SLOT(set_light(QString)));
     light->show();
     //QMessageBox::about(this,tr("亮度"),tr(""));
 
@@ -115,6 +119,8 @@ void GeneralSettings::on_btn_bright_clicked()
 
 void GeneralSettings::on_btn_time_clicked()
 {
+    timewidget *time = new timewidget(this);
+    connect(time,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
     time->init();
     time->show();
 }
@@ -123,6 +129,14 @@ void GeneralSettings::on_btn_back_home_clicked()
 {
     emit back_home(6);
 }
+
+void GeneralSettings::on_btn_exit_clicked()
+{
+    emit previous(18);
+    emit loginstatus_s(-1);
+    emit senddata("未登录");
+}
+
 
 void GeneralSettings::on_btn_back_clicked()
 {
@@ -136,30 +150,47 @@ void GeneralSettings::on_btn_back_clicked()
 void GeneralSettings::set_light(QString value)
 
 {
-    log("get the light");
     ui->btn_bright->setText(value);
 }
 
 void GeneralSettings::on_le_drivernum_clicked()
 { 
+    TextWidget *text = new TextWidget(this);
     text->init("司机代号");
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
 
 }
 
 void GeneralSettings::on_le_carnum_clicked()
 {
+    TextWidget *text = new TextWidget(this);
     text->init("车辆代号");
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
 
 }
 
 void GeneralSettings::on_le_weigh_clicked()
 {
+    TextWidget *text = new TextWidget(this);
     text->init("称重参数");
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
 
 }
 
 void GeneralSettings::on_le_limit_clicked()
 {
+    TextWidget *text = new TextWidget(this);
     text->init("超速预警预设值");
+    connect(text,SIGNAL(senddata(QString,QString)),this,SLOT(receivedata(QString,QString)));
 
+}
+
+void GeneralSettings::language_changed(QString lang)
+{
+    ui->btn_lang->setText(lang);
+}
+
+void GeneralSettings::unit_changed(QString unit)
+{
+    ui->btn_unit->setText(unit);
 }

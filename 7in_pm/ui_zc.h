@@ -13,10 +13,8 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -30,18 +28,20 @@ public:
     QVBoxLayout *verticalLayout_2;
     QSpacerItem *verticalSpacer;
     QWidget *widget_2;
-    QGridLayout *gridLayout_2;
-    QPushButton *btn_temp;
-    QPushButton *btn_liquid;
-    QPushButton *btn_pressure;
-    QWidget *total_hours;
     QVBoxLayout *verticalLayout;
-    QLabel *enegin_hours;
-    QLabel *label_2;
+    QWidget *widget_3;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *btn_temp;
+    QPushButton *btn_pressure;
+    QSpacerItem *horizontalSpacer_5;
+    QWidget *widget_4;
+    QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer;
-    QSpacerItem *horizontalSpacer_2;
     QPushButton *btn_gearbox;
+    QPushButton *btn_liquid;
     QPushButton *btn_engine;
+    QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
@@ -67,18 +67,27 @@ public:
         verticalLayout_2 = new QVBoxLayout(ZC);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(-1, 15, -1, -1);
-        verticalSpacer = new QSpacerItem(20, 80, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer = new QSpacerItem(20, 60, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout_2->addItem(verticalSpacer);
 
         widget_2 = new QWidget(ZC);
         widget_2->setObjectName(QStringLiteral("widget_2"));
         widget_2->setMaximumSize(QSize(1080, 16777215));
-        gridLayout_2 = new QGridLayout(widget_2);
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        btn_temp = new QPushButton(widget_2);
+        verticalLayout = new QVBoxLayout(widget_2);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        widget_3 = new QWidget(widget_2);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        horizontalLayout_2 = new QHBoxLayout(widget_3);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(-1, -1, -1, 0);
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_4);
+
+        btn_temp = new QPushButton(widget_3);
         btn_temp->setObjectName(QStringLiteral("btn_temp"));
         sizePolicy.setHeightForWidth(btn_temp->sizePolicy().hasHeightForWidth());
         btn_temp->setSizePolicy(sizePolicy);
@@ -93,24 +102,9 @@ public:
 "border:none;\n"
 "}"));
 
-        gridLayout_2->addWidget(btn_temp, 0, 1, 1, 1);
+        horizontalLayout_2->addWidget(btn_temp);
 
-        btn_liquid = new QPushButton(widget_2);
-        btn_liquid->setObjectName(QStringLiteral("btn_liquid"));
-        btn_liquid->setMinimumSize(QSize(180, 180));
-        btn_liquid->setMaximumSize(QSize(180, 180));
-        btn_liquid->setStyleSheet(QString::fromUtf8("QPushButton#btn_liquid{\n"
-"background-image: url(:/\346\214\211\351\224\256_\346\266\262\344\275\215\344\277\241\346\201\2572.png);\n"
-"border:none;\n"
-"}\n"
-"QPushButton#btn_liquid:pressed{\n"
-"background-image: url(:/\346\214\211\351\224\256_\346\266\262\344\275\215\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
-"border:none;\n"
-"}"));
-
-        gridLayout_2->addWidget(btn_liquid, 1, 1, 1, 1);
-
-        btn_pressure = new QPushButton(widget_2);
+        btn_pressure = new QPushButton(widget_3);
         btn_pressure->setObjectName(QStringLiteral("btn_pressure"));
         btn_pressure->setMinimumSize(QSize(180, 180));
         btn_pressure->setMaximumSize(QSize(180, 180));
@@ -123,47 +117,25 @@ public:
 "border:none;\n"
 "}"));
 
-        gridLayout_2->addWidget(btn_pressure, 0, 2, 1, 1);
+        horizontalLayout_2->addWidget(btn_pressure);
 
-        total_hours = new QWidget(widget_2);
-        total_hours->setObjectName(QStringLiteral("total_hours"));
-        total_hours->setMinimumSize(QSize(366, 174));
-        total_hours->setMaximumSize(QSize(366, 174));
-        total_hours->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260_\345\256\2752.png);"));
-        verticalLayout = new QVBoxLayout(total_hours);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        enegin_hours = new QLabel(total_hours);
-        enegin_hours->setObjectName(QStringLiteral("enegin_hours"));
-        enegin_hours->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 32px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        enegin_hours->setAlignment(Qt::AlignCenter);
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout->addWidget(enegin_hours);
-
-        label_2 = new QLabel(total_hours);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 26px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        label_2->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(label_2);
+        horizontalLayout_2->addItem(horizontalSpacer_5);
 
 
-        gridLayout_2->addWidget(total_hours, 0, 3, 1, 2);
+        verticalLayout->addWidget(widget_3);
 
+        widget_4 = new QWidget(widget_2);
+        widget_4->setObjectName(QStringLiteral("widget_4"));
+        horizontalLayout_3 = new QHBoxLayout(widget_4);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(-1, 6, -1, -1);
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(horizontalSpacer, 0, 0, 1, 1);
+        horizontalLayout_3->addItem(horizontalSpacer);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_2, 1, 5, 1, 1);
-
-        btn_gearbox = new QPushButton(widget_2);
+        btn_gearbox = new QPushButton(widget_4);
         btn_gearbox->setObjectName(QStringLiteral("btn_gearbox"));
         btn_gearbox->setMinimumSize(QSize(180, 180));
         btn_gearbox->setStyleSheet(QLatin1String("QPushButton#btn_gearbox{\n"
@@ -175,16 +147,38 @@ public:
 "border:none;\n"
 "}"));
 
-        gridLayout_2->addWidget(btn_gearbox, 1, 2, 1, 1);
+        horizontalLayout_3->addWidget(btn_gearbox);
 
-        btn_engine = new QPushButton(widget_2);
+        btn_liquid = new QPushButton(widget_4);
+        btn_liquid->setObjectName(QStringLiteral("btn_liquid"));
+        btn_liquid->setMinimumSize(QSize(180, 180));
+        btn_liquid->setMaximumSize(QSize(180, 180));
+        btn_liquid->setStyleSheet(QString::fromUtf8("QPushButton#btn_liquid{\n"
+"background-image: url(:/\346\214\211\351\224\256_\346\266\262\344\275\215\344\277\241\346\201\2572.png);\n"
+"border:none;\n"
+"}\n"
+"QPushButton#btn_liquid:pressed{\n"
+"background-image: url(:/\346\214\211\351\224\256_\346\266\262\344\275\215\344\277\241\346\201\257_\346\214\211\344\270\2132.png);\n"
+"border:none;\n"
+"}"));
+
+        horizontalLayout_3->addWidget(btn_liquid);
+
+        btn_engine = new QPushButton(widget_4);
         btn_engine->setObjectName(QStringLiteral("btn_engine"));
         btn_engine->setMinimumSize(QSize(180, 180));
         btn_engine->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\214\211\351\224\256_\345\217\221\345\212\250\346\234\2722.png);\n"
 "border:none;\n"
 ""));
 
-        gridLayout_2->addWidget(btn_engine, 1, 3, 1, 1);
+        horizontalLayout_3->addWidget(btn_engine);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addWidget(widget_4);
 
 
         verticalLayout_2->addWidget(widget_2);
@@ -251,11 +245,9 @@ public:
     {
         ZC->setWindowTitle(QApplication::translate("ZC", "Form", 0));
         btn_temp->setText(QString());
-        btn_liquid->setText(QString());
         btn_pressure->setText(QString());
-        enegin_hours->setText(QApplication::translate("ZC", "11\346\227\2665\345\210\206", 0));
-        label_2->setText(QApplication::translate("ZC", "\345\217\221\345\212\250\346\234\272\347\264\257\350\256\241\350\277\220\350\241\214\346\227\266\351\225\277", 0));
         btn_gearbox->setText(QString());
+        btn_liquid->setText(QString());
         btn_engine->setText(QString());
         btn_backhome->setText(QString());
         btn_back->setText(QString());

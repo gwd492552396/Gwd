@@ -12,12 +12,12 @@ LightWidget::LightWidget(QWidget *parent) :
     this->move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     db = new Database_7in;
 
-    ui->progressBar->setMaximum(10);
+    ui->progressBar->setMaximum(7);
     ui->progressBar->setMinimum(1);
-
-    value = db->selectdata("屏幕亮度").toInt();
-    ui->label->setText("屏幕亮度-"+QString::number(value)+"0");
+    value = 7 ;
+    ui->label->setText("屏幕亮度-"+QString::number(value));
     ui->progressBar->setValue(value);
+    set_brightness(7);
 
 
 
@@ -38,15 +38,15 @@ void LightWidget::on_close_clicked()
 
 void LightWidget::on_btn_jia_clicked()
 {
-    if(value>=10)
+    if(value>=7)
     {
         return;
     }
     value = value + 1;
     ui->progressBar->setValue(value);
     set_brightness(value);
-    ui->label->setText(QString("屏幕亮度-%1").arg(value*10));
-    emit light_changed(QString("%1").arg(value*10));
+    ui->label->setText(QString("屏幕亮度-%1").arg(value));
+    emit light_changed(QString("%1").arg(value));
     db->updatedata("屏幕亮度",QString::number(value));
 }
 
@@ -59,8 +59,8 @@ void LightWidget::on_btn_jian_clicked()
     value = value - 1;
     ui->progressBar->setValue(value);
     set_brightness(value);
-    ui->label->setText(QString("屏幕亮度-%1").arg(value*10));
-    emit light_changed(QString("%1").arg(value*10));
+    ui->label->setText(QString("屏幕亮度-%1").arg(value));
+    emit light_changed(QString("%1").arg(value));
     db->updatedata("屏幕亮度",QString::number(value));
 }
 

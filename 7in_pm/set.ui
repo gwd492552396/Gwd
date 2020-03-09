@@ -88,13 +88,14 @@
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton#btn_login{
-background-image:url(:/按键_用户登录2.png);
+border-image:url(:/按键_用户登录2.png);
 border:none;
 }
 QPushButton#btn_login:pressed{
-background-image: url(:/i按键_用户登录_按下2.png);
+border-image: url(:/按键_用户登录_按下2.png);
 border:none;
-}</string>
+}
+</string>
      </property>
      <property name="text">
       <string/>

@@ -33,10 +33,12 @@ public:
     QWidget *power_widget;
     QProgressBar *power_bar;
     QHBoxLayout *hlayout;
+    QSpacerItem *horizontalSpacer_5;
     QPushButton *btn_video;
     QPushButton *btn_weight;
     QPushButton *btn_query;
     QPushButton *btn_setting;
+    QSpacerItem *horizontalSpacer_6;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *btn_back;
@@ -92,7 +94,12 @@ public:
         verticalLayout->addWidget(widget_2);
 
         hlayout = new QHBoxLayout();
+        hlayout->setSpacing(30);
         hlayout->setObjectName(QStringLiteral("hlayout"));
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hlayout->addItem(horizontalSpacer_5);
+
         btn_video = new QPushButton(HomePage);
         btn_video->setObjectName(QStringLiteral("btn_video"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -154,6 +161,10 @@ public:
 "}"));
 
         hlayout->addWidget(btn_setting);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        hlayout->addItem(horizontalSpacer_6);
 
 
         verticalLayout->addLayout(hlayout);

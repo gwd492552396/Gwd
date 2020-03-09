@@ -28,6 +28,7 @@ class Ui_Enigne
 {
 public:
     QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
     QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
@@ -53,11 +54,16 @@ public:
     QLabel *label_3;
     QLabel *label_12;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout;
     QLabel *sign;
     QPushButton *btn_back;
+    QWidget *widget_9;
+    QHBoxLayout *horizontalLayout_3;
+    QWidget *widget_5;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *enegin_hours;
+    QLabel *label_5;
 
     void setupUi(QWidget *Enigne)
     {
@@ -68,6 +74,10 @@ public:
         Enigne->setMaximumSize(QSize(1080, 652));
         gridLayout = new QGridLayout(Enigne);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 4, 0, 1, 1);
+
         widget = new QWidget(Enigne);
         widget->setObjectName(QStringLiteral("widget"));
         widget->setMaximumSize(QSize(1080, 16777215));
@@ -82,8 +92,9 @@ public:
 
         widget_7 = new QWidget(widget);
         widget_7->setObjectName(QStringLiteral("widget_7"));
-        widget_7->setMinimumSize(QSize(300, 300));
-        widget_7->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_7->setMinimumSize(QSize(240, 240));
+        widget_7->setMaximumSize(QSize(240, 240));
+        widget_7->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_7 = new QVBoxLayout(widget_7);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(-1, 0, -1, 0);
@@ -93,6 +104,7 @@ public:
         widget_2->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout = new QVBoxLayout(widget_2);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(-1, -1, -1, 0);
         enigne_temp = new QLabel(widget_2);
         enigne_temp->setObjectName(QStringLiteral("enigne_temp"));
         enigne_temp->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
@@ -106,10 +118,7 @@ public:
         label = new QLabel(widget_2);
         label->setObjectName(QStringLiteral("label"));
         label->setMaximumSize(QSize(60, 20));
-        label->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
+        label->setStyleSheet(QStringLiteral("border-image:url(:/temp.png)"));
 
         verticalLayout->addWidget(label);
 
@@ -131,8 +140,9 @@ public:
 
         widget_8 = new QWidget(widget);
         widget_8->setObjectName(QStringLiteral("widget_8"));
-        widget_8->setMinimumSize(QSize(300, 300));
-        widget_8->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_8->setMinimumSize(QSize(240, 240));
+        widget_8->setMaximumSize(QSize(240, 240));
+        widget_8->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_8 = new QVBoxLayout(widget_8);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(-1, 0, -1, 0);
@@ -142,6 +152,7 @@ public:
         widget_3->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout_2 = new QVBoxLayout(widget_3);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(-1, -1, -1, 0);
         enigne_pressure = new QLabel(widget_3);
         enigne_pressure->setObjectName(QStringLiteral("enigne_pressure"));
         enigne_pressure->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
@@ -180,8 +191,9 @@ public:
 
         widget_6 = new QWidget(widget);
         widget_6->setObjectName(QStringLiteral("widget_6"));
-        widget_6->setMinimumSize(QSize(300, 300));
-        widget_6->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\2602.png);"));
+        widget_6->setMinimumSize(QSize(240, 240));
+        widget_6->setMaximumSize(QSize(240, 240));
+        widget_6->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);"));
         verticalLayout_6 = new QVBoxLayout(widget_6);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(-1, 0, -1, 0);
@@ -191,6 +203,7 @@ public:
         widget_4->setStyleSheet(QStringLiteral("background:none;"));
         verticalLayout_3 = new QVBoxLayout(widget_4);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(-1, -1, -1, 0);
         enigne_speed = new QLabel(widget_4);
         enigne_speed->setObjectName(QStringLiteral("enigne_speed"));
         enigne_speed->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
@@ -232,11 +245,7 @@ public:
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
 
-        gridLayout->addWidget(widget, 1, 0, 1, 2);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 2, 0, 1, 1);
+        gridLayout->addWidget(widget, 3, 0, 1, 2);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -274,7 +283,45 @@ public:
         horizontalLayout->addWidget(btn_back);
 
 
-        gridLayout->addLayout(horizontalLayout, 3, 0, 1, 2);
+        gridLayout->addLayout(horizontalLayout, 5, 0, 1, 2);
+
+        widget_9 = new QWidget(Enigne);
+        widget_9->setObjectName(QStringLiteral("widget_9"));
+        widget_9->setStyleSheet(QStringLiteral("background:transparent;"));
+        horizontalLayout_3 = new QHBoxLayout(widget_9);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        widget_5 = new QWidget(widget_9);
+        widget_5->setObjectName(QStringLiteral("widget_5"));
+        widget_5->setMinimumSize(QSize(366, 174));
+        widget_5->setMaximumSize(QSize(366, 174));
+        widget_5->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260_\345\256\2752.png);"));
+        verticalLayout_4 = new QVBoxLayout(widget_5);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        enegin_hours = new QLabel(widget_5);
+        enegin_hours->setObjectName(QStringLiteral("enegin_hours"));
+        enegin_hours->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 60px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        enegin_hours->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(enegin_hours);
+
+        label_5 = new QLabel(widget_5);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
+"font-size: 32px;\n"
+"color: #FFFFFF;\n"
+"background:transparent;"));
+        label_5->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(label_5);
+
+
+        horizontalLayout_3->addWidget(widget_5);
+
+
+        gridLayout->addWidget(widget_9, 2, 0, 1, 2);
 
 
         retranslateUi(Enigne);
@@ -286,7 +333,7 @@ public:
     {
         Enigne->setWindowTitle(QApplication::translate("Enigne", "Form", 0));
         enigne_temp->setText(QApplication::translate("Enigne", "000", 0));
-        label->setText(QApplication::translate("Enigne", " \342\204\203", 0));
+        label->setText(QString());
         label_14->setText(QApplication::translate("Enigne", "\346\260\264\346\270\251", 0));
         enigne_pressure->setText(QApplication::translate("Enigne", "0000", 0));
         label_2->setText(QApplication::translate("Enigne", "kPa", 0));
@@ -296,6 +343,8 @@ public:
         label_12->setText(QApplication::translate("Enigne", "\350\275\254\351\200\237", 0));
         sign->setText(QApplication::translate("Enigne", "\345\217\221\345\212\250\346\234\272", 0));
         btn_back->setText(QString());
+        enegin_hours->setText(QApplication::translate("Enigne", "000", 0));
+        label_5->setText(QApplication::translate("Enigne", "\345\217\221\345\212\250\346\234\272\347\264\257\350\256\241\350\277\220\350\241\214\346\227\266\351\225\277", 0));
     } // retranslateUi
 
 };

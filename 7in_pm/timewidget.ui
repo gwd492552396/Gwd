@@ -28,26 +28,26 @@
   <widget class="QLineEdit" name="le_year">
    <property name="geometry">
     <rect>
-     <x>169</x>
-     <y>39</y>
-     <width>68</width>
-     <height>31</height>
+     <x>70</x>
+     <y>20</y>
+     <width>136</width>
+     <height>62</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>68</width>
-     <height>31</height>
+     <width>136</width>
+     <height>62</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>68</width>
-     <height>31</height>
+     <width>136</width>
+     <height>62</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18px &quot;Microsoft YaHei UI&quot;;
+    <string notr="true">font: 40px &quot;Microsoft YaHei UI&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgb(0, 0, 0);
 color: rgba(13, 53, 136, 1);
@@ -61,7 +61,7 @@ border: 1px solid #979797;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>242</x>
+     <x>210</x>
      <y>40</y>
      <width>32</width>
      <height>31</height>
@@ -81,7 +81,7 @@ border: 1px solid #979797;
    </property>
    <property name="styleSheet">
     <string notr="true">font-family: MicrosoftYaHei;
-font-size: 18px;
+font-size: 32px;
 color: #FFFFFF;</string>
    </property>
    <property name="text">
@@ -94,26 +94,26 @@ color: #FFFFFF;</string>
   <widget class="QLineEdit" name="le_month">
    <property name="geometry">
     <rect>
-     <x>279</x>
-     <y>39</y>
-     <width>43</width>
-     <height>31</height>
+     <x>240</x>
+     <y>20</y>
+     <width>86</width>
+     <height>62</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18px &quot;Microsoft YaHei UI&quot;;
+    <string notr="true">font: 40px &quot;Microsoft YaHei UI&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgb(0, 0, 0);
 color: rgba(13, 53, 136, 1);
@@ -127,26 +127,26 @@ border: 1px solid #979797;
   <widget class="QLineEdit" name="le_day">
    <property name="geometry">
     <rect>
-     <x>359</x>
-     <y>39</y>
-     <width>43</width>
-     <height>31</height>
+     <x>370</x>
+     <y>20</y>
+     <width>86</width>
+     <height>62</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18px &quot;Microsoft YaHei UI&quot;;
+    <string notr="true">font: 40px &quot;Microsoft YaHei UI&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgb(0, 0, 0);
 color: rgba(13, 53, 136, 1);
@@ -160,7 +160,7 @@ border: 1px solid #979797;
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>327</x>
+     <x>330</x>
      <y>40</y>
      <width>32</width>
      <height>31</height>
@@ -180,7 +180,7 @@ border: 1px solid #979797;
    </property>
    <property name="styleSheet">
     <string notr="true">font-family: MicrosoftYaHei;
-font-size: 18px;
+font-size: 32px;
 color: #FFFFFF;</string>
    </property>
    <property name="text">
@@ -193,7 +193,7 @@ color: #FFFFFF;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>407</x>
+     <x>460</x>
      <y>40</y>
      <width>32</width>
      <height>31</height>
@@ -213,7 +213,7 @@ color: #FFFFFF;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font-family: MicrosoftYaHei;
-font-size: 18px;
+font-size: 32px;
 color: #FFFFFF;</string>
    </property>
    <property name="text">
@@ -226,26 +226,26 @@ color: #FFFFFF;</string>
   <widget class="QLineEdit" name="le_minute">
    <property name="geometry">
     <rect>
-     <x>307</x>
-     <y>79</y>
-     <width>43</width>
-     <height>31</height>
+     <x>300</x>
+     <y>90</y>
+     <width>86</width>
+     <height>62</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18px &quot;Microsoft YaHei UI&quot;;
+    <string notr="true">font: 40px &quot;Microsoft YaHei UI&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgb(0, 0, 0);
 color: rgba(13, 53, 136, 1);
@@ -259,26 +259,26 @@ border: 1px solid #979797;
   <widget class="QLineEdit" name="le_hour">
    <property name="geometry">
     <rect>
-     <x>222</x>
-     <y>79</y>
-     <width>43</width>
-     <height>31</height>
+     <x>170</x>
+     <y>90</y>
+     <width>86</width>
+     <height>62</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>43</width>
-     <height>31</height>
+     <width>86</width>
+     <height>62</height>
     </size>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 18px &quot;Microsoft YaHei UI&quot;;
+    <string notr="true">font: 40px &quot;Microsoft YaHei UI&quot;;
 border-color: rgba(151, 151, 151, 1);
 background-color: rgb(0, 0, 0);
 color: rgba(13, 53, 136, 1);
@@ -292,8 +292,8 @@ border: 1px solid #979797;
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>355</x>
-     <y>80</y>
+     <x>390</x>
+     <y>110</y>
      <width>32</width>
      <height>31</height>
     </rect>
@@ -312,7 +312,7 @@ border: 1px solid #979797;
    </property>
    <property name="styleSheet">
     <string notr="true">font-family: MicrosoftYaHei;
-font-size: 18px;
+font-size: 32px;
 color: #FFFFFF;</string>
    </property>
    <property name="text">
@@ -325,8 +325,8 @@ color: #FFFFFF;</string>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>80</y>
+     <x>260</x>
+     <y>110</y>
      <width>32</width>
      <height>31</height>
     </rect>
@@ -345,7 +345,7 @@ color: #FFFFFF;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font-family: MicrosoftYaHei;
-font-size: 18px;
+font-size: 32px;
 color: #FFFFFF;</string>
    </property>
    <property name="text">

@@ -56,13 +56,6 @@ public:
     QLabel *total_weight;
     QLabel *label_2;
     QLabel *label_7;
-    QWidget *widget_2;
-    QVBoxLayout *verticalLayout_8;
-    QWidget *widget_11;
-    QVBoxLayout *verticalLayout_3;
-    QLabel *ban_total_weight;
-    QLabel *label_4;
-    QLabel *label_5;
     QSpacerItem *horizontalSpacer_7;
     QWidget *widget_8;
     QHBoxLayout *horizontalLayout_3;
@@ -283,58 +276,6 @@ public:
 
         horizontalLayout->addWidget(widget_3);
 
-        widget_2 = new QWidget(widget);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setMinimumSize(QSize(240, 240));
-        widget_2->setMaximumSize(QSize(240, 240));
-        widget_2->setStyleSheet(QString::fromUtf8("background-image: url(:/\346\230\276\347\244\272_\345\217\202\346\225\260.png);\n"
-""));
-        verticalLayout_8 = new QVBoxLayout(widget_2);
-        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        widget_11 = new QWidget(widget_2);
-        widget_11->setObjectName(QStringLiteral("widget_11"));
-        widget_11->setLayoutDirection(Qt::RightToLeft);
-        widget_11->setStyleSheet(QStringLiteral("background:none;"));
-        verticalLayout_3 = new QVBoxLayout(widget_11);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(-1, 20, -1, 0);
-        ban_total_weight = new QLabel(widget_11);
-        ban_total_weight->setObjectName(QStringLiteral("ban_total_weight"));
-        ban_total_weight->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 60px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        ban_total_weight->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_3->addWidget(ban_total_weight);
-
-        label_4 = new QLabel(widget_11);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setMaximumSize(QSize(60, 20));
-        label_4->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 20px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-
-        verticalLayout_3->addWidget(label_4);
-
-
-        verticalLayout_8->addWidget(widget_11);
-
-        label_5 = new QLabel(widget_2);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setStyleSheet(QLatin1String("font: 75 9pt \"Microsoft YaHei UI\";\n"
-"font-size: 40px;\n"
-"color: #FFFFFF;\n"
-"background:transparent;"));
-        label_5->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_8->addWidget(label_5);
-
-
-        horizontalLayout->addWidget(widget_2);
-
         horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_7);
@@ -411,10 +352,7 @@ public:
         label_3->setText(QApplication::translate("Weight", " \345\256\236\346\227\266\351\207\215\351\207\217", 0));
         total_weight->setText(QApplication::translate("Weight", "2356", 0));
         label_2->setText(QApplication::translate("Weight", "     \345\220\250", 0));
-        label_7->setText(QApplication::translate("Weight", "\346\200\273\345\220\250\344\275\215\347\264\257\350\256\241", 0));
-        ban_total_weight->setText(QApplication::translate("Weight", "000", 0));
-        label_4->setText(QApplication::translate("Weight", "     \345\220\250", 0));
-        label_5->setText(QApplication::translate("Weight", "\347\217\255\345\220\250\344\275\215\347\264\257\350\256\241", 0));
+        label_7->setText(QApplication::translate("Weight", "\351\242\235\345\256\232\351\207\215\351\207\217", 0));
         btn_backhome->setText(QString());
         btn_back->setText(QString());
     } // retranslateUi

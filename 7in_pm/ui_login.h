@@ -41,6 +41,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *btn_login;
+    QPushButton *btn_fast_login;
     QSpacerItem *horizontalSpacer;
     QPushButton *btn_back;
     QSpacerItem *horizontalSpacer_3;
@@ -87,7 +88,7 @@ public:
         le_name->setObjectName(QStringLiteral("le_name"));
         le_name->setMinimumSize(QSize(149, 31));
         le_name->setMaximumSize(QSize(200, 600));
-        le_name->setStyleSheet(QLatin1String("font: 18px \"Microsoft JhengHei\";\n"
+        le_name->setStyleSheet(QLatin1String("font:24px \"Microsoft JhengHei\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgba(255,255,255);\n"
 "color:rgb(0,0,0)"));
@@ -108,7 +109,7 @@ public:
         le_passewd->setObjectName(QStringLiteral("le_passewd"));
         le_passewd->setMinimumSize(QSize(149, 31));
         le_passewd->setMaximumSize(QSize(200, 60));
-        le_passewd->setStyleSheet(QLatin1String("font:18px \"Microsoft JhengHei\";\n"
+        le_passewd->setStyleSheet(QLatin1String("font:24px \"Microsoft JhengHei\";\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "background-color: rgba(255,255,255);\n"
 "color:rgb(0,0,0)"));
@@ -151,6 +152,22 @@ public:
 
         horizontalLayout->addWidget(btn_login);
 
+        btn_fast_login = new QPushButton(widget);
+        btn_fast_login->setObjectName(QStringLiteral("btn_fast_login"));
+        btn_fast_login->setMinimumSize(QSize(250, 80));
+        btn_fast_login->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
+"font: 25pt \"Microsoft YaHei UI\";\n"
+"color:rgb(44, 89, 191);\n"
+"background-color:rgb(0,0,0)\n"
+""));
+
+        horizontalLayout->addWidget(btn_fast_login);
+
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
@@ -187,11 +204,10 @@ public:
     {
         Login->setWindowTitle(QApplication::translate("Login", "Form", 0));
         label_tubiao->setText(QString());
-        label_name->setText(QApplication::translate("Login", "\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", 0));
-        le_name->setPlaceholderText(QApplication::translate("Login", "\350\257\267\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", 0));
+        label_name->setText(QApplication::translate("Login", "\350\276\223\345\205\245\345\205\255\344\275\215\347\224\250\346\210\267\345\220\215", 0));
         label_passwd->setText(QApplication::translate("Login", "\350\276\223\345\205\245\345\205\255\344\275\215\345\257\206\347\240\201", 0));
-        le_passewd->setPlaceholderText(QApplication::translate("Login", "\350\257\267\350\276\223\345\205\245\345\257\206\347\240\201", 0));
         btn_login->setText(QString());
+        btn_fast_login->setText(QApplication::translate("Login", "\351\200\211\346\213\251\345\267\262\346\234\211\347\224\250\346\210\267", 0));
         btn_back->setText(QString());
     } // retranslateUi
 

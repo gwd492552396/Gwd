@@ -37,7 +37,7 @@
   <widget class="QLineEdit" name="le_number">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>110</y>
      <width>281</width>
      <height>61</height>
@@ -64,22 +64,22 @@ color: rgb(16, 24, 117);</string>
   <widget class="QPushButton" name="close">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>520</x>
      <y>10</y>
-     <width>40</width>
-     <height>40</height>
+     <width>61</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton#close{
 
-background-image:url(:/29.png);
+border-image:url(:/29.png);
 border:none;
 font: 75 14pt &quot;Microsoft YaHei UI&quot;;
 	color: rgb(255, 255, 255);
 }
 QPushButton#close:pressed{
-background-image: url(:/侧键_关闭弹窗_按下.png);
+border-image: url(:/侧键_关闭弹窗_按下.png);
 border:none;
 font: 75 14pt &quot;Microsoft YaHei UI&quot;;
 color:rgb(255, 255, 255);
@@ -92,9 +92,9 @@ color:rgb(255, 255, 255);
   <widget class="QLabel" name="lb_prog">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>140</x>
      <y>30</y>
-     <width>231</width>
+     <width>311</width>
      <height>51</height>
     </rect>
    </property>

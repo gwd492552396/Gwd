@@ -38,7 +38,19 @@ private slots:
 
     void on_btn_back_clicked();
 
+    void on_btn_fast_login_clicked();
+
     void receive(int);
+
+    void message_close();
+
+    void receive_fast_login(QString);
+
+
+
+//protected:
+//    virtual void mousePressEvent(QMouseEvent *ev);
+
 
 
 private:

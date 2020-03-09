@@ -6,16 +6,6 @@ set::set(QWidget *parent) :
     ui(new Ui::set)
 {
     ui->setupUi(this);
- //   QGridLayout *glayout = new QGridLayout;                  //modified by gwd
-//    glayout->addWidget(ui->btn_login,0,0,1,2,Qt::AlignCenter);
-//    glayout->addWidget(ui->btn_management,1,0,1,2,Qt::AlignCenter);
-
-//    glayout->addWidget(ui->btn_back,2,1,1,1,Qt::AlignRight | Qt::AlignVCenter);
-//    glayout->addWidget(ui->btn_backhome,2,0,1,1,Qt::AlignLeft | Qt::AlignVCenter);
-//    glayout->setContentsMargins(45,81,45,10);
-//    glayout->setHorizontalSpacing(8);
-//    glayout->setVerticalSpacing(8);
-//    setLayout(glayout);
 
 }
 
@@ -27,6 +17,11 @@ set::~set()
 void  set::loginstatus(int f)
 {
     flag = f;
+    if((flag == 0)||(flag == 1))
+    {
+        ui->btn_login->setStyleSheet("border-image: url(:/按键_设置2.png);border:none;");
+    }
+    else ui->btn_login->setStyleSheet("border-image:url(:/按键_用户登录2.png); border:none;");
 }
 
 void set::on_btn_login_clicked()

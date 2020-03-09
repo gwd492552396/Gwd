@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
@@ -25,19 +24,27 @@ class Ui_ButtonDialog
 public:
     QPushButton *btn1;
     QPushButton *btn2;
-    QLabel *label;
 
     void setupUi(QDialog *ButtonDialog)
     {
         if (ButtonDialog->objectName().isEmpty())
             ButtonDialog->setObjectName(QStringLiteral("ButtonDialog"));
-        ButtonDialog->resize(445, 298);
-        ButtonDialog->setMinimumSize(QSize(445, 298));
-        ButtonDialog->setMaximumSize(QSize(445, 298));
-        ButtonDialog->setStyleSheet(QStringLiteral(""));
+        ButtonDialog->resize(600, 500);
+        ButtonDialog->setMinimumSize(QSize(600, 500));
+        ButtonDialog->setMaximumSize(QSize(600, 500));
+        ButtonDialog->setStyleSheet(QLatin1String("\n"
+"border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
+"font: 25pt \"Microsoft YaHei UI\";\n"
+"color:rgb(44, 89, 191);\n"
+"background-color:rgb(0,0,0)\n"
+""));
         btn1 = new QPushButton(ButtonDialog);
         btn1->setObjectName(QStringLiteral("btn1"));
-        btn1->setGeometry(QRect(120, 70, 200, 60));
+        btn1->setGeometry(QRect(210, 130, 200, 60));
         btn1->setMinimumSize(QSize(200, 60));
         btn1->setMaximumSize(QSize(200, 60));
         btn1->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -55,7 +62,7 @@ public:
 "}"));
         btn2 = new QPushButton(ButtonDialog);
         btn2->setObjectName(QStringLiteral("btn2"));
-        btn2->setGeometry(QRect(120, 150, 200, 60));
+        btn2->setGeometry(QRect(210, 250, 200, 60));
         btn2->setMinimumSize(QSize(200, 60));
         btn2->setMaximumSize(QSize(200, 60));
         btn2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
@@ -71,14 +78,6 @@ public:
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}"));
-        label = new QLabel(ButtonDialog);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 0, 445, 298));
-        label->setMinimumSize(QSize(444, 298));
-        label->setStyleSheet(QString::fromUtf8("background-image: url(:/\345\274\271\347\252\227.png);"));
-        label->raise();
-        btn1->raise();
-        btn2->raise();
 
         retranslateUi(ButtonDialog);
 
@@ -90,7 +89,6 @@ public:
         ButtonDialog->setWindowTitle(QApplication::translate("ButtonDialog", "Dialog", 0));
         btn1->setText(QString());
         btn2->setText(QString());
-        label->setText(QString());
     } // retranslateUi
 
 };

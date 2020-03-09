@@ -53,6 +53,7 @@ public:
     QWidget *widget;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer_4;
+    QPushButton *btn_exit;
     QPushButton *btn_back_home;
     QSpacerItem *horizontalSpacer;
     QPushButton *btn_back;
@@ -90,7 +91,7 @@ public:
         btn_time->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "border-image:url(:/\346\214\211\351\224\256_\345\274\271\347\252\227\350\256\276\347\275\256_\345\244\247.png);\n"
 "color:rgb(255, 255, 255);\n"
-"font: 30px \"Microsoft YaHei UI\";\n"
+"font: 24px \"Microsoft YaHei UI\";\n"
 "border:1px solid #979797;\n"
 "border-color: rgba(151, 151, 151, 1);\n"
 "border-radius:5px;\n"
@@ -398,9 +399,24 @@ public:
 "border:none;"));
         horizontalLayout_2 = new QHBoxLayout(widget);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_4 = new QSpacerItem(60, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_4);
+
+        btn_exit = new QPushButton(widget);
+        btn_exit->setObjectName(QStringLiteral("btn_exit"));
+        btn_exit->setMinimumSize(QSize(186, 80));
+        btn_exit->setMaximumSize(QSize(186, 80));
+        btn_exit->setStyleSheet(QString::fromUtf8("QPushButton#btn_exit{\n"
+"background-image:url(:/\346\214\211\351\224\256_\347\231\273\345\275\225 copy.png);\n"
+"border:none;\n"
+"}\n"
+"QPushButton#btn_exit:pressed{\n"
+"background-image: url(:/\346\214\211\351\224\256_\347\231\273\345\275\225_\346\214\211\344\270\213.png);\n"
+"border:none;\n"
+"}"));
+
+        horizontalLayout_2->addWidget(btn_exit);
 
         btn_back_home = new QPushButton(widget);
         btn_back_home->setObjectName(QStringLiteral("btn_back_home"));
@@ -433,7 +449,7 @@ public:
 
         horizontalLayout_2->addWidget(btn_back);
 
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_5 = new QSpacerItem(60, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_5);
 
@@ -469,13 +485,14 @@ public:
         btn_bright->setText(QApplication::translate("GeneralSettings", "100%", 0));
         btn_lang->setText(QApplication::translate("GeneralSettings", "\344\270\255\346\226\207", 0));
         le_weigh->setText(QString());
-        label_4->setText(QApplication::translate("GeneralSettings", "\346\227\266       \351\227\264", 0));
+        label_4->setText(QApplication::translate("GeneralSettings", "\346\227\266      \351\227\264", 0));
         label_3->setText(QApplication::translate("GeneralSettings", "\345\261\217\345\271\225\344\272\256\345\272\246", 0));
         label_9->setText(QApplication::translate("GeneralSettings", "\350\207\252\345\212\250\344\272\256\345\272\246", 0));
         label_8->setText(QApplication::translate("GeneralSettings", "\350\266\205\351\200\237\351\242\204\350\255\246\n"
 "\351\242\204\350\256\276\345\200\274", 0));
         le_limit->setText(QString());
         ckb_autobri->setText(QString());
+        btn_exit->setText(QString());
         btn_back_home->setText(QString());
         btn_back->setText(QString());
     } // retranslateUi

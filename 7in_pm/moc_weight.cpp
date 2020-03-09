@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Weight_t {
-    QByteArrayData data[16];
-    char stringdata0[177];
+    QByteArrayData data[14];
+    char stringdata0[159];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,19 +39,17 @@ QT_MOC_LITERAL(6, 71, 15), // "set_total_times"
 QT_MOC_LITERAL(7, 87, 2), // "tt"
 QT_MOC_LITERAL(8, 90, 20), // "set_real_time_weight"
 QT_MOC_LITERAL(9, 111, 3), // "rtw"
-QT_MOC_LITERAL(10, 115, 14), // "set_ban_weight"
-QT_MOC_LITERAL(11, 130, 2), // "bw"
-QT_MOC_LITERAL(12, 133, 16), // "set_total_weight"
-QT_MOC_LITERAL(13, 150, 2), // "tw"
-QT_MOC_LITERAL(14, 153, 19), // "set_ban_total_times"
-QT_MOC_LITERAL(15, 173, 3) // "btt"
+QT_MOC_LITERAL(10, 115, 16), // "set_rated_weight"
+QT_MOC_LITERAL(11, 132, 2), // "tw"
+QT_MOC_LITERAL(12, 135, 19), // "set_ban_total_times"
+QT_MOC_LITERAL(13, 155, 3) // "btt"
 
     },
     "Weight\0back_home\0\0previous\0"
     "on_btn_backhome_clicked\0on_btn_back_clicked\0"
     "set_total_times\0tt\0set_real_time_weight\0"
-    "rtw\0set_ban_weight\0bw\0set_total_weight\0"
-    "tw\0set_ban_total_times\0btt"
+    "rtw\0set_rated_weight\0tw\0set_ban_total_times\0"
+    "btt"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,7 +59,7 @@ static const uint qt_meta_data_Weight[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,17 +67,16 @@ static const uint qt_meta_data_Weight[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x06 /* Public */,
-       3,    1,   62,    2, 0x06 /* Public */,
+       1,    1,   54,    2, 0x06 /* Public */,
+       3,    1,   57,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   65,    2, 0x08 /* Private */,
-       5,    0,   66,    2, 0x08 /* Private */,
-       6,    1,   67,    2, 0x08 /* Private */,
-       8,    1,   70,    2, 0x08 /* Private */,
-      10,    1,   73,    2, 0x08 /* Private */,
-      12,    1,   76,    2, 0x08 /* Private */,
-      14,    1,   79,    2, 0x08 /* Private */,
+       4,    0,   60,    2, 0x08 /* Private */,
+       5,    0,   61,    2, 0x08 /* Private */,
+       6,    1,   62,    2, 0x08 /* Private */,
+       8,    1,   65,    2, 0x08 /* Private */,
+      10,    1,   68,    2, 0x08 /* Private */,
+      12,    1,   71,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -92,7 +89,6 @@ static const uint qt_meta_data_Weight[] = {
     QMetaType::Void, QMetaType::QString,    9,
     QMetaType::Void, QMetaType::QString,   11,
     QMetaType::Void, QMetaType::QString,   13,
-    QMetaType::Void, QMetaType::QString,   15,
 
        0        // eod
 };
@@ -109,9 +105,8 @@ void Weight::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->on_btn_back_clicked(); break;
         case 4: _t->set_total_times((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 5: _t->set_real_time_weight((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 6: _t->set_ban_weight((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 7: _t->set_total_weight((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 8: _t->set_ban_total_times((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 6: _t->set_rated_weight((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: _t->set_ban_total_times((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -159,13 +154,13 @@ int Weight::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 8;
     }
     return _id;
 }

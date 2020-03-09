@@ -67,7 +67,7 @@ color:rgb(255,255,255);
 background:transparent</string>
        </property>
        <property name="text">
-        <string>标定参数界面</string>
+        <string>标定参数值</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -208,7 +208,7 @@ color:rgb(255,255,255);
 background:transparent</string>
        </property>
        <property name="text">
-        <string>红黄分解点设定值</string>
+        <string>红黄分界设定值</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

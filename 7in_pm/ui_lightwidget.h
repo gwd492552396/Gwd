@@ -34,15 +34,15 @@ public:
     {
         if (LightWidget->objectName().isEmpty())
             LightWidget->setObjectName(QStringLiteral("LightWidget"));
-        LightWidget->resize(608, 156);
-        LightWidget->setMinimumSize(QSize(608, 156));
-        LightWidget->setMaximumSize(QSize(608, 156));
+        LightWidget->resize(750, 250);
+        LightWidget->setMinimumSize(QSize(750, 250));
+        LightWidget->setMaximumSize(QSize(750, 250));
         LightWidget->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
 "border-color: rgb(255, 255, 255);"));
         progressBar = new QProgressBar(LightWidget);
         progressBar->setObjectName(QStringLiteral("progressBar"));
         progressBar->setEnabled(false);
-        progressBar->setGeometry(QRect(60, 70, 500, 10));
+        progressBar->setGeometry(QRect(80, 120, 611, 16));
         progressBar->setStyleSheet(QLatin1String("QProgressBar{\n"
 "     \n"
 "     border-radius: 6px;\n"
@@ -65,7 +65,7 @@ public:
         progressBar->setTextDirection(QProgressBar::BottomToTop);
         close = new QPushButton(LightWidget);
         close->setObjectName(QStringLiteral("close"));
-        close->setGeometry(QRect(560, 10, 40, 40));
+        close->setGeometry(QRect(680, 10, 40, 40));
         close->setMinimumSize(QSize(40, 40));
         close->setMaximumSize(QSize(40, 40));
         close->setStyleSheet(QString::fromUtf8("QPushButton#close{\n"
@@ -83,44 +83,44 @@ public:
 "}"));
         btn_jia = new QPushButton(LightWidget);
         btn_jia->setObjectName(QStringLiteral("btn_jia"));
-        btn_jia->setGeometry(QRect(450, 110, 40, 40));
-        btn_jia->setMinimumSize(QSize(40, 40));
-        btn_jia->setMaximumSize(QSize(40, 40));
+        btn_jia->setGeometry(QRect(550, 180, 60, 60));
+        btn_jia->setMinimumSize(QSize(60, 60));
+        btn_jia->setMaximumSize(QSize(60, 60));
         btn_jia->setStyleSheet(QString::fromUtf8("QPushButton#btn_jia{\n"
 "\n"
-"background-image:url(:/\345\242\236\345\212\240.png);\n"
+"border-image:url(:/\345\242\236\345\212\240.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton#btn_jia:pressed{\n"
-"background-image: url(:/\345\242\236\345\212\240.png);\n"
+"border-image: url(:/\345\242\236\345\212\240.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}"));
         btn_jian = new QPushButton(LightWidget);
         btn_jian->setObjectName(QStringLiteral("btn_jian"));
-        btn_jian->setGeometry(QRect(110, 110, 40, 40));
-        btn_jian->setMinimumSize(QSize(40, 40));
-        btn_jian->setMaximumSize(QSize(40, 40));
+        btn_jian->setGeometry(QRect(160, 180, 60, 60));
+        btn_jian->setMinimumSize(QSize(60, 60));
+        btn_jian->setMaximumSize(QSize(60, 60));
         btn_jian->setStyleSheet(QString::fromUtf8("QPushButton#btn_jian{\n"
 "\n"
-"background-image:url(:/\345\207\217\345\260\217.png);\n"
+"border-image:url(:/\345\207\217\345\260\217.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}\n"
 "QPushButton#btn_jian:pressed{\n"
-"background-image: url(:/\345\207\217\345\260\217.png);\n"
+"border-image: url(:/\345\207\217\345\260\217.png);\n"
 "border:none;\n"
 "font: 75 14pt \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255);\n"
 "}"));
         label = new QLabel(LightWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(220, 10, 161, 31));
-        label->setStyleSheet(QLatin1String("font: 18px \"Microsoft YaHei UI\";\n"
+        label->setGeometry(QRect(260, 0, 221, 51));
+        label->setStyleSheet(QLatin1String("font: 28px \"Microsoft YaHei UI\";\n"
 "color:rgb(255, 255, 255)"));
         label->setAlignment(Qt::AlignCenter);
 

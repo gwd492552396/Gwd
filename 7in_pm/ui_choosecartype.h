@@ -14,10 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -29,6 +31,15 @@ class Ui_ChooseCarType
 public:
     QVBoxLayout *verticalLayout;
     QSpacerItem *verticalSpacer_2;
+    QGroupBox *groupBox;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_7;
+    QRadioButton *radioButton;
+    QSpacerItem *horizontalSpacer_9;
+    QRadioButton *radioButton_2;
+    QSpacerItem *horizontalSpacer_10;
+    QRadioButton *radioButton_3;
+    QSpacerItem *horizontalSpacer_8;
     QWidget *widget_2;
     QGridLayout *gridLayout;
     QLabel *label;
@@ -60,6 +71,100 @@ public:
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer_2);
+
+        groupBox = new QGroupBox(ChooseCarType);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setMinimumSize(QSize(0, 150));
+        groupBox->setStyleSheet(QLatin1String("font: 36px \"Microsoft JhengHei UI\";\n"
+"color:rgb(255,255,255);\n"
+"font-size: 36px;\n"
+"background:transparent;"));
+        horizontalLayout_2 = new QHBoxLayout(groupBox);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_7);
+
+        radioButton = new QRadioButton(groupBox);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+        radioButton->setStyleSheet(QLatin1String("\n"
+"QRadioButton::indicator {\n"
+"    width:                  20px;\n"
+"    height:                 20px;\n"
+"    border-radius:          10px;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:unchecked {\n"
+"    background-color:       white;\n"
+"    border:                 2px solid black;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:checked {\n"
+"    background-color:       rgb(5, 63, 183);\n"
+"    border:                 2px solid white;\n"
+"}"));
+        radioButton->setChecked(true);
+
+        horizontalLayout_2->addWidget(radioButton);
+
+        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_9);
+
+        radioButton_2 = new QRadioButton(groupBox);
+        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        radioButton_2->setStyleSheet(QLatin1String("\n"
+"QRadioButton::indicator {\n"
+"    width:                  20px;\n"
+"    height:                 20px;\n"
+"    border-radius:          10px;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:unchecked {\n"
+"    background-color:       white;\n"
+"    border:                 2px solid black;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:checked {\n"
+"    background-color:       rgb(5, 63, 183);\n"
+"    border:                 2px solid white;\n"
+"}"));
+        radioButton_2->setCheckable(false);
+
+        horizontalLayout_2->addWidget(radioButton_2);
+
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_10);
+
+        radioButton_3 = new QRadioButton(groupBox);
+        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+        radioButton_3->setStyleSheet(QLatin1String("\n"
+"QRadioButton::indicator {\n"
+"    width:                  20px;\n"
+"    height:                 20px;\n"
+"    border-radius:          10px;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:unchecked {\n"
+"    background-color:       white;\n"
+"    border:                 2px solid black;\n"
+"}\n"
+" \n"
+"QRadioButton::indicator:checked {\n"
+"    background-color:       rgb(5, 63, 183);\n"
+"    border:                 2px solid white;\n"
+"}"));
+        radioButton_3->setCheckable(false);
+
+        horizontalLayout_2->addWidget(radioButton_3);
+
+        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_8);
+
+
+        verticalLayout->addWidget(groupBox);
 
         widget_2 = new QWidget(ChooseCarType);
         widget_2->setObjectName(QStringLiteral("widget_2"));
@@ -217,9 +322,13 @@ public:
     void retranslateUi(QWidget *ChooseCarType)
     {
         ChooseCarType->setWindowTitle(QApplication::translate("ChooseCarType", "Form", 0));
+        groupBox->setTitle(QApplication::translate("ChooseCarType", "\350\275\246\345\236\213\351\200\211\346\213\251:", 0));
+        radioButton->setText(QApplication::translate("ChooseCarType", "\345\210\232\346\200\247\350\275\246", 0));
+        radioButton_2->setText(QApplication::translate("ChooseCarType", "\347\224\265\345\212\250\350\275\256", 0));
+        radioButton_3->setText(QApplication::translate("ChooseCarType", "\346\267\267\345\212\250\350\275\246", 0));
         label->setText(QApplication::translate("ChooseCarType", "\345\217\221\345\212\250\346\234\272\351\200\211\346\213\251", 0));
-        label_2->setText(QApplication::translate("ChooseCarType", "\351\251\261\345\212\250\347\263\273\347\273\237\351\200\211\346\213\251", 0));
-        btn_drive->setText(QApplication::translate("ChooseCarType", "\350\245\277\351\227\250\345\255\220", 0));
+        label_2->setText(QApplication::translate("ChooseCarType", "\344\274\240\345\212\250\347\256\261\351\200\211\346\213\251", 0));
+        btn_drive->setText(QApplication::translate("ChooseCarType", "\350\211\276\351\207\214\351\200\212", 0));
         btn_engine->setText(QApplication::translate("ChooseCarType", "\345\272\267\346\230\216\346\226\257", 0));
         btn_back_home->setText(QString());
         btn_back->setText(QString());

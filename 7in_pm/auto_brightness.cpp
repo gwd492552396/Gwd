@@ -1,5 +1,7 @@
 #include "auto_brightness.h"
 
+#define autobri_mesg 0
+
 Auto_brightness::Auto_brightness(QObject *parent) :
     QThread(parent)
 {
@@ -7,43 +9,57 @@ Auto_brightness::Auto_brightness(QObject *parent) :
 }
 void Auto_brightness::run()
 {
+#if autobri_mesg == 1
     emit log("-----auto_brightness start-----");
-    setbacklight(5);
+#endif
+    setbacklight(7);
     while(1){
         msleep(1000);
         fs = open("/sys/bus/iio/devices/iio:device0/in_illuminance_input",O_RDONLY|O_NONBLOCK);
         ret =  read(fs,&bright_now,32);
+#if autobri_mesg == 1
         emit log("read bright now:"+QString::number(ret));
+#endif
         if(ret == -1) emit log("errno:"+QString::number(errno));
+#if autobri_mesg == 1
         emit log(QString("%1").arg(bright_now));
+#endif
         close(fs);
 
         bright = (QString("%1").arg(bright_now)).toFloat();
         if(bright == -1)
         {
+#if autobri_mesg == 1
             emit log("auto bright error");
+#endif
             if(status)
-            setbacklight(5);
+                setbacklight(7);
         }
-        if(bright>200)
+        if(bright>10)
         {
+#if autobri_mesg == 1
             emit log("high");
+#endif
             if(status)
-            setbacklight(7);
+                setbacklight(7);
         }
 
 
-        if((bright>10) && (bright<200))
+//        if((bright>10) && (bright<200))
+//        {
+//#if autobri_mesg == 1
+//            emit log("middle");
+//#endif
+//            if(status)
+//                setbacklight(5);
+//        }
+        if(bright <= 10 && bright != -1)
         {
-            emit log("middle");
-            if(status)
-            setbacklight(5);
-        }
-        if(bright<10 && bright != -1)
-        {
+#if autobri_mesg == 1
             emit log("low");
+#endif
             if(status)
-            setbacklight(2);
+                setbacklight(5);
         }
 
 
@@ -60,7 +76,9 @@ void Auto_brightness::setbacklight(int v)
     sprintf(buf,"%d",v);
     write(fd,buf,sizeof(buf));
     close(fd);
+#if autobri_mesg == 1
     emit log("auto_brightness set");
+#endif
 }
 
 void Auto_brightness::set_auto_status(bool state)
@@ -69,8 +87,9 @@ void Auto_brightness::set_auto_status(bool state)
 }
 void Auto_brightness::init()
 {
-
+#if autobri_mesg == 1
     emit log("auto_bright");
+#endif
     //    falling_value = "100";
     //    rising_value = "55000";
     //    enable = "1";

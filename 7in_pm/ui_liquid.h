@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -41,6 +42,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *sign;
     QPushButton *btn_back;
+    QSpacerItem *verticalSpacer;
 
     void setupUi(QWidget *Liquid)
     {
@@ -164,6 +166,7 @@ public:
         widget_2->setMaximumSize(QSize(1080, 80));
         horizontalLayout = new QHBoxLayout(widget_2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(-1, 0, -1, 0);
         sign = new QLabel(widget_2);
         sign->setObjectName(QStringLiteral("sign"));
         sizePolicy.setHeightForWidth(sign->sizePolicy().hasHeightForWidth());
@@ -190,11 +193,12 @@ public:
 
         horizontalLayout->addWidget(btn_back);
 
-        sign->raise();
-        btn_back->raise();
-        widget->raise();
 
         verticalLayout_3->addWidget(widget_2);
+
+        verticalSpacer = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer);
 
 
         retranslateUi(Liquid);

@@ -396,5 +396,6 @@
         <file>顶栏竖分隔条.png</file>
         <file>顶栏竖分隔条2.png</file>
         <file>顶栏竖分隔条@2x.png</file>
+        <file>temp.png</file>
     </qresource>
 </RCC>

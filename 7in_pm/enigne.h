@@ -25,6 +25,7 @@ private slots:
     void set_enigen_rev(const QString &rev);
     void set_enigen_water_temper(const QString &ewt);
     void set_enigen_oli_pressure(const QString &eop);
+    void set_enigne_total_hours(const QString &eth);
 
 private:
     Ui::Enigne *ui;

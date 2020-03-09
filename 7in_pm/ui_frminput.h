@@ -72,9 +72,9 @@ public:
     {
         if (frmInput->objectName().isEmpty())
             frmInput->setObjectName(QStringLiteral("frmInput"));
-        frmInput->resize(473, 300);
-        frmInput->setMinimumSize(QSize(450, 300));
-        frmInput->setMaximumSize(QSize(473, 300));
+        frmInput->resize(600, 300);
+        frmInput->setMinimumSize(QSize(600, 300));
+        frmInput->setMaximumSize(QSize(600, 300));
         frmInput->setStyleSheet(QStringLiteral("background:transparent;"));
         verticalLayout = new QVBoxLayout(frmInput);
         verticalLayout->setSpacing(0);
@@ -106,8 +106,8 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(btnq->sizePolicy().hasHeightForWidth());
         btnq->setSizePolicy(sizePolicy1);
-        btnq->setMinimumSize(QSize(45, 60));
-        btnq->setMaximumSize(QSize(45, 60));
+        btnq->setMinimumSize(QSize(55, 60));
+        btnq->setMaximumSize(QSize(55, 60));
         btnq->setFocusPolicy(Qt::NoFocus);
         btnq->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -125,8 +125,8 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(btnw->sizePolicy().hasHeightForWidth());
         btnw->setSizePolicy(sizePolicy2);
-        btnw->setMinimumSize(QSize(45, 60));
-        btnw->setMaximumSize(QSize(45, 60));
+        btnw->setMinimumSize(QSize(55, 60));
+        btnw->setMaximumSize(QSize(55, 60));
         btnw->setFocusPolicy(Qt::NoFocus);
         btnw->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -141,8 +141,8 @@ public:
         btne->setObjectName(QStringLiteral("btne"));
         sizePolicy1.setHeightForWidth(btne->sizePolicy().hasHeightForWidth());
         btne->setSizePolicy(sizePolicy1);
-        btne->setMinimumSize(QSize(45, 60));
-        btne->setMaximumSize(QSize(45, 60));
+        btne->setMinimumSize(QSize(55, 60));
+        btne->setMaximumSize(QSize(55, 60));
         btne->setFocusPolicy(Qt::NoFocus);
         btne->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -157,8 +157,8 @@ public:
         btnr->setObjectName(QStringLiteral("btnr"));
         sizePolicy1.setHeightForWidth(btnr->sizePolicy().hasHeightForWidth());
         btnr->setSizePolicy(sizePolicy1);
-        btnr->setMinimumSize(QSize(45, 60));
-        btnr->setMaximumSize(QSize(45, 60));
+        btnr->setMinimumSize(QSize(55, 60));
+        btnr->setMaximumSize(QSize(55, 60));
         btnr->setFocusPolicy(Qt::NoFocus);
         btnr->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -173,8 +173,8 @@ public:
         btnt->setObjectName(QStringLiteral("btnt"));
         sizePolicy1.setHeightForWidth(btnt->sizePolicy().hasHeightForWidth());
         btnt->setSizePolicy(sizePolicy1);
-        btnt->setMinimumSize(QSize(45, 60));
-        btnt->setMaximumSize(QSize(45, 60));
+        btnt->setMinimumSize(QSize(55, 60));
+        btnt->setMaximumSize(QSize(55, 60));
         btnt->setFocusPolicy(Qt::NoFocus);
         btnt->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -189,8 +189,8 @@ public:
         btny->setObjectName(QStringLiteral("btny"));
         sizePolicy1.setHeightForWidth(btny->sizePolicy().hasHeightForWidth());
         btny->setSizePolicy(sizePolicy1);
-        btny->setMinimumSize(QSize(45, 60));
-        btny->setMaximumSize(QSize(45, 60));
+        btny->setMinimumSize(QSize(55, 60));
+        btny->setMaximumSize(QSize(55, 60));
         btny->setFocusPolicy(Qt::NoFocus);
         btny->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -205,8 +205,8 @@ public:
         btnu->setObjectName(QStringLiteral("btnu"));
         sizePolicy1.setHeightForWidth(btnu->sizePolicy().hasHeightForWidth());
         btnu->setSizePolicy(sizePolicy1);
-        btnu->setMinimumSize(QSize(45, 60));
-        btnu->setMaximumSize(QSize(45, 60));
+        btnu->setMinimumSize(QSize(55, 60));
+        btnu->setMaximumSize(QSize(55, 60));
         btnu->setFocusPolicy(Qt::NoFocus);
         btnu->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -221,8 +221,8 @@ public:
         btni->setObjectName(QStringLiteral("btni"));
         sizePolicy1.setHeightForWidth(btni->sizePolicy().hasHeightForWidth());
         btni->setSizePolicy(sizePolicy1);
-        btni->setMinimumSize(QSize(45, 60));
-        btni->setMaximumSize(QSize(45, 60));
+        btni->setMinimumSize(QSize(55, 60));
+        btni->setMaximumSize(QSize(55, 60));
         btni->setFocusPolicy(Qt::NoFocus);
         btni->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -237,8 +237,8 @@ public:
         btno->setObjectName(QStringLiteral("btno"));
         sizePolicy1.setHeightForWidth(btno->sizePolicy().hasHeightForWidth());
         btno->setSizePolicy(sizePolicy1);
-        btno->setMinimumSize(QSize(45, 60));
-        btno->setMaximumSize(QSize(45, 60));
+        btno->setMinimumSize(QSize(55, 60));
+        btno->setMaximumSize(QSize(55, 60));
         btno->setFocusPolicy(Qt::NoFocus);
         btno->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -253,8 +253,8 @@ public:
         btnp->setObjectName(QStringLiteral("btnp"));
         sizePolicy1.setHeightForWidth(btnp->sizePolicy().hasHeightForWidth());
         btnp->setSizePolicy(sizePolicy1);
-        btnp->setMinimumSize(QSize(45, 60));
-        btnp->setMaximumSize(QSize(45, 60));
+        btnp->setMinimumSize(QSize(55, 60));
+        btnp->setMaximumSize(QSize(55, 60));
         btnp->setFocusPolicy(Qt::NoFocus);
         btnp->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -277,8 +277,8 @@ public:
         btna->setObjectName(QStringLiteral("btna"));
         sizePolicy1.setHeightForWidth(btna->sizePolicy().hasHeightForWidth());
         btna->setSizePolicy(sizePolicy1);
-        btna->setMinimumSize(QSize(45, 60));
-        btna->setMaximumSize(QSize(45, 60));
+        btna->setMinimumSize(QSize(55, 60));
+        btna->setMaximumSize(QSize(55, 60));
         btna->setFocusPolicy(Qt::NoFocus);
         btna->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -293,8 +293,8 @@ public:
         btns->setObjectName(QStringLiteral("btns"));
         sizePolicy1.setHeightForWidth(btns->sizePolicy().hasHeightForWidth());
         btns->setSizePolicy(sizePolicy1);
-        btns->setMinimumSize(QSize(45, 60));
-        btns->setMaximumSize(QSize(45, 60));
+        btns->setMinimumSize(QSize(55, 60));
+        btns->setMaximumSize(QSize(55, 60));
         btns->setFocusPolicy(Qt::NoFocus);
         btns->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -309,8 +309,8 @@ public:
         btnd->setObjectName(QStringLiteral("btnd"));
         sizePolicy1.setHeightForWidth(btnd->sizePolicy().hasHeightForWidth());
         btnd->setSizePolicy(sizePolicy1);
-        btnd->setMinimumSize(QSize(45, 60));
-        btnd->setMaximumSize(QSize(45, 60));
+        btnd->setMinimumSize(QSize(55, 60));
+        btnd->setMaximumSize(QSize(55, 60));
         btnd->setFocusPolicy(Qt::NoFocus);
         btnd->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -325,8 +325,8 @@ public:
         btnf->setObjectName(QStringLiteral("btnf"));
         sizePolicy1.setHeightForWidth(btnf->sizePolicy().hasHeightForWidth());
         btnf->setSizePolicy(sizePolicy1);
-        btnf->setMinimumSize(QSize(45, 60));
-        btnf->setMaximumSize(QSize(45, 60));
+        btnf->setMinimumSize(QSize(55, 60));
+        btnf->setMaximumSize(QSize(55, 60));
         btnf->setFocusPolicy(Qt::NoFocus);
         btnf->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -341,8 +341,8 @@ public:
         btng->setObjectName(QStringLiteral("btng"));
         sizePolicy1.setHeightForWidth(btng->sizePolicy().hasHeightForWidth());
         btng->setSizePolicy(sizePolicy1);
-        btng->setMinimumSize(QSize(45, 60));
-        btng->setMaximumSize(QSize(45, 60));
+        btng->setMinimumSize(QSize(55, 60));
+        btng->setMaximumSize(QSize(55, 60));
         btng->setFocusPolicy(Qt::NoFocus);
         btng->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -357,8 +357,8 @@ public:
         btnh->setObjectName(QStringLiteral("btnh"));
         sizePolicy1.setHeightForWidth(btnh->sizePolicy().hasHeightForWidth());
         btnh->setSizePolicy(sizePolicy1);
-        btnh->setMinimumSize(QSize(45, 60));
-        btnh->setMaximumSize(QSize(45, 60));
+        btnh->setMinimumSize(QSize(55, 60));
+        btnh->setMaximumSize(QSize(55, 60));
         btnh->setFocusPolicy(Qt::NoFocus);
         btnh->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -373,8 +373,8 @@ public:
         btnj->setObjectName(QStringLiteral("btnj"));
         sizePolicy1.setHeightForWidth(btnj->sizePolicy().hasHeightForWidth());
         btnj->setSizePolicy(sizePolicy1);
-        btnj->setMinimumSize(QSize(45, 60));
-        btnj->setMaximumSize(QSize(45, 60));
+        btnj->setMinimumSize(QSize(55, 60));
+        btnj->setMaximumSize(QSize(55, 60));
         btnj->setFocusPolicy(Qt::NoFocus);
         btnj->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -389,8 +389,8 @@ public:
         btnk->setObjectName(QStringLiteral("btnk"));
         sizePolicy1.setHeightForWidth(btnk->sizePolicy().hasHeightForWidth());
         btnk->setSizePolicy(sizePolicy1);
-        btnk->setMinimumSize(QSize(45, 60));
-        btnk->setMaximumSize(QSize(45, 60));
+        btnk->setMinimumSize(QSize(55, 60));
+        btnk->setMaximumSize(QSize(55, 60));
         btnk->setFocusPolicy(Qt::NoFocus);
         btnk->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -405,8 +405,8 @@ public:
         btnl->setObjectName(QStringLiteral("btnl"));
         sizePolicy1.setHeightForWidth(btnl->sizePolicy().hasHeightForWidth());
         btnl->setSizePolicy(sizePolicy1);
-        btnl->setMinimumSize(QSize(45, 60));
-        btnl->setMaximumSize(QSize(45, 60));
+        btnl->setMinimumSize(QSize(55, 60));
+        btnl->setMaximumSize(QSize(55, 60));
         btnl->setFocusPolicy(Qt::NoFocus);
         btnl->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -450,8 +450,8 @@ public:
         btnz->setObjectName(QStringLiteral("btnz"));
         sizePolicy1.setHeightForWidth(btnz->sizePolicy().hasHeightForWidth());
         btnz->setSizePolicy(sizePolicy1);
-        btnz->setMinimumSize(QSize(48, 65));
-        btnz->setMaximumSize(QSize(48, 65));
+        btnz->setMinimumSize(QSize(55, 65));
+        btnz->setMaximumSize(QSize(55, 65));
         btnz->setFocusPolicy(Qt::NoFocus);
         btnz->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -466,8 +466,8 @@ public:
         btnx->setObjectName(QStringLiteral("btnx"));
         sizePolicy1.setHeightForWidth(btnx->sizePolicy().hasHeightForWidth());
         btnx->setSizePolicy(sizePolicy1);
-        btnx->setMinimumSize(QSize(48, 65));
-        btnx->setMaximumSize(QSize(48, 65));
+        btnx->setMinimumSize(QSize(55, 65));
+        btnx->setMaximumSize(QSize(55, 65));
         btnx->setFocusPolicy(Qt::NoFocus);
         btnx->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -482,8 +482,8 @@ public:
         btnc->setObjectName(QStringLiteral("btnc"));
         sizePolicy1.setHeightForWidth(btnc->sizePolicy().hasHeightForWidth());
         btnc->setSizePolicy(sizePolicy1);
-        btnc->setMinimumSize(QSize(48, 65));
-        btnc->setMaximumSize(QSize(48, 65));
+        btnc->setMinimumSize(QSize(55, 65));
+        btnc->setMaximumSize(QSize(55, 65));
         btnc->setFocusPolicy(Qt::NoFocus);
         btnc->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -498,8 +498,8 @@ public:
         btnv->setObjectName(QStringLiteral("btnv"));
         sizePolicy1.setHeightForWidth(btnv->sizePolicy().hasHeightForWidth());
         btnv->setSizePolicy(sizePolicy1);
-        btnv->setMinimumSize(QSize(48, 65));
-        btnv->setMaximumSize(QSize(48, 65));
+        btnv->setMinimumSize(QSize(55, 65));
+        btnv->setMaximumSize(QSize(55, 65));
         btnv->setFocusPolicy(Qt::NoFocus);
         btnv->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -514,8 +514,8 @@ public:
         btnb->setObjectName(QStringLiteral("btnb"));
         sizePolicy1.setHeightForWidth(btnb->sizePolicy().hasHeightForWidth());
         btnb->setSizePolicy(sizePolicy1);
-        btnb->setMinimumSize(QSize(48, 65));
-        btnb->setMaximumSize(QSize(48, 65));
+        btnb->setMinimumSize(QSize(55, 65));
+        btnb->setMaximumSize(QSize(55, 65));
         btnb->setFocusPolicy(Qt::NoFocus);
         btnb->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -530,8 +530,8 @@ public:
         btnn->setObjectName(QStringLiteral("btnn"));
         sizePolicy1.setHeightForWidth(btnn->sizePolicy().hasHeightForWidth());
         btnn->setSizePolicy(sizePolicy1);
-        btnn->setMinimumSize(QSize(48, 65));
-        btnn->setMaximumSize(QSize(48, 65));
+        btnn->setMinimumSize(QSize(55, 65));
+        btnn->setMaximumSize(QSize(55, 65));
         btnn->setFocusPolicy(Qt::NoFocus);
         btnn->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -546,8 +546,8 @@ public:
         btnm->setObjectName(QStringLiteral("btnm"));
         sizePolicy1.setHeightForWidth(btnm->sizePolicy().hasHeightForWidth());
         btnm->setSizePolicy(sizePolicy1);
-        btnm->setMinimumSize(QSize(48, 65));
-        btnm->setMaximumSize(QSize(48, 65));
+        btnm->setMinimumSize(QSize(55, 65));
+        btnm->setMaximumSize(QSize(55, 65));
         btnm->setFocusPolicy(Qt::NoFocus);
         btnm->setStyleSheet(QLatin1String("background: rgba(255,255,255,0.30);\n"
 "border-radius: 5px;\n"
@@ -563,8 +563,8 @@ public:
         btnDelete->setObjectName(QStringLiteral("btnDelete"));
         sizePolicy1.setHeightForWidth(btnDelete->sizePolicy().hasHeightForWidth());
         btnDelete->setSizePolicy(sizePolicy1);
-        btnDelete->setMinimumSize(QSize(45, 60));
-        btnDelete->setMaximumSize(QSize(45, 60));
+        btnDelete->setMinimumSize(QSize(55, 60));
+        btnDelete->setMaximumSize(QSize(55, 60));
         btnDelete->setFocusPolicy(Qt::NoFocus);
         btnDelete->setStyleSheet(QLatin1String("background: #8B8B8C;\n"
 "\n"
@@ -581,8 +581,8 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         btn123 = new QPushButton(widgetMain);
         btn123->setObjectName(QStringLiteral("btn123"));
-        btn123->setMinimumSize(QSize(41, 43));
-        btn123->setMaximumSize(QSize(41, 43));
+        btn123->setMinimumSize(QSize(55, 43));
+        btn123->setMaximumSize(QSize(55, 43));
         btn123->setFocusPolicy(Qt::NoFocus);
         btn123->setStyleSheet(QLatin1String("background: #8B8B8C;\n"
 "\n"

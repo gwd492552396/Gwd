@@ -36,7 +36,7 @@ private slots:
 
 private:
     Database_7in * Db;
-    TextWidget *text;
+//    TextWidget *text;
     Ui::WeighingParameter *ui;
 };
 

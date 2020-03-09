@@ -16,6 +16,7 @@ Index::Index(QWidget *parent) :
 //    gLayout->setHorizontalSpacing(20);
 //    setLayout(gLayout);
     ui->power_bar->hide();
+    ui->widget_6->hide();
     power_changed("8");
 }
 

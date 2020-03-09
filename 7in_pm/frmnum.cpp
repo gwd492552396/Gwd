@@ -62,6 +62,7 @@ void frmNum::InitProperty()
 
 void frmNum::focusChanged(QWidget *oldWidget, QWidget *nowWidget)
 {
+    emit log("focusChanged");                          //modified by gwd
     //qDebug() << "oldWidget:" << oldWidget << " nowWidget:" << nowWidget;
     if (nowWidget != 0 && !this->isAncestorOf(nowWidget)) {
         //在Qt5和linux系统中(嵌入式linux除外),当输入法面板关闭时,焦点会变成无,然后焦点会再次移到焦点控件处
@@ -179,7 +180,11 @@ void frmNum::reClicked()
 
 void frmNum::btn_clicked()
 {
-
+if(currentLineEdit == NULL)
+{
+emit log("current line edit is null");
+}
+else emit log("current line edit is not null");              //added by gwd
 
     QPushButton *btn = (QPushButton *)sender();
     QString objectName = btn->objectName();
@@ -201,7 +206,12 @@ void frmNum::btn_clicked()
 
 void frmNum::insertValue(QString value)
 {
+    if (currentEditType == NULL)
+    {
+        emit log("current edit type is NULL");
+    }
     if (currentEditType == "QLineEdit") {
+        emit log("current edit type is line edit");
         currentLineEdit->insert(value);
     } /*else if (currentEditType == "QTextEdit") {
         currentTextEdit->insertPlainText(value);

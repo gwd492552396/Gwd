@@ -26,6 +26,7 @@ private slots:
     void set_gearbox_out_rev(QString go);
     void set_gearbox_temper(QString);
     void set_gearbox_pressure(QString);
+
 private:
     Ui::gearbox *ui;
 };

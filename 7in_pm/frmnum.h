@@ -10,6 +10,7 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QEvent>
+#include <QString>
 
 namespace Ui
 {
@@ -35,6 +36,7 @@ public:
       static frmNum *_instance;       //实例对象 test
 signals:
     void change(int);
+    void log(QString);
 
 protected:
     //事件过滤器,处理鼠标按下弹出输入法面板

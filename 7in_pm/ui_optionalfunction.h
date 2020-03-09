@@ -31,22 +31,25 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *widget_2;
     QGridLayout *gridLayout;
-    QLabel *label_3;
-    QLabel *label_5;
+    QCheckBox *cbk_press;
+    QLabel *label_2;
+    QSpacerItem *horizontalSpacer_5;
+    QLabel *label_4;
     QCheckBox *ckb_video;
     QCheckBox *ckb_weigh;
-    QSpacerItem *horizontalSpacer_3;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *verticalSpacer;
+    QLabel *label_5;
+    QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_3;
-    QSpacerItem *horizontalSpacer_5;
-    QCheckBox *cbk_line;
-    QLabel *label_4;
-    QLabel *label;
-    QLabel *label_2;
     QCheckBox *cbk_oil;
-    QCheckBox *cbk_press;
+    QLabel *label;
     QSpacerItem *verticalSpacer_4;
+    QWidget *widget_3;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_7;
+    QPushButton *btn_edit;
+    QSpacerItem *horizontalSpacer_8;
     QSpacerItem *verticalSpacer_2;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
@@ -71,28 +74,49 @@ public:
         widget_2->setStyleSheet(QStringLiteral("background:transparent"));
         gridLayout = new QGridLayout(widget_2);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label_3 = new QLabel(widget_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
+        cbk_press = new QCheckBox(widget_2);
+        cbk_press->setObjectName(QStringLiteral("cbk_press"));
+        cbk_press->setMinimumSize(QSize(90, 50));
+        cbk_press->setMaximumSize(QSize(90, 50));
+        cbk_press->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
+"image: url(:/132.png);\n"
+"\n"
+"}\n"
+"QCheckBox::indicator:checked {\n"
+"image: url(:/131.png);\n"
+"}\n"
+""));
+        cbk_press->setCheckable(false);
+        cbk_press->setChecked(false);
+
+        gridLayout->addWidget(cbk_press, 1, 5, 1, 1);
+
+        label_2 = new QLabel(widget_2);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
 "color:rgb(255,255,255);\n"
 "background:transparent"));
-        label_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_3, 1, 4, 1, 1);
+        gridLayout->addWidget(label_2, 3, 1, 1, 1);
 
-        label_5 = new QLabel(widget_2);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_5, 1, 6, 1, 1);
+
+        label_4 = new QLabel(widget_2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
 "color:rgb(255,255,255);\n"
 "background:transparent"));
-        label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_5, 5, 4, 1, 1);
+        gridLayout->addWidget(label_4, 1, 4, 1, 1);
 
         ckb_video = new QCheckBox(widget_2);
         ckb_video->setObjectName(QStringLiteral("ckb_video"));
-        ckb_video->setMinimumSize(QSize(45, 25));
-        ckb_video->setMaximumSize(QSize(45, 25));
+        ckb_video->setMinimumSize(QSize(90, 50));
+        ckb_video->setMaximumSize(QSize(90, 50));
         ckb_video->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
 "image: url(:/131.png);\n"
 "\n"
@@ -106,8 +130,8 @@ public:
 
         ckb_weigh = new QCheckBox(widget_2);
         ckb_weigh->setObjectName(QStringLiteral("ckb_weigh"));
-        ckb_weigh->setMinimumSize(QSize(45, 25));
-        ckb_weigh->setMaximumSize(QSize(45, 25));
+        ckb_weigh->setMinimumSize(QSize(90, 50));
+        ckb_weigh->setMaximumSize(QSize(90, 50));
         ckb_weigh->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
 "image: url(:/131.png);\n"
 "\n"
@@ -119,10 +143,6 @@ public:
 
         gridLayout->addWidget(ckb_weigh, 1, 2, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_3, 1, 3, 1, 1);
-
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_4, 1, 0, 1, 1);
@@ -131,37 +151,39 @@ public:
 
         gridLayout->addItem(verticalSpacer, 0, 3, 1, 1);
 
+        label_5 = new QLabel(widget_2);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
+"color:rgb(255,255,255);\n"
+"background:transparent"));
+        label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_5, 3, 4, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 1, 3, 1, 1);
+
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_3, 2, 2, 1, 1);
 
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_5, 1, 6, 1, 1);
-
-        cbk_line = new QCheckBox(widget_2);
-        cbk_line->setObjectName(QStringLiteral("cbk_line"));
-        cbk_line->setMinimumSize(QSize(45, 25));
-        cbk_line->setMaximumSize(QSize(45, 25));
-        cbk_line->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
-"image: url(:/131.png);\n"
+        cbk_oil = new QCheckBox(widget_2);
+        cbk_oil->setObjectName(QStringLiteral("cbk_oil"));
+        cbk_oil->setMinimumSize(QSize(90, 50));
+        cbk_oil->setMaximumSize(QSize(90, 50));
+        cbk_oil->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
+"image: url(:/132.png);\n"
 "\n"
 "}\n"
 "QCheckBox::indicator:checked {\n"
-"image: url(:/132.png);\n"
+"image: url(:/131.png);\n"
 "}\n"
 ""));
+        cbk_oil->setCheckable(false);
+        cbk_oil->setChecked(false);
 
-        gridLayout->addWidget(cbk_line, 1, 5, 1, 1);
-
-        label_4 = new QLabel(widget_2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
-"color:rgb(255,255,255);\n"
-"background:transparent"));
-        label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout->addWidget(label_4, 3, 4, 1, 1);
+        gridLayout->addWidget(cbk_oil, 3, 5, 1, 1);
 
         label = new QLabel(widget_2);
         label->setObjectName(QStringLiteral("label"));
@@ -172,51 +194,40 @@ public:
 
         gridLayout->addWidget(label, 1, 1, 1, 1);
 
-        label_2 = new QLabel(widget_2);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
-"color:rgb(255,255,255);\n"
-"background:transparent"));
-        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_2, 3, 1, 1, 1);
-
-        cbk_oil = new QCheckBox(widget_2);
-        cbk_oil->setObjectName(QStringLiteral("cbk_oil"));
-        cbk_oil->setMinimumSize(QSize(45, 25));
-        cbk_oil->setMaximumSize(QSize(45, 25));
-        cbk_oil->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
-"image: url(:/131.png);\n"
-"\n"
-"}\n"
-"QCheckBox::indicator:checked {\n"
-"image: url(:/132.png);\n"
-"}\n"
-""));
-
-        gridLayout->addWidget(cbk_oil, 5, 5, 1, 1);
-
-        cbk_press = new QCheckBox(widget_2);
-        cbk_press->setObjectName(QStringLiteral("cbk_press"));
-        cbk_press->setMinimumSize(QSize(45, 25));
-        cbk_press->setMaximumSize(QSize(45, 25));
-        cbk_press->setStyleSheet(QLatin1String("QCheckBox::indicator:unchecked {\n"
-"image: url(:/131.png);\n"
-"\n"
-"}\n"
-"QCheckBox::indicator:checked {\n"
-"image: url(:/132.png);\n"
-"}\n"
-""));
-
-        gridLayout->addWidget(cbk_press, 3, 5, 1, 1);
+        verticalLayout->addWidget(widget_2);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_4, 4, 5, 1, 1);
+        verticalLayout->addItem(verticalSpacer_4);
+
+        widget_3 = new QWidget(OptionalFunction);
+        widget_3->setObjectName(QStringLiteral("widget_3"));
+        widget_3->setStyleSheet(QStringLiteral("background:transparent;"));
+        horizontalLayout_2 = new QHBoxLayout(widget_3);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(-1, 30, -1, -1);
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_7);
+
+        btn_edit = new QPushButton(widget_3);
+        btn_edit->setObjectName(QStringLiteral("btn_edit"));
+        btn_edit->setMinimumSize(QSize(300, 100));
+        btn_edit->setStyleSheet(QLatin1String("font: 40px \"Microsoft JhengHei UI\";\n"
+"color:rgb(0,0,0);\n"
+"background-color:rgb(216, 216, 216);\n"
+"\n"
+""));
+
+        horizontalLayout_2->addWidget(btn_edit);
+
+        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_8);
 
 
-        verticalLayout->addWidget(widget_2);
+        verticalLayout->addWidget(widget_3);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -276,16 +287,15 @@ public:
     void retranslateUi(QWidget *OptionalFunction)
     {
         OptionalFunction->setWindowTitle(QApplication::translate("OptionalFunction", "Form", 0));
-        label_3->setText(QApplication::translate("OptionalFunction", "\346\236\266\347\272\277\345\212\237\350\203\275", 0));
-        label_5->setText(QApplication::translate("OptionalFunction", "\351\233\206\344\270\255\346\266\246\346\273\221", 0));
+        cbk_press->setText(QString());
+        label_2->setText(QApplication::translate("OptionalFunction", "\347\216\257\350\275\246\345\275\261\345\203\217", 0));
+        label_4->setText(QApplication::translate("OptionalFunction", "\350\203\216\345\216\213\345\212\237\350\203\275", 0));
         ckb_video->setText(QString());
         ckb_weigh->setText(QString());
-        cbk_line->setText(QString());
-        label_4->setText(QApplication::translate("OptionalFunction", "\350\203\216\345\216\213\345\212\237\350\203\275", 0));
-        label->setText(QApplication::translate("OptionalFunction", "\347\247\260\351\207\215\347\263\273\347\273\237", 0));
-        label_2->setText(QApplication::translate("OptionalFunction", "\347\216\257\350\275\246\345\275\261\345\203\217", 0));
+        label_5->setText(QApplication::translate("OptionalFunction", "\351\233\206\344\270\255\346\266\246\346\273\221", 0));
         cbk_oil->setText(QString());
-        cbk_press->setText(QString());
+        label->setText(QApplication::translate("OptionalFunction", "\347\247\260\351\207\215\347\263\273\347\273\237", 0));
+        btn_edit->setText(QApplication::translate("OptionalFunction", "\345\277\253\346\215\267\351\224\256\347\274\226\350\276\221", 0));
         btn_back_home->setText(QString());
         btn_back->setText(QString());
     } // retranslateUi

@@ -58,6 +58,7 @@ public:
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *horizontalSpacer_7;
     QSpacerItem *horizontalSpacer_8;
+    QPushButton *btn_fast_login;
 
     void setupUi(QWidget *Management)
     {
@@ -79,7 +80,7 @@ public:
         btn_back->setAutoDefault(false);
         btn_back->setFlat(false);
 
-        gridLayout_2->addWidget(btn_back, 3, 4, 1, 1);
+        gridLayout_2->addWidget(btn_back, 4, 4, 1, 1);
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -377,9 +378,9 @@ public:
 
         gridLayout_2->addLayout(gridLayout, 1, 1, 1, 4);
 
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_4 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        gridLayout_2->addItem(verticalSpacer_4, 4, 1, 1, 1);
+        gridLayout_2->addItem(verticalSpacer_4, 6, 1, 1, 1);
 
         btn_del = new QPushButton(Management);
         btn_del->setObjectName(QStringLiteral("btn_del"));
@@ -393,7 +394,7 @@ public:
 "border:none;\n"
 "}"));
 
-        gridLayout_2->addWidget(btn_del, 3, 2, 1, 1);
+        gridLayout_2->addWidget(btn_del, 4, 2, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -401,7 +402,7 @@ public:
 
         horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(horizontalSpacer_6, 3, 3, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_6, 4, 3, 1, 1);
 
         btn_add = new QPushButton(Management);
         btn_add->setObjectName(QStringLiteral("btn_add"));
@@ -415,7 +416,7 @@ public:
 "border:none;\n"
 "}"));
 
-        gridLayout_2->addWidget(btn_add, 3, 1, 1, 1);
+        gridLayout_2->addWidget(btn_add, 4, 1, 1, 1);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -423,15 +424,31 @@ public:
 
         horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(horizontalSpacer_7, 3, 5, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_7, 4, 5, 1, 1);
 
         horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(horizontalSpacer_8, 3, 0, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_8, 4, 0, 1, 1);
+
+        btn_fast_login = new QPushButton(Management);
+        btn_fast_login->setObjectName(QStringLiteral("btn_fast_login"));
+        btn_fast_login->setMinimumSize(QSize(0, 60));
+        btn_fast_login->setStyleSheet(QLatin1String("border:5px solid rgb(44,86,191);\n"
+"    border-top-left-radius:15px;\n"
+"    border-top-right-radius:15px;\n"
+"    border-bottom-left-radius:15px;\n"
+"    border-bottom-right-radius:15px;\n"
+"font: 25pt \"Microsoft YaHei UI\";\n"
+"color:rgb(44, 89, 191);\n"
+"background-color:rgb(0,0,0)\n"
+""));
+
+        gridLayout_2->addWidget(btn_fast_login, 3, 1, 1, 2);
 
         btn_back->raise();
         btn_add->raise();
         btn_del->raise();
+        btn_fast_login->raise();
 
         retranslateUi(Management);
 
@@ -460,6 +477,7 @@ public:
         pushButton_2->setText(QString());
         btn_del->setText(QString());
         btn_add->setText(QString());
+        btn_fast_login->setText(QApplication::translate("Management", "\345\277\253\351\200\237\347\231\273\345\275\225\350\257\245\347\224\250\346\210\267", 0));
     } // retranslateUi
 
 };

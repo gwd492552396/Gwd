@@ -6,18 +6,6 @@ InformationQuery::InformationQuery(QWidget *parent) :
     ui(new Ui::InformationQuery)
 {
     ui->setupUi(this);
-//    QGridLayout *glayout = new QGridLayout;           //modified by gwd
-//    glayout->addWidget(ui->btn_zc,0,0,1,1);
-//    glayout->addWidget(ui->btn_error,0,1,1,1);
-//    glayout->addWidget(ui->btn_power,1,0,1,1);
-//    glayout->addWidget(ui->btn_waring,1,1,1,1);
-//    glayout->addWidget(ui->btn_back,2,1,1,1,Qt::AlignRight | Qt::AlignVCenter);
-//    glayout->addWidget(ui->btn_backhome,2,0,1,1,Qt::AlignLeft | Qt::AlignVCenter);
-//    glayout->setContentsMargins(45,81,45,10);
-//    glayout->setHorizontalSpacing(10);
-//    glayout->setVerticalSpacing(10);
-//    setLayout(glayout);
-
 }
 
 InformationQuery::~InformationQuery()

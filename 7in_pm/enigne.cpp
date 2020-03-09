@@ -32,3 +32,8 @@ void Enigne::on_btn_back_clicked()
 {
     emit previous(2);
 }
+
+void Enigne::set_enigne_total_hours(const QString &eth)
+{
+    ui->enegin_hours->setText(eth);
+}

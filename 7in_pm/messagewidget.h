@@ -16,6 +16,10 @@ public:
     explicit MessageWidget(QWidget *parent = 0);
     ~MessageWidget();
     void init(QString ,QString);
+
+
+signals:
+    void message_close();
 private slots:
     void on_close_clicked();
 private:

@@ -16,6 +16,8 @@
 #include "serial_port.h"
 
 
+
+
 class Auto_brightness : public QThread
 {
     Q_OBJECT
@@ -49,6 +51,8 @@ private:
     int count;
     float last_bright;
     bool status = true;
+
+
 };
 
 #endif // AUTO_BRIGHTNESS_H

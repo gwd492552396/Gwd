@@ -6,6 +6,7 @@ OptionalFunction::OptionalFunction(QWidget *parent) :
     ui(new Ui::OptionalFunction)
 {
     ui->setupUi(this);
+    connect(ui->btn_edit,SIGNAL(clicked()),this,SLOT(on_edit_clicked()));
 }
 
 OptionalFunction::~OptionalFunction()
@@ -32,4 +33,9 @@ void OptionalFunction::on_ckb_weigh_clicked()
 void OptionalFunction::on_ckb_video_clicked()
 {
     emit video();
+}
+
+void OptionalFunction::on_edit_clicked()
+{
+    emit slide_edit(28);
 }

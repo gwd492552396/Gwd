@@ -18,6 +18,7 @@ public:
 signals:
     void back_home(int);
     void previous(int);
+    void slide_edit(int);
     void video();
     void weight();
 private slots:
@@ -28,6 +29,7 @@ private slots:
     void on_ckb_weigh_clicked();
 
     void on_ckb_video_clicked();
+    void on_edit_clicked();
 
 private:
     Ui::OptionalFunction *ui;
